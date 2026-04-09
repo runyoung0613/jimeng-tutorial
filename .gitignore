@@ -1,2 +1,15 @@
-.workbuddy/
-memory/
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+build/
+*.log
