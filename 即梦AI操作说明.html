@@ -28,6 +28,174 @@
       line-height: 1.8;
     }
 
+    /* ===== SCROLLBAR ===== */
+    html {
+      scrollbar-gutter: stable;
+    }
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(91, 75, 219, 0.55) rgba(224, 220, 245, 0.65);
+    }
+    *::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    *::-webkit-scrollbar-track {
+      background: rgba(224, 220, 245, 0.55);
+      border-radius: 100px;
+    }
+    *::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, rgba(139, 124, 255, 0.95) 0%, rgba(91, 75, 219, 0.88) 100%);
+      border-radius: 100px;
+      border: 2px solid rgba(248, 247, 255, 0.9);
+      background-clip: padding-box;
+      min-height: 36px;
+    }
+    *::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #9d91ff 0%, #6d5ae8 100%);
+      border-color: rgba(248, 247, 255, 0.95);
+    }
+    *::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+
+    /* ===== OFFICIAL DOC CARD ===== */
+    .official-doc-card {
+      background: linear-gradient(135deg, #f0eeff 0%, #e8e4ff 100%);
+      border: 2px solid rgba(91, 75, 219, 0.25);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin: 16px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .official-doc-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, rgba(91,75,219,0.12), transparent 70%);
+      border-radius: 50%;
+    }
+    .official-doc-card .doc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .official-doc-card h4 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0 0 6px;
+    }
+    .official-doc-card p {
+      font-size: 13px;
+      color: var(--text-light);
+      margin: 0 0 14px;
+      line-height: 1.6;
+    }
+    .official-doc-card .doc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(91,75,219,0.35);
+      transition: all 0.2s;
+    }
+    .official-doc-card .doc-link:hover {
+      background: #4a3bc7;
+      box-shadow: 0 6px 20px rgba(91,75,219,0.45);
+      transform: translateY(-1px);
+    }
+    .doc-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    /* ===== OFFICIAL ACCOUNT BADGE ===== */
+    .official-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: linear-gradient(135deg, #ff4757, #ff6b81);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+    }
+    .account-card {
+      background: #fff;
+      border: 1.5px solid #f0e6ff;
+      border-radius: 14px;
+      padding: 20px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: all 0.2s;
+      box-shadow: 0 2px 12px rgba(91,75,219,0.06);
+    }
+    .account-card:hover {
+      border-color: rgba(91,75,219,0.3);
+      box-shadow: 0 4px 20px rgba(91,75,219,0.12);
+      transform: translateY(-2px);
+    }
+    .account-card .account-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .account-card .account-info h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0 0 4px;
+    }
+    .account-card .account-info p {
+      font-size: 12px;
+      color: var(--text-light);
+      margin: 0 0 10px;
+      line-height: 1.5;
+    }
+    .account-card .account-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .account-card .account-link:hover { opacity: 0.85; transform: translateY(-1px); }
+    .account-xiaohongshu { background: #ff2442; color: #fff; }
+    .account-douyin { background: #161823; color: #fff; border: 1px solid #333; }
+    .account-bilibili { background: #00a1d6; color: #fff; }
+    .account-zhihu { background: #0066ff; color: #fff; }
+    .account-weixin { background: #07c160; color: #fff; }
+
     /* ===== HERO ===== */
     .hero {
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -318,23 +486,6 @@
     .cam-item .zh { font-size: 12px; color: var(--text-light); margin-top: 2px; }
     .cam-item .desc { font-size: 12px; color: var(--text); margin-top: 4px; }
 
-    /* ===== PLAN TABLE ===== */
-    .plan-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 16px 0; }
-    @media(max-width: 768px) { .plan-grid { grid-template-columns: 1fr 1fr; } }
-    .plan-card {
-      border-radius: 12px;
-      border: 2px solid var(--border);
-      padding: 20px;
-      text-align: center;
-      background: var(--card);
-      transition: transform .2s;
-    }
-    .plan-card:hover { transform: translateY(-2px); }
-    .plan-card.featured { border-color: var(--primary); background: var(--primary-light); }
-    .plan-card .plan-name { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
-    .plan-card .plan-price { font-size: 24px; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
-    .plan-card .plan-credits { font-size: 13px; color: var(--text-light); }
-
     /* ===== DIVIDER ===== */
     hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
 
@@ -454,8 +605,8 @@
   <h1>即梦 AI 完整操作手册</h1>
   <p>涵盖 AI 生图 · AI 视频生成 · 提示词技巧 · 实战工作流<br>零基础到专业级创作，一册通关</p>
   <div class="hero-meta">
-    <span>🔖 版本：Seedream 4.0 / Seedance 2.0</span>
-    <span>📅 更新：2026年4月7日</span>
+    <span>🔖 版本：Seedream 5.0 Lite / Seedance 2.0</span>
+    <span>📅 更新：2026年4月9日</span>
     <span>🎯 适合：零基础 → 进阶</span>
   </div>
 </div>
@@ -468,13 +619,13 @@
     <li><a href="#s2">快速上手</a></li>
     <li><a href="#s3">AI生图</a></li>
     <li><a href="#s4">AI视频</a></li>
-    <li><a href="#s5">Seedance 2.0</a></li>
-    <li><a href="#s6">提示词体系</a></li>
-    <li><a href="#s7">运镜指南</a></li>
-    <li><a href="#s8">智能画布</a></li>
-    <li><a href="#s9">实战案例</a></li>
-    <li><a href="#s10">积分&价格</a></li>
-    <li><a href="#s11">避坑指南</a></li>
+    <li><a href="#s5">视频全解</a></li>
+    <li><a href="#s6">运镜指南</a></li>
+    <li><a href="#s7">智能画布</a></li>
+    <li><a href="#s8">实战案例</a></li>
+    <li><a href="#s9">避坑指南</a></li>
+    <li><a href="#s10">字体设计</a></li>
+    <li><a href="#s11">官方账号</a></li>
   </ul>
 </nav>
 
@@ -486,15 +637,15 @@
     <div class="toc-list">
       <a href="#s1" class="toc-item"><span class="toc-num">1</span>即梦AI 平台简介与核心优势</a>
       <a href="#s2" class="toc-item"><span class="toc-num">2</span>快速上手：注册 &amp; 界面导航</a>
-      <a href="#s3" class="toc-item"><span class="toc-num">3</span>AI 生图功能全解（Seedream 4.0）</a>
+      <a href="#s3" class="toc-item"><span class="toc-num">3</span>AI 生图功能全解（含官方文档入口）</a>
       <a href="#s4" class="toc-item"><span class="toc-num">4</span>AI 视频生成基础（图生视频 / 文生视频）</a>
-      <a href="#s5" class="toc-item"><span class="toc-num">5</span>Seedance 2.0 多模态视频创作</a>
-      <a href="#s6" class="toc-item"><span class="toc-num">6</span>提示词（Prompt）完整体系</a>
-      <a href="#s7" class="toc-item"><span class="toc-num">7</span>运镜控制专项指南</a>
-      <a href="#s8" class="toc-item"><span class="toc-num">8</span>智能画布 &amp; 故事创作模式</a>
-      <a href="#s9" class="toc-item"><span class="toc-num">9</span>实战案例 &amp; 商业工作流</a>
-      <a href="#s10" class="toc-item"><span class="toc-num">10</span>积分规则 &amp; 会员价格</a>
-      <a href="#s11" class="toc-item"><span class="toc-num">11</span>避坑指南 &amp; 常见问题</a>
+      <a href="#s5" class="toc-item"><span class="toc-num">5</span>AI视频生成全解（三种方式 + Seedance 2.0）</a>
+      <a href="#s6" class="toc-item"><span class="toc-num">6</span>运镜控制专项指南</a>
+      <a href="#s7" class="toc-item"><span class="toc-num">7</span>智能画布 &amp; 故事创作模式</a>
+      <a href="#s8" class="toc-item"><span class="toc-num">8</span>实战案例 &amp; 商业工作流</a>
+      <a href="#s9" class="toc-item"><span class="toc-num">9</span>避坑指南 &amp; 常见问题</a>
+      <a href="#s10" class="toc-item"><span class="toc-num">10</span>AI 字体生成专项指南</a>
+      <a href="#s11" class="toc-item"><span class="toc-num">11</span>官方社交账号 &amp; 知识库</a>
     </div>
   </div>
 
@@ -970,6 +1121,43 @@
         <p>参考图建议分工：图1负责主体形态，图2负责背景/场景，图3负责材质/光影，在提示词中明确写出每张图的用途，如"参考图1的构图，图2的背景氛围，图3的皮肤材质"</p>
       </div>
     </div>
+
+    <!-- 3.7 官方文档入口 -->
+    <div class="card">
+      <h3>📖 官方模型文档</h3>
+      <p style="color:var(--text-light);margin-bottom:16px;">即梦官方发布的图片模型完整使用手册，涵盖所有模型能力详解、操作指引与最佳实践，建议收藏备用：</p>
+
+      <div class="doc-card-grid">
+        <!-- 图片模型 4.0 -->
+        <div class="official-doc-card">
+          <span class="doc-badge">🏛️ 官方文档</span>
+          <h4>📸 即梦图片模型 4.0 提示词手册</h4>
+          <p>首次实现「文生图 + 图像编辑 + 组图生成」三合一，支持 4K 超高分辨率，2K 生图用时不到 1.8 秒。多模态一体化，重新定义 AI 生图体验。</p>
+          <a href="https://bytedance.larkoffice.com/docx/L4vCdah1DoDg7axVdYGcoplSn9f" target="_blank" rel="noopener noreferrer" class="doc-link">
+            阅读官方手册 →
+          </a>
+        </div>
+
+        <!-- 图片模型 3.1 -->
+        <div class="official-doc-card">
+          <span class="doc-badge">🏛️ 官方文档</span>
+          <h4>🎨 即梦图片模型 3.1 使用手册</h4>
+          <p>电影感表现最强的模型，野兽派 / 油画 / 水彩等艺术风格响应精准，故事叙述能力强。适合创作有氛围感的插画与故事感图片。</p>
+          <a href="https://bytedance.larkoffice.com/docx/EkCsd3iGvoxUnExu0Q8ccGt3n6c" target="_blank" rel="noopener noreferrer" class="doc-link">
+            阅读官方手册 →
+          </a>
+        </div>
+      </div>
+
+      <div class="highlight highlight-tip" style="margin-top:16px;">
+        <strong>💡 图片模型 4.0 三大核心能力</strong>
+        <p>
+          <strong>文生图：</strong>更强的指令遵循能力，支持"左侧留白""右侧放字"等抽象构图指令；<br>
+          <strong>图像编辑：</strong>支持单/多张图片输入，通过自然语言指令进行灵活修改；<br>
+          <strong>组图生成：</strong>一次生成多张具备关联性的图像，适合漫画分镜、故事板、系列海报等场景。
+        </p>
+      </div>
+    </div>
   </div>
 
 
@@ -979,168 +1167,750 @@
       <div class="section-icon">🎬</div>
       <div class="section-title">
         <h2>第四章：AI 视频生成基础</h2>
-        <p>图生视频 · 文生视频 · 首尾帧 · 参数设置 · 二次编辑功能</p>
+        <p>图生视频 · 文生视频 · 首尾帧 · 参数设置 · 二次编辑功能 · 完整操作流程</p>
       </div>
     </div>
 
+    <!-- 4.0 功能入口导览 -->
     <div class="card">
-      <h3>🎯 三种生成方式对比</h3>
+      <h3>🗺️ 4.0 视频生成入口导览</h3>
+      <p style="color:var(--text-light);margin-bottom:16px;">即梦AI视频生成功能有两大入口，理解入口差异是正确使用的第一步：</p>
+      <div class="grid-2">
+        <div style="background:var(--primary-light);border-radius:12px;padding:20px;border:2px solid var(--primary);">
+          <h4 style="color:var(--primary);margin-bottom:8px;">📍 入口A：图生视频 / 文生视频（基础功能）</h4>
+          <p style="font-size:13px;margin-bottom:8px;">位置：左侧菜单 → <strong>「AI视频」</strong> → 图生视频 / 文生视频</p>
+          <ul style="font-size:13px;">
+            <li>✅ 操作最简单，新手首选</li>
+            <li>✅ 支持标准/流畅两种模式</li>
+            <li>✅ 内置运镜控制面板（移动/摇镜/旋转/变焦）</li>
+            <li>✅ 首尾帧、对口型、超分补帧均在此入口</li>
+          </ul>
+        </div>
+        <div style="background:#fff4e5;border-radius:12px;padding:20px;border:2px solid var(--accent2);">
+          <h4 style="color:#d9480f;margin-bottom:8px;">📍 入口B：Seedance 2.0 全能参考（进阶功能）</h4>
+          <p style="font-size:13px;margin-bottom:8px;">位置：左侧菜单 → <strong>「AI视频」→ Seedance 2.0」</strong></p>
+          <ul style="font-size:13px;">
+            <li>✅ 支持图片+视频+音频混合输入</li>
+            <li>✅ 最多 9 张图 + 3 段视频 + 3 段音频</li>
+            <li>✅ 通过 @引用 系统精准指定用途</li>
+            <li>⚠️ 上传素材后必须在提示词中 @引用，否则无效</li>
+          </ul>
+        </div>
+      </div>
+      <div class="highlight highlight-tip" style="margin-top:16px;">
+        <strong>💡 选哪个入口？</strong>
+        <p>只有一张图想让它动 → 用<strong>入口A图生视频</strong>；要把图片+视频+音乐混合生成复杂内容 → 用<strong>入口B Seedance 2.0</strong></p>
+      </div>
+    </div>
+
+    <!-- 4.1 三种生成方式 -->
+    <div class="card">
+      <h3>🎯 4.1 三种生成方式详解</h3>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>方式</th><th>输入</th><th>适合场景</th><th>难度</th></tr></thead>
+          <thead><tr><th>方式</th><th>输入</th><th>适合场景</th><th>难度</th><th>典型用途</th></tr></thead>
           <tbody>
-            <tr><td><strong>图生视频</strong></td><td>1张图片 + 提示词</td><td>让静态图片"动起来"，产品展示</td><td>⭐ 简单</td></tr>
-            <tr><td><strong>首尾帧生成</strong></td><td>首帧图 + 尾帧图 + 提示词</td><td>控制视频开头和结尾，精确过渡</td><td>⭐⭐ 中等</td></tr>
-            <tr><td><strong>文生视频</strong></td><td>仅提示词</td><td>纯创意生成，无素材限制</td><td>⭐⭐⭐ 较高</td></tr>
+            <tr>
+              <td><strong>图生视频</strong></td>
+              <td>1张图片 + 提示词</td>
+              <td>让静态图片"动起来"</td>
+              <td>⭐ 简单</td>
+              <td>产品展示动效、角色动画、风景动态化</td>
+            </tr>
+            <tr>
+              <td><strong>首尾帧生成</strong></td>
+              <td>首帧图 + 尾帧图 + 提示词</td>
+              <td>控制视频开头和结尾画面</td>
+              <td>⭐⭐ 中等</td>
+              <td>场景转换、人物走动、状态变化过渡</td>
+            </tr>
+            <tr>
+              <td><strong>文生视频</strong></td>
+              <td>仅提示词</td>
+              <td>纯创意生成，无素材限制</td>
+              <td>⭐⭐⭐ 较高</td>
+              <td>概念场景、创意广告、科幻特效</td>
+            </tr>
           </tbody>
         </table>
       </div>
-    </div>
 
-    <div class="card">
-      <h3>📐 参数详细说明</h3>
-      <div class="grid-2">
-        <div>
-          <h4>生成模式</h4>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>模式</th><th>适用场景</th><th>支持时长</th></tr></thead>
-              <tbody>
-                <tr><td><strong>标准模式</strong></td><td>人物低动态、自然风光、慢动作</td><td>3/6/9/12 秒</td></tr>
-                <tr><td><strong>流畅模式</strong></td><td>高速运动、赛车、快速转场</td><td>4/6/8 秒</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <h4>运动速度</h4>
-          <p>慢速 / 适中 / 快速 三档可调。首尾帧内容差异大时建议"适中"或"快速"</p>
-        </div>
-        <div>
-          <h4>画面尺寸</h4>
-          <ul>
-            <li>16:9 — 横屏视频（短视频常用）</li>
-            <li>9:16 — 竖屏视频（抖音/微信常用）</li>
-            <li>1:1 — 方形（Instagram 风格）</li>
-            <li>21:9 — 电影宽幅（新增，高级电影感）</li>
-          </ul>
-          <h4>运镜控制</h4>
-          <p>移动（左/右/上/下）· 摇镜 · 旋转 · 变焦各有小/中/大三档幅度（详见第七章）</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>🔧 二次编辑功能</h3>
-      <div class="grid-2">
-        <div>
-          <h4>💬 对口型</h4>
-          <ol>
-            <li>使用<strong>写实/近写实单人图片</strong>生成视频</li>
-            <li>视频生成后点击「对口型」按钮（嘴唇图标）</li>
-            <li>输入台词 或 上传音频（支持中英文）</li>
-            <li>选择音色（中文支持全部音色，英文推荐"超拟真"）</li>
-            <li>生成后再做超分/补帧处理</li>
-          </ol>
-          <div class="highlight highlight-tip">
-            <strong>💡 建议先做对口型，再超分补帧</strong>
-          </div>
-        </div>
-        <div>
-          <h4>✨ 其他编辑功能</h4>
-          <ul>
-            <li>🔄 <strong>视频延长</strong>：最多延长 2 次，总时长可达 36 秒</li>
-            <li>🎞️ <strong>补帧</strong>：提升流畅度，支持 24/30/60 fps</li>
-            <li>📺 <strong>HD 超分</strong>：2倍超分辨率提升清晰度</li>
-            <li>🔁 <strong>再次生成</strong>：同参数重新生成</li>
-            <li>✏️ <strong>重新编辑</strong>：修改参数后重新生成</li>
-            <li>💾 <strong>收藏/下载</strong>：保存满意作品</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>📋 首尾帧操作步骤</h3>
+      <!-- 图生视频操作步骤 -->
+      <h4 style="margin-top:20px;">📸 方式一：图生视频 — 完整操作步骤</h4>
       <div class="step-list">
         <div class="step-item">
           <div class="step-num">1</div>
           <div class="step-content">
-            <h4>启用首尾帧模式</h4>
-            <p>在「图生视频」面板中，勾选 <strong>【使用尾帧】</strong> 选项</p>
+            <h4>进入视频生成页面</h4>
+            <p>左侧菜单点击 <strong>「AI视频」</strong>，默认进入图生视频模式</p>
           </div>
         </div>
         <div class="step-item">
           <div class="step-num">2</div>
           <div class="step-content">
-            <h4>上传首帧和尾帧图片</h4>
-            <p>分别上传视频的开头图（首帧）和结尾图（尾帧），两张图风格最好保持一致</p>
+            <h4>上传参考图片</h4>
+            <p>点击左侧上传区域，支持拖拽上传。<strong>建议使用清晰、主体突出的高质量图片</strong>，模糊或背景杂乱的图片会降低生成质量。支持格式：JPG / PNG / WEBP，建议分辨率不低于 512×512</p>
           </div>
         </div>
         <div class="step-item">
           <div class="step-num">3</div>
           <div class="step-content">
-            <h4>写过渡描述（强烈建议）</h4>
-            <p>例如："镜头从茂密的雨林缓缓拉远，逐渐显现出远处雪山"，明确描述过渡效果</p>
+            <h4>撰写提示词（最关键！）</h4>
+            <p>在中间文本框输入提示词，描述<strong>「想要什么动作」和「用什么镜头」</strong>。即使是图生视频也<strong>必须写提示词</strong>，否则只会轻微抖动。</p>
+            <div class="prompt-box" style="margin-top:8px;">
+              <div class="label">✅ 好的提示词示例</div>
+              <p>女孩缓缓转过头，微笑看向镜头，头发随风轻轻飘动，镜头缓慢推近面部特写，暖色自然光</p>
+            </div>
+            <div class="prompt-box" style="margin-top:8px;border-left-color:#ff6b6b;">
+              <div class="label">❌ 不好的提示词示例</div>
+              <p>让图片动起来</p>
+            </div>
           </div>
         </div>
         <div class="step-item">
           <div class="step-num">4</div>
           <div class="step-content">
-            <h4>根据内容差异设置时长</h4>
-            <p>首尾帧内容差异大 → 选更长时间（9-12秒）+ 适中/快速运动速度</p>
+            <h4>设置画面尺寸</h4>
+            <p>根据发布平台选择比例：<strong>抖音/微信→9:16竖屏；B站/横屏视频→16:9；方形→1:1；电影感→21:9</strong></p>
           </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h4>选择生成模式 + 时长</h4>
+            <p>低动态场景（人物说话、花朵摇曳）→ <strong>标准模式，6-9秒</strong>；高动态场景（奔跑、赛车、打斗）→ <strong>流畅模式，6-8秒</strong></p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <h4>（可选）设置运镜</h4>
+            <p>在运镜控制面板选择：移动方向（左/右/上/下）、摇镜、旋转、变焦，每种运镜有小/中/大三档幅度</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">7</div>
+          <div class="step-content">
+            <h4>点击生成，等待结果</h4>
+            <p>等待 30-90 秒（会员加速通道更快）。生成后可预览，不满意直接点击<strong>「再次生成」</strong>用相同参数重试</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 文生视频操作步骤 -->
+      <h4 style="margin-top:24px;">✍️ 方式二：文生视频 — 完整操作步骤</h4>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>切换到文生视频模式</h4>
+            <p>在视频生成页面，点击左侧切换到 <strong>「文生视频」</strong> 选项卡（不上传任何图片）</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>写详细的场景描述提示词</h4>
+            <p>文生视频提示词要比图生视频更详细，需要明确描述：<strong>场景、主体、动作、运镜、光线、风格</strong>，缺一不可</p>
+            <div class="prompt-box" style="margin-top:8px;">
+              <div class="label">📌 文生视频提示词示例</div>
+              <p>黄金时刻，一位宇航员站在荒芜的火星表面，身穿白色宇航服，头盔反射出远处地球的光芒。镜头从头盔特写缓慢拉远至全景，展现广阔红色星球。电影质感，8K超清，孤独史诗感</p>
+            </div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>参数设置与生成</h4>
+            <p>选择尺寸、模式、时长，文生视频建议选 <strong>流畅模式 + 8秒</strong>，给AI更多空间展现画面</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.2 参数详细说明 -->
+    <div class="card">
+      <h3>📐 4.2 参数详细说明</h3>
+      <div class="grid-2">
+        <div>
+          <h4>⚙️ 生成模式对比（核心选择）</h4>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>模式</th><th>最适合场景</th><th>支持时长</th><th>帧率特点</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><strong>标准模式</strong></td>
+                  <td>人物对话、花草摇曳、慢动作风景、低动态日常场景</td>
+                  <td>3 / 6 / 9 / 12 秒</td>
+                  <td>标准帧率，画面质感稳定</td>
+                </tr>
+                <tr>
+                  <td><strong>流畅模式</strong></td>
+                  <td>跑酷追逐、赛车飞驰、武打对决、舞蹈高动态、宇宙穿梭特效</td>
+                  <td>4 / 6 / 8 秒</td>
+                  <td>更高生成帧数，高速运动更连贯流畅</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="highlight highlight-tip" style="margin-top:12px;">
+            <strong>💡 模式选择口诀</strong>
+            <p>"动作幅度大选流畅，慢悠悠的选标准；高速运动选流畅，人物说话选标准"</p>
+          </div>
+        </div>
+        <div>
+          <h4>🎞️ 画面尺寸选择指南</h4>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>比例</th><th>像素示例</th><th>最适合平台</th></tr></thead>
+              <tbody>
+                <tr><td><strong>9:16</strong></td><td>1080×1920</td><td>抖音、微信视频号、快手、TikTok（竖屏主流）</td></tr>
+                <tr><td><strong>16:9</strong></td><td>1920×1080</td><td>B站、YouTube、微博视频、横屏类内容</td></tr>
+                <tr><td><strong>1:1</strong></td><td>1080×1080</td><td>小红书、Instagram方形视频</td></tr>
+                <tr><td><strong>21:9</strong></td><td>2560×1080</td><td>电影宽幅感作品、艺术向短视频</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h4>🏃 运动速度设置</h4>
+          <ul style="font-size:14px;">
+            <li><strong>慢速</strong> — 悬念感、回忆感、慢动作场景</li>
+            <li><strong>适中</strong> — 日常场景、对话、风景游览（默认推荐）</li>
+            <li><strong>快速</strong> — 首尾帧差异大、动感短视频、卡点内容</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4 style="margin-top:20px;">🎥 运镜控制详细说明</h4>
+      <p style="font-size:14px;color:var(--text-light);margin-bottom:12px;">运镜控制面板位于视频生成界面右下方，可叠加使用（如同时设置"右移+推近"）：</p>
+      <div class="grid-2">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>运镜类型</th><th>方向/效果</th><th>幅度档位</th><th>适用场景</th></tr></thead>
+            <tbody>
+              <tr><td><strong>移动</strong></td><td>左移 / 右移 / 上移 / 下移</td><td>小 / 中 / 大</td><td>跟随人物移动、展示横向场景</td></tr>
+              <tr><td><strong>摇镜</strong></td><td>左摇 / 右摇 / 上摇 / 下摇</td><td>小 / 中 / 大</td><td>展示广阔场景、宏大开场</td></tr>
+              <tr><td><strong>旋转</strong></td><td>顺时针 / 逆时针</td><td>小 / 中 / 大</td><td>艺术感旋转、荷兰角效果</td></tr>
+              <tr><td><strong>变焦</strong></td><td>推近 / 拉远</td><td>小 / 中 / 大</td><td>突出重点（推近）、展现全貌（拉远）</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h4>运镜设置建议</h4>
+          <div class="highlight highlight-tip">
+            <strong>💡 新手建议：只选一种运镜</strong>
+            <p>初学者建议每次只选一种运镜方向，幅度从"小"开始尝试。多种运镜叠加容易导致画面晃动感过强，影响观感。</p>
+          </div>
+          <div class="highlight highlight-warn" style="margin-top:8px;">
+            <strong>⚠️ 运镜与提示词的关系</strong>
+            <p>面板中设置的运镜 + 提示词中描述的运镜<strong>会叠加生效</strong>。建议二选一：要么只用面板控制，要么只在提示词中写运镜，避免冲突。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.3 首尾帧功能 -->
+    <div class="card">
+      <h3>🎞️ 4.3 首尾帧功能 — 精准控制视频过渡</h3>
+      <p style="color:var(--text-light);margin-bottom:16px;">首尾帧是即梦最强大的图生视频功能之一，通过指定视频的"起点"和"终点"画面，让AI生成符合逻辑的过渡动画。</p>
+
+      <div class="grid-2" style="margin-bottom:20px;">
+        <div class="highlight highlight-tip">
+          <strong>✅ 什么时候用首尾帧</strong>
+          <p>• 需要精确控制视频的开始和结束状态<br>• 人物从A姿势变化到B姿势<br>• 场景从白天过渡到夜晚<br>• 制作"变装"或"前后对比"视频</p>
+        </div>
+        <div class="highlight highlight-warn">
+          <strong>⚠️ 首尾帧注意事项</strong>
+          <p>• 两张图的<strong>风格、画面尺寸、主体构成</strong>应尽量一致<br>• 内容差异越大，需要越长的时长（建议9-12秒）<br>• <strong>必须写提示词</strong>描述过渡过程，否则只做叠化</p>
+        </div>
+      </div>
+
+      <h4>📋 首尾帧完整操作步骤</h4>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>启用首尾帧模式</h4>
+            <p>在「图生视频」界面，在上传图片区域找到 <strong>【使用尾帧】</strong> 选项并勾选，页面会出现两个上传区域（首帧和尾帧）</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>分别上传首帧和尾帧图片</h4>
+            <p>左侧上传<strong>首帧</strong>（视频开头画面），右侧上传<strong>尾帧</strong>（视频结尾画面）。<br>
+            <strong>实战技巧：</strong> 如果想让女孩"从站立到坐下"，首帧上传"站立图"，尾帧上传"坐下图"，风格保持一致。</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>撰写过渡描述（最关键！）</h4>
+            <p>提示词重点描述<strong>「从A变化到B的过程」</strong>，越详细越好</p>
+            <div class="prompt-box" style="margin-top:8px;">
+              <div class="label">📌 首尾帧提示词示例</div>
+              <p>镜头从茂密绿色雨林中缓缓拉远，逐渐显现出远处白雪皑皑的雪山全景，天空由阴暗渐渐变得湛蓝，整个过程犹如时间快进，生机与壮美交替呈现</p>
+            </div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>根据差异程度设置时长</h4>
+            <p>
+              首尾帧内容<strong>差异小</strong>（如微表情变化）→ 选 <strong>3-6秒 + 慢速</strong><br>
+              首尾帧内容<strong>差异中等</strong>（如姿势变化）→ 选 <strong>6-9秒 + 适中</strong><br>
+              首尾帧内容<strong>差异大</strong>（如场景切换）→ 选 <strong>9-12秒 + 快速</strong>
+            </p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h4>生成并评估过渡效果</h4>
+            <p>点击生成后，检查过渡是否自然。如果过渡生硬，可以：①调整提示词让描述更详细；②调整时长（通常更长更好）；③重新生成多试几次</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 首尾帧实战案例 -->
+      <h4 style="margin-top:20px;">🎬 首尾帧实战案例模板</h4>
+      <div class="grid-2">
+        <div>
+          <div class="prompt-box">
+            <div class="label">案例A：人物变装视频</div>
+            <p>首帧：穿休闲服的女孩<br>
+            尾帧：穿礼服的同一女孩<br>
+            <strong>提示词：</strong>"女孩在镜前微笑，身上的休闲服在粒子光效中华丽变换为红色礼服，全身特写，仪式感十足，暖光氛围"<br>
+            <strong>参数：</strong>标准模式 · 9秒 · 适中速度</p>
+          </div>
+        </div>
+        <div>
+          <div class="prompt-box">
+            <div class="label">案例B：日夜场景过渡</div>
+            <p>首帧：白天繁华的街道<br>
+            尾帧：夜晚霓虹灯的同一街道<br>
+            <strong>提示词：</strong>"镜头固定拍摄城市街道，时间快速流逝，天空从湛蓝逐渐变为深紫再到漆黑，街边霓虹灯逐一亮起，人流变稀"<br>
+            <strong>参数：</strong>标准模式 · 12秒 · 快速速度</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.4 二次编辑功能 -->
+    <div class="card">
+      <h3>🔧 4.4 二次编辑功能详解</h3>
+      <p style="color:var(--text-light);margin-bottom:16px;">视频生成后，将鼠标悬停在视频卡片上，右下角会出现一排操作按钮，提供丰富的二次编辑能力：</p>
+
+      <div class="grid-2">
+        <div>
+          <h4>💬 对口型（AI数字人配音）</h4>
+          <p style="font-size:13px;color:var(--text-light);margin-bottom:8px;">让生成的人物视频开口说话，是制作AI数字人的核心功能</p>
+          <div class="step-list">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>生成合适的人物视频</h4>
+                <p>必须是<strong>写实/近写实风格的单人图片</strong>生成的视频，人脸清晰、正面朝向，无过度动态</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>点击对口型按钮</h4>
+                <p>悬停视频卡片 → 点击嘴唇图标按钮 → 进入对口型编辑界面</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>输入台词 / 上传音频</h4>
+                <p>方式A：直接在文本框输入台词，选择AI音色（中文支持全部音色，英文推荐"超拟真"音色）<br>
+                方式B：上传已有的音频文件，让人物口型匹配该音频</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>选择效果等级</h4>
+                <p>选择<strong>「大师」级别</strong>效果最佳（新账号通常有1次免费体验），标准级别口型同步精度较低</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">5</div>
+              <div class="step-content">
+                <h4>生成后再做超分/补帧</h4>
+                <p><strong>重要顺序：对口型 → 超分 → 补帧</strong>，千万不要先超分再对口型（会降低质量）</p>
+              </div>
+            </div>
+          </div>
+          <div class="highlight highlight-tip" style="margin-top:8px;">
+            <strong>💡 对口型最佳实践</strong>
+            <p>台词文字量与视频时长要匹配。10秒视频约可说80-100字。先试听AI音色再生成，避免浪费积分。</p>
+          </div>
+        </div>
+        <div>
+          <h4>✨ 其他二次编辑功能详解</h4>
+          <div class="table-wrap" style="margin-bottom:16px;">
+            <table>
+              <thead><tr><th>功能</th><th>详细说明</th><th>注意事项</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><strong>🔄 视频延长</strong></td>
+                  <td>基于已生成视频，向后续写剧情，每次最多延长原时长，最多延长2次，最终总时长可达36秒</td>
+                  <td>延长时<strong>生成时长 = 延长部分时长</strong>（不是总时长！）；延长时需写新提示词描述后续内容</td>
+                </tr>
+                <tr>
+                  <td><strong>🎞️ 补帧</strong></td>
+                  <td>提升视频流畅度。可选24fps（电影感）、30fps（标准）、60fps（极流畅）</td>
+                  <td>原视频若有明显颗粒感，选24fps；追求极致流畅选60fps；补帧消耗额外积分</td>
+                </tr>
+                <tr>
+                  <td><strong>📺 HD超分</strong></td>
+                  <td>将视频分辨率提升2倍（如1080P→2K），画面更清晰锐利</td>
+                  <td>应在对口型之后、补帧之前做；消耗积分；超分后文件体积增大</td>
+                </tr>
+                <tr>
+                  <td><strong>🔁 再次生成</strong></td>
+                  <td>使用完全相同的参数和提示词重新生成，利用AI随机性获得不同结果</td>
+                  <td>不满意时先多试几次再次生成，确认方向不对再修改提示词</td>
+                </tr>
+                <tr>
+                  <td><strong>✏️ 重新编辑</strong></td>
+                  <td>回到生成界面，可以修改提示词、参数、图片等后重新生成</td>
+                  <td>原参数自动填入，方便微调测试</td>
+                </tr>
+                <tr>
+                  <td><strong>💾 收藏/下载</strong></td>
+                  <td>收藏到作品库，或下载视频到本地（mp4格式）</td>
+                  <td>免费版下载有水印，会员版无水印</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="highlight highlight-danger">
+            <strong>🔢 最佳操作顺序（必须记住！）</strong>
+            <p style="font-weight:700;font-size:14px;color:#e03131;">
+              生成视频 → 对口型 → HD超分 → 补帧 → 下载
+            </p>
+            <p>颠倒顺序会导致对口型失效或画质损失，务必按照上述顺序操作</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.5 视频延长操作 -->
+    <div class="card">
+      <h3>🔄 4.5 视频延长操作详解</h3>
+      <p style="color:var(--text-light);margin-bottom:16px;">视频延长是创作长视频的核心技巧，通过多次延长可以构建完整的叙事故事。</p>
+
+      <div class="grid-2">
+        <div>
+          <h4>向后延长（续写剧情）</h4>
+          <div class="step-list">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>找到延长按钮</h4>
+                <p>悬停视频卡片，点击<strong>「延长」</strong>按钮（箭头图标），进入延长编辑界面</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>设置延长时长</h4>
+                <p><strong>关键：设置的时长 = 需要新增的秒数</strong>（不是总视频时长）<br>
+                例：原视频8秒，想延长到14秒 → 设置时长为 <strong>6秒</strong></p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>写延长部分的提示词</h4>
+                <p>描述<strong>接下来发生什么</strong>，衔接原视频结尾的内容</p>
+                <div class="prompt-box" style="margin-top:4px;">
+                  <div class="label">示例</div>
+                  <p>女主角继续向前走，走上山顶，镜头缓缓升起展现壮阔山川全景，余晖洒满大地</p>
+                </div>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>生成并检查衔接效果</h4>
+                <p>检查新生成片段与原片段的衔接是否流畅，不流畅则重新生成延长部分</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4>向前延长（补充前因）</h4>
+          <p style="font-size:13px;color:var(--text-light);margin-bottom:8px;">Seedance 2.0 全能参考模式支持向前延长，即在现有视频<strong>之前</strong>补充画面</p>
+          <div class="prompt-box">
+            <div class="label">向前延长提示词格式</div>
+            <p>向前延长4秒，描述女主角从酒店大堂走出，推开旋转门，踏上街道的过程，镜头从背后跟拍</p>
+          </div>
+          <div class="highlight highlight-warn" style="margin-top:12px;">
+            <strong>⚠️ 延长的限制</strong>
+            <p>• 同一个视频最多延长 <strong>2次</strong><br>
+            • 最终总时长上限为 <strong>36秒</strong><br>
+            • 每次延长消耗额外积分<br>
+            • 建议先延长一次，检查效果满意后再延长第二次</p>
+          </div>
+
+          <h4 style="margin-top:16px;">📊 视频延长时长规划参考</h4>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>目标总时长</th><th>建议方案</th></tr></thead>
+              <tbody>
+                <tr><td>12-15秒</td><td>第一次生成12秒，按需小幅延长</td></tr>
+                <tr><td>20-25秒</td><td>首次生成12秒 → 延长8-12秒</td></tr>
+                <tr><td>30-36秒</td><td>首次生成12秒 → 延长12秒 → 再延长12秒</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.6 积分消耗参考 -->
+    <div class="card">
+      <h3>💰 4.6 视频功能积分消耗参考</h3>
+      <div class="highlight highlight-warn" style="margin-bottom:16px;">
+        <strong>⚠️ 积分仅供参考</strong>
+        <p>实际消耗会因模型版本、活动折扣等因素变动，以官方实时显示为准</p>
+      </div>
+      <div class="grid-2">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>功能</th><th>大约积分消耗</th></tr></thead>
+            <tbody>
+              <tr><td>图生视频（6秒，标准模式）</td><td>约 30-40 积分</td></tr>
+              <tr><td>图生视频（12秒，标准模式）</td><td>约 60-80 积分</td></tr>
+              <tr><td>文生视频（8秒，流畅模式）</td><td>约 50-70 积分</td></tr>
+              <tr><td>视频延长（每次）</td><td>约 30-60 积分</td></tr>
+              <tr><td>对口型（大师级）</td><td>约 20-40 积分</td></tr>
+              <tr><td>HD超分</td><td>约 10-20 积分</td></tr>
+              <tr><td>补帧（60fps）</td><td>约 10-20 积分</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h4>💡 积分节省技巧</h4>
+          <ul>
+            <li>先用<strong>较短时长</strong>（6秒）验证提示词效果，满意后再生成长视频</li>
+            <li>先不做超分，<strong>确认内容满意</strong>后再做超分和补帧</li>
+            <li>文生视频提示词要<strong>充分测试</strong>，避免生成后不满意浪费积分</li>
+            <li>对口型在<strong>工作日非高峰期</strong>操作，速度更快</li>
+            <li>每日登录领取<strong>免费积分</strong>（60-100分），优先消耗免费积分</li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 
 
-  <!-- ===== SECTION 5: Seedance 2.0 ===== -->
+  <!-- ===== SECTION 5: AI视频生成全解 ===== -->
   <div class="section" id="s5">
     <div class="section-header">
-      <div class="section-icon">🎯</div>
+      <div class="section-icon">🎬</div>
       <div class="section-title">
-        <h2>第五章：Seedance 2.0 多模态视频创作</h2>
-        <p>字节最新旗舰视频模型 · 多模态输入 · @引用系统 · 导演级精准控制</p>
+        <h2>第五章：AI视频生成全解</h2>
+        <p>三种视频生成方式详解 · Seedance 2.0 旗舰能力 · 多模态创作实战</p>
       </div>
     </div>
 
+    <!-- 三种视频生成方式 -->
     <div class="card">
-      <h3>⚡ Seedance 2.0 核心突破</h3>
-      <p>Seedance 2.0 是即梦平台的核心视频模型（2026年2月全量发布），标志着 AI 视频从"<strong>提示词抽奖</strong>"升级为"<strong>导演级精准控制</strong>"时代。</p>
-      <div class="grid-2">
+      <h3>🎯 即梦AI三种视频生成方式</h3>
+      <p>即梦AI视频生成支持<strong>三种创作路径</strong>，分别对应不同的创作场景与控制需求：</p>
+      <div class="grid-3" style="margin-top:16px;">
+        <div class="feature-card">
+          <div class="feature-icon">✨</div>
+          <h3>文生视频</h3>
+          <p><strong>适用场景：</strong>完全从零创作，输入一段文字描述，AI 自动生成视频画面</p>
+          <p><strong>核心能力：</strong>仅用文字即可生成4~15秒视频，AI 自动编排镜头、动作和氛围</p>
+          <p><span class="tag tag-blue">零素材依赖</span><span class="tag tag-green">创意发散</span></p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🖼️</div>
+          <h3>图生视频</h3>
+          <p><strong>适用场景：</strong>有一张参考图片（角色图、产品图、场景图），需要让它动起来</p>
+          <p><strong>核心能力：</strong>上传一张图片，AI 基于图片风格生成动态视频，支持运镜控制</p>
+          <p><span class="tag tag-purple">风格精准还原</span><span class="tag tag-orange">操作简单</span></p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎥</div>
+          <h3>视频生视频</h3>
+          <p><strong>适用场景：</strong>有现成视频素材，需要复刻镜头语言、动作节奏或创意特效</p>
+          <p><strong>核心能力：</strong>上传参考视频，AI 学习其镜头语言和运动模式，生成风格一致的新视频</p>
+          <p><span class="tag tag-red">镜头语言复刻</span><span class="tag tag-blue">动作精准</span></p>
+        </div>
+      </div>
+      <div class="highlight highlight-tip" style="margin-top:16px;">
+        <strong>💡 如何选择？</strong>
+        <p>完全没有素材 → <strong>文生视频</strong> ｜ 有一张好图 → <strong>图生视频</strong> ｜ 有参考视频 → <strong>视频生视频</strong> ｜ 想要最强控制 → <strong>Seedance 2.0 全能参考</strong></p>
+      </div>
+    </div>
+
+    <!-- Seedance 2.0 核心能力 -->
+    <div class="card">
+      <h3>🚀 Seedance 2.0 旗舰视频模型</h3>
+      <p>Seedance 2.0 是即梦平台的<strong>旗舰级视频生成模型</strong>（2026年2月全量发布），代表着 AI 视频从「提示词抽奖」升级为「导演级精准控制」的质的飞跃。</p>
+
+      <h4 style="margin-top:20px;">🧠 多模态输入 — 真正的创意自由</h4>
+      <p>Seedance 2.0 支持同时使用<strong>四种输入模态</strong>，让创作不再受单一形式限制：</p>
+      <div class="table-wrap" style="margin-top:12px;">
+        <table>
+          <thead><tr><th>输入类型</th><th>支持格式</th><th>数量/时长限制</th><th>大小限制</th></tr></thead>
+          <tbody>
+            <tr><td>📷 参考图像</td><td>jpeg、png、webp、bmp、tiff、gif</td><td>≤ 9 张</td><td>＜ 30 MB</td></tr>
+            <tr><td>🎥 参考视频</td><td>mp4、mov</td><td>≤ 3 个，总时长 2~15s</td><td>＜ 50 MB</td></tr>
+            <tr><td>🎵 音频素材</td><td>mp3、wav</td><td>≤ 3 个，总时长 ≤ 15s</td><td>＜ 15 MB</td></tr>
+            <tr><td>✍️ 文本提示词</td><td>自然语言描述</td><td>无限制</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13px;color:var(--text-light);margin-top:8px;">⚠️ 混合输入总文件数上限为 <strong>12 个</strong>，建议优先上传对画面或节奏影响最大的素材。</p>
+
+      <h4 style="margin-top:24px;">⭐ 六大全能参考能力</h4>
+      <div class="grid-3">
+        <div class="highlight highlight-tip">
+          <strong>📷 参考图像</strong>
+          <p>精准还原画面构图、角色细节与整体风格，一致性极强</p>
+        </div>
+        <div class="highlight highlight-tip">
+          <strong>🎥 参考视频</strong>
+          <p>完整学习镜头语言、复杂动作节奏、创意特效的复刻</p>
+        </div>
+        <div class="highlight highlight-tip">
+          <strong>⏱️ 视频延长与衔接</strong>
+          <p>可按提示生成连续镜头，支持"接着拍"——向后或向前延长</p>
+        </div>
+        <div class="highlight highlight-tip">
+          <strong>✂️ 编辑增强</strong>
+          <p>对已有视频进行角色更替、删减、增加等精细编辑</p>
+        </div>
+        <div class="highlight highlight-tip">
+          <strong>🎵 自带音效/配乐</strong>
+          <p>生成视频时可自动搭配音效或背景音乐，视音同步</p>
+        </div>
+        <div class="highlight highlight-tip">
+          <strong>🎯 音乐卡点对齐</strong>
+          <p>上传音频素材后，视频动作自动跟随音乐节拍</p>
+        </div>
+      </div>
+
+      <h4 style="margin-top:24px;">📊 技术参数一览</h4>
+      <div class="grid-2" style="margin-top:12px;">
         <div>
-          <h4>技术参数</h4>
           <div class="table-wrap">
             <table>
               <thead><tr><th>参数</th><th>规格</th></tr></thead>
               <tbody>
-                <tr><td>最长视频时长</td><td><strong>15 秒</strong></td></tr>
+                <tr><td>最长视频时长</td><td><strong>4~15 秒可选</strong></td></tr>
                 <tr><td>输出分辨率</td><td><strong>最高 2K</strong></td></tr>
-                <tr><td>图片素材</td><td>最多 9 张</td></tr>
-                <tr><td>视频素材</td><td>最多 3 个（总时长≤15秒）</td></tr>
-                <tr><td>音频素材</td><td>最多 3 个（MP3，≤15秒）</td></tr>
-                <tr><td>总文件数</td><td>≤ 12 个</td></tr>
+                <tr><td>参考图片</td><td>最多 9 张</td></tr>
               </tbody>
             </table>
           </div>
         </div>
         <div>
-          <h4>十大核心能力</h4>
-          <ol>
-            <li>基础画质与物理规律提升</li>
-            <li>多模态自由组合输入</li>
-            <li>人物/场景一致性控制</li>
-            <li>运镜与动作精准复刻</li>
-            <li>创意模板/特效复刻</li>
-            <li>视频平滑延长/向前延伸</li>
-            <li>音色真实（方言/多角色）</li>
-            <li>一镜到底高质量生成</li>
-            <li>视频编辑（角色替换/品牌植入）</li>
-            <li>音乐卡点自动对齐</li>
-          </ol>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>参数</th><th>规格</th></tr></thead>
+              <tbody>
+                <tr><td>参考视频</td><td>最多 3 个（总时长≤15秒）</td></tr>
+                <tr><td>音频素材</td><td>最多 3 个（≤15秒）</td></tr>
+                <tr><td>总文件数</td><td>≤ 12 个</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- 两种入口模式 -->
+    <div class="card">
+      <h3>🎮 Seedance 2.0 两种入口模式</h3>
+      <div class="grid-2">
+        <div class="feature-card">
+          <div class="feature-icon">🖼️</div>
+          <h3>首尾帧入口</h3>
+          <p><strong>适用场景：</strong>仅有一张图片 + 文字描述，希望快速生成视频</p>
+          <p><strong>操作流程：</strong>上传图片 → 输入提示词 → 选择时长 → 生成</p>
+          <p><span class="tag tag-green">新手友好</span><span class="tag tag-blue">操作简单</span></p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎛️</div>
+          <h3>全能参考入口 <span class="tag" style="font-size:11px;background:var(--accent);color:#fff;">推荐</span></h3>
+          <p><strong>适用场景：</strong>图片 + 视频 + 音频多模态组合使用</p>
+          <p><strong>操作流程：</strong>上传多种素材 → 用 @ 引用说明 → 编写提示词 → 生成</p>
+          <p><span class="tag tag-purple">功能完整</span><span class="tag tag-orange">导演级控制</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- @引用系统 -->
+    <div class="card">
+      <h3>🔑 @引用系统 — 全能参考核心操作</h3>
+      <div class="highlight highlight-warn">
+        <strong>⚠️ 关键提醒</strong>
+        <p>在 Seedance 2.0 全能参考模式下，上传素材后<strong>必须在提示词中用 @素材名 明确引用</strong>，否则模型无法理解素材用途，直接忽略！</p>
+      </div>
+      <h4>@引用激活方式</h4>
+      <ul>
+        <li>在提示词输入框中输入 <code>@</code> 符号，会弹出已上传素材列表</li>
+        <li>或点击工具栏中的 @ 按钮选择素材</li>
+        <li>上传后素材自动编号为：图片1、图片2 / 视频1 / 音频1 等</li>
+      </ul>
+      <h4>常用@引用写法示例</h4>
+      <div class="prompt-box">
+        <div class="label">📌 基础写法</div>
+        <ul>
+          <li>@图片1 作为首帧，参考 @视频1 的运镜</li>
+          <li>@图片1 的女生作为主角，@图片2 的男生作为配角</li>
+          <li>完全参考 @视频1 的所有运镜效果和转场</li>
+          <li>参考 @音频1 的节奏进行音乐卡点，背景使用 @图片1 的场景</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 视频延长功能 -->
+    <div class="card">
+      <h3>🎬 高级功能：视频延长操作</h3>
+      <div class="grid-2">
+        <div>
+          <h4>向后延长（接续剧情）</h4>
+          <div class="prompt-box">
+            <div class="label">提示词格式</div>
+            <p>将 @视频1 延长 5 秒，女主角继续向前走，镜头环绕升起，最终展现完整城市全景</p>
+          </div>
+          <p style="font-size:13px;color:var(--text-light);margin-top:8px;">注意：生成时长需设置为延长部分的秒数（此例设5秒）</p>
+        </div>
+        <div>
+          <h4>向前延长（补充前因）</h4>
+          <div class="prompt-box">
+            <div class="label">提示词格式</div>
+            <p>向前延长 4 秒，描述女主角从楼梯走下来，推开大门，走向室外广场的过程</p>
+          </div>
+          <p style="font-size:13px;color:var(--text-light);margin-top:8px;">提示词应描述目标视频的"前因"，时长同样设为延长时长</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 官方文档链接 -->
+    <div class="card">
+      <h3>📖 官方文档 — 即梦 Seedance 2.0 使用手册</h3>
+      <p>以下是即梦官方发布的 <strong>Seedance 2.0 完整使用手册</strong>，包含功能介绍、参数说明、交互方式与注意事项，强烈建议结合本手册一起阅读：</p>
+      <div style="margin-top:16px;">
+        <a href="https://bytedance.larkoffice.com/wiki/A5RHwWhoBiOnjukIIw6cu5ybnXQ" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#5b4bdb,#7c6df0);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:15px;box-shadow:0 4px 16px rgba(91,75,219,0.35);">
+          🚀 立即阅读 Seedance 2.0 官方使用手册
+        </a>
+        <p style="font-size:13px;color:var(--text-light);margin-top:10px;">📌 来源：即梦官方 · 飞书文档 · 最近更新：3月13日</p>
+      </div>
+    </div>
+  </div>
 
     <div class="card">
       <h3>🔑 @引用系统 — 核心操作</h3>
@@ -1210,160 +1980,13 @@
   </div>
 
 
-  <!-- ===== SECTION 6: 提示词体系 ===== -->
+
+  <!-- ===== SECTION 6: 运镜指南 ===== -->
   <div class="section" id="s6">
-    <div class="section-header">
-      <div class="section-icon">✍️</div>
-      <div class="section-title">
-        <h2>第六章：提示词（Prompt）完整体系</h2>
-        <p>从基础公式到进阶技巧，让提示词成为你最强的创作工具</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>📐 图片提示词基础公式</h3>
-      <div class="formula">
-        <div class="label">新手公式（五要素）</div>
-        <div class="content">
-          主体 <span>+</span> 场景 <span>+</span> 动作/细节 <span>+</span> 风格 <span>+</span> 氛围/画质
-        </div>
-      </div>
-      <div class="prompt-box">
-        <div class="label">📌 示例（新手公式）</div>
-        <p>白色短毛猫（主体），黎明针叶林雪地（场景），爪子搭在电吉他上弹奏（动作），梦幻渐变风格（风格），粉橙主色调，2K高清（氛围/画质）</p>
-      </div>
-      <div class="formula" style="margin-top:16px;">
-        <div class="label">进阶公式（六维度）适合复杂创作</div>
-        <div class="content">
-          主题 <span>+</span> 场景 <span>+</span> 风格 <span>+</span> 色调 <span>+</span> 构图 <span>+</span> 细节
-        </div>
-      </div>
-      <div class="prompt-box">
-        <div class="label">📌 示例（进阶公式）</div>
-        <p>超写实东北虎（主题），冬季长白山原始森林（场景），超写实油画风参考鲁本斯（风格），橙黑虎身与冷白环境（色调），平视三角形构图（构图），虎毛纹理清晰+斑驳光影+雪花飘落（细节）</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>🎬 视频提示词写作技巧</h3>
-      <div class="step-list">
-        <div class="step-item">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <h4>按时间线分段描述</h4>
-            <p>例："0-3秒：镜头从特写拉到全景，人物向前走；3-6秒：镜头环绕升起，展示建筑全貌"</p>
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <h4>明确主体动作和运动方式</h4>
-            <p>说明<strong>什么人/物</strong>在<strong>什么场景</strong>做<strong>什么动作</strong>，越具体越好</p>
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <h4>加入运镜描述</h4>
-            <p>使用专业镜头术语（参见第七章），如"缓慢推近主角面部"、"环绕拍摄旋转一圈"</p>
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <h4>光线与氛围描述</h4>
-            <p>如"黄金时刻柔和侧光"、"蓝调时分冷蓝光"、"室内暖光氛围"</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>🎭 分场景提示词模板</h3>
-      <div class="grid-2">
-        <div>
-          <h4>💬 文字海报（适配图片 3.0/4.0）</h4>
-          <div class="prompt-box">
-            <div class="label">模板</div>
-            <p>中文文字"[文案内容]"，[字体风格，如毛笔草书/现代黑体]，[背景风格，如水墨中国风/赛博朋克霓虹]，[排版位置，如居中/右下角]，高清插画风格</p>
-          </div>
-          <h4>🛍️ 电商产品图</h4>
-          <div class="prompt-box">
-            <div class="label">模板</div>
-            <p>[产品名称]，[材质/颜色描述]，置于[场景/背景]，[光线类型，如工作室打光/自然光]，商业摄影风格，4K高清，产品细节清晰</p>
-          </div>
-        </div>
-        <div>
-          <h4>🎨 艺术插画</h4>
-          <div class="prompt-box">
-            <div class="label">模板</div>
-            <p>[主体描述]，[场景环境]，[艺术风格，如吉卜力/赛博朋克/水彩]，[色彩基调]，[画质标准，如8K/超细节/专业插画]</p>
-          </div>
-          <h4>🏙️ 概念场景</h4>
-          <div class="prompt-box">
-            <div class="label">模板</div>
-            <p>[场景类型，如未来都市/古代村落]，[时间/天气，如深夜霓虹雨天]，[视角，如航拍全景/低角度仰视]，超写实风格，电影感光线，8K分辨率</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>⚠️ 提示词三原则与避坑</h3>
-      <div class="grid-3">
-        <div class="highlight highlight-tip">
-          <strong>✅ 原则1：从大到小</strong>
-          <p>先定主体场景，再补细节。先写"森林中的少女"，再写"头发颜色、服装、光线"</p>
-        </div>
-        <div class="highlight highlight-tip">
-          <strong>✅ 原则2：拒绝堆砌</strong>
-          <p>关键词控制在 20-40 字，避免风格冲突，不要同时写"写实"和"卡通"</p>
-        </div>
-        <div class="highlight highlight-tip">
-          <strong>✅ 原则3：精准修饰</strong>
-          <p>用"8K分辨率"代替"很清晰"，用"伦勃朗光"代替"光线好看"</p>
-        </div>
-      </div>
-
-      <h4 style="margin-top:16px;">常用画质关键词速查</h4>
-      <div style="margin:8px 0 0">
-        <span class="tag tag-purple">8K分辨率</span>
-        <span class="tag tag-purple">超写实</span>
-        <span class="tag tag-purple">电影级</span>
-        <span class="tag tag-purple">专业摄影</span>
-        <span class="tag tag-blue">辛烷渲染</span>
-        <span class="tag tag-blue">光线追踪</span>
-        <span class="tag tag-green">细节丰富</span>
-        <span class="tag tag-green">锐利清晰</span>
-        <span class="tag tag-orange">工作室光</span>
-        <span class="tag tag-orange">自然光</span>
-        <span class="tag tag-orange">伦勃朗光</span>
-        <span class="tag tag-orange">黄金时刻</span>
-      </div>
-
-      <h4 style="margin-top:16px;">常用风格关键词速查</h4>
-      <div style="margin:8px 0 0">
-        <span class="tag tag-purple">吉卜力风</span>
-        <span class="tag tag-purple">赛博朋克</span>
-        <span class="tag tag-purple">水墨中国风</span>
-        <span class="tag tag-blue">蒸汽波</span>
-        <span class="tag tag-blue">超现实主义</span>
-        <span class="tag tag-green">极简主义</span>
-        <span class="tag tag-green">包豪斯</span>
-        <span class="tag tag-orange">洛可可</span>
-        <span class="tag tag-orange">暗黑哥特</span>
-        <span class="tag tag-red">波普艺术</span>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ===== SECTION 7: 运镜指南 ===== -->
-  <div class="section" id="s7">
     <div class="section-header">
       <div class="section-icon">🎥</div>
       <div class="section-title">
-        <h2>第七章：运镜控制专项指南</h2>
+        <h2>第六章：运镜控制专项指南</h2>
         <p>专业镜头语言 · 3级进阶运镜体系 · 电影级动态效果实现</p>
       </div>
     </div>
@@ -1516,12 +2139,12 @@
   </div>
 
 
-  <!-- ===== SECTION 8: 智能画布 ===== -->
-  <div class="section" id="s8">
+  <!-- ===== SECTION 7: 智能画布 ===== -->
+  <div class="section" id="s7">
     <div class="section-header">
       <div class="section-icon">🖌️</div>
       <div class="section-title">
-        <h2>第八章：智能画布 &amp; 故事创作模式</h2>
+        <h2>第七章：智能画布 &amp; 故事创作模式</h2>
         <p>无限画布精细创作 · 局部重绘 · 扩图 · 消除 · 一站式故事分镜生成</p>
       </div>
     </div>
@@ -1590,184 +2213,558 @@
   </div>
 
 
-  <!-- ===== SECTION 9: 实战案例 ===== -->
-  <div class="section" id="s9">
+  <!-- ===== SECTION 8: 实战案例 ===== -->
+  <div class="section" id="s8">
     <div class="section-header">
       <div class="section-icon">💼</div>
       <div class="section-title">
-        <h2>第九章：实战案例 &amp; 商业工作流</h2>
-        <p>完整提示词示例 · 商业场景应用 · 从0到1的创作流程</p>
+        <h2>第八章：实战案例 &amp; 商业工作流</h2>
+        <p>6大场景完整实战 · 每步操作有据可查 · 提示词可直接复用 · 从0到1全流程</p>
       </div>
     </div>
 
+    <!-- 实战概览 -->
     <div class="card">
-      <h3>🎬 案例1：普通图片生视频（基础动效）</h3>
-      <p><span class="tag tag-blue">素材</span> 一张图画 &nbsp;&nbsp; <span class="tag tag-green">模式</span> Seedance 2.0 首尾帧</p>
-      <div class="prompt-box">
-        <div class="label">📌 完整提示词</div>
-        <p>画里面的人物心虚的表情，眼睛左右看了看，探出画框，快速的将手伸出画框拿起可乐喝了一口，然后露出一脸满足的表情。这时传来脚步声，画中的人物赶紧将可乐放回原位，此时一位西部牛仔拿起杯子里的可乐走了。最后镜头前推画面慢慢变得纯黑背景，只有顶光照耀的罐装可乐，画面最下方出现艺术感字幕和旁白："宜口可乐，不可不尝！"</p>
-      </div>
-      <p style="font-size:13px;color:var(--text-light);">适用场景：品牌创意广告、社交媒体内容、趣味短视频</p>
-    </div>
-
-    <div class="card">
-      <h3>🥋 案例2：多人物对手戏（电影级）</h3>
-      <p><span class="tag tag-blue">素材</span> 2张人物图 &nbsp;&nbsp; <span class="tag tag-green">模式</span> Seedance 2.0 全能参考</p>
-      <div class="prompt-box">
-        <div class="label">📌 完整提示词</div>
-        <p>这两张图片是一段悬崖对手戏的两个女主，请围绕两个女主，生成一段流畅的红衣女子东方不败与黑衣女刺客二人对手戏的画面，需要运用到分镜和不同视角切换，让整个画面更有节奏感和电影感。仅生成打斗音效和环境的音效，不要配背景音乐。</p>
-        <p>第一个画面：从红衣女子拿起酒壶喝酒开始，环绕运镜到红衣女子背部，然后移镜变焦渐隐看到远处的黑衣女子。</p>
-        <p>第二个画面：切换无人机航拍大全景。</p>
-        <p>第三个画面：两个人物的近景特写，红衣女子从容喝酒的表情形态，黑衣女子略带坚毅和复仇的眼神。</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>💃 案例3：动作复刻（图+参考视频）</h3>
-      <p><span class="tag tag-blue">素材</span> 1张角色图 + 1段舞蹈视频 &nbsp;&nbsp; <span class="tag tag-green">模式</span> 全能参考</p>
-      <div class="prompt-box">
-        <div class="label">📌 完整提示词</div>
-        <p>@图片1的女星作为主体，参考@视频1的运镜方式进行有节奏的推拉摇移，女星的动作也参考@视频1中女子的舞蹈动作，在舞台上活力十足地表演，背景为璀璨灯光的演唱会现场</p>
-      </div>
-      <p style="font-size:13px;color:var(--text-light);">适用场景：虚拟艺人视频、品牌代言内容制作</p>
-    </div>
-
-    <div class="card">
-      <h3>🎵 案例4：全模态组合（图+视频+音频）</h3>
-      <p><span class="tag tag-blue">素材</span> 角色图 + 参考视频 + 背景音乐 &nbsp;&nbsp; <span class="tag tag-green">模式</span> 全能参考</p>
-      <div class="prompt-box">
-        <div class="label">📌 完整提示词</div>
-        <p>参考@视频1的人物动作和运镜手法，生成@图片1中黑衣人物在竹林将飞刀掷出的视频，视频中只有黑衣女子一个人物。起始帧的视角景别严格参照@视频1，飞刀掷出以后慢动作对焦飞刀，并虚化黑衣人物，注意刀是刀刃的方向向着镜头飞来，做到1比1还原参考视频，仅人物改为黑衣女子。仅生成打斗音效和环境的音效，并加入背景音乐@音频1</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>🏭 商业场景工作流推荐</h3>
+      <h3>📋 本章实战案例导览</h3>
       <div class="grid-3">
         <div class="feature-card">
+          <div class="feature-icon">🧑‍💻</div>
+          <h3>实战A：AI数字人口播视频</h3>
+          <p>DeepSeek生成角色 → 即梦生图 → 对口型 → 超分输出，适合知识博主、产品讲解</p>
+        </div>
+        <div class="feature-card">
           <div class="feature-icon">🛍️</div>
-          <h3>电商产品图</h3>
-          <p>文生图生成产品场景 → 智能画布局部精修 → 图生视频添加动效 → 输出横/竖版各尺寸</p>
+          <h3>实战B：电商产品主图+动效视频</h3>
+          <p>AI生产品场景图 → 图生视频展示动效 → 横竖版双产出，适合淘宝/抖店</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">📱</div>
-          <h3>抖音短视频</h3>
-          <p>DeepSeek 生成剧本 → 即梦生成场景图 → Seedance 2.0 转视频 → 剪映剪辑配音发布</p>
+          <h3>实战C：小红书封面图生产</h3>
+          <p>DeepSeek优化提示词 → 图片5.0 Lite生成 → 批量输出适合封面的素材</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🎭</div>
-          <h3>AI 短剧制作</h3>
-          <p>故事创作模式生成分镜 → 图生视频逐镜生成 → 对口型添加对白 → 剪映合成成片</p>
+          <div class="feature-icon">🎬</div>
+          <h3>实战D：治愈系Vlog短片</h3>
+          <p>生图 → 图生视频 → 视频延长 → 音效匹配 → 剪映精剪，适合日常记录账号</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🥋</div>
+          <h3>实战E：创意广告/电影级短片</h3>
+          <p>多角色图片 + 参考视频 → Seedance 2.0全能参考 → 分镜叙事，适合创意广告</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎵</div>
+          <h3>实战F：音乐卡点风光视频</h3>
+          <p>多张风景图 + 背景音乐 → Seedance 2.0音画同步 → 卡点输出，适合风景账号</p>
         </div>
       </div>
     </div>
-  </div>
 
-
-  <!-- ===== SECTION 10: 积分&价格 ===== -->
-  <div class="section" id="s10">
-    <div class="section-header">
-      <div class="section-icon">💰</div>
-      <div class="section-title">
-        <h2>第十章：积分规则 &amp; 会员价格</h2>
-        <p>了解费用体系，合理规划使用预算</p>
-      </div>
-    </div>
-
+    <!-- 实战A：AI数字人 -->
     <div class="card">
-      <h3>💳 会员套餐对比</h3>
-      <div class="plan-grid">
-        <div class="plan-card">
-          <div class="plan-name">免费版</div>
-          <div class="plan-price">¥0</div>
-          <div class="plan-credits">每日赠送少量积分</div>
-          <hr style="margin:12px 0;border-color:#eee">
-          <ul style="text-align:left;font-size:12px;color:var(--text-light)">
-            <li>基础生成功能</li>
-            <li>有水印输出</li>
-            <li>有限次数/日</li>
-          </ul>
-        </div>
-        <div class="plan-card">
-          <div class="plan-name">基础会员</div>
-          <div class="plan-price">¥79<span style="font-size:13px;font-weight:400">/月</span></div>
-          <div class="plan-credits">1,080 积分/月</div>
-          <hr style="margin:12px 0;border-color:#eee">
-          <ul style="text-align:left;font-size:12px;color:var(--text-light)">
-            <li>去水印输出</li>
-            <li>视频补帧至60fps</li>
-            <li>无限加速生成</li>
-          </ul>
-        </div>
-        <div class="plan-card featured">
-          <div class="plan-name">标准会员 ⭐️</div>
-          <div class="plan-price">¥239<span style="font-size:13px;font-weight:400">/月</span></div>
-          <div class="plan-credits">4,000 积分/月</div>
-          <hr style="margin:12px 0;border-color:var(--primary)">
-          <ul style="text-align:left;font-size:12px;color:var(--text)">
-            <li>全部基础功能</li>
-            <li>积分性价比高</li>
-            <li>推荐日常创作</li>
-          </ul>
-        </div>
-        <div class="plan-card">
-          <div class="plan-name">高级会员</div>
-          <div class="plan-price">¥649<span style="font-size:13px;font-weight:400">/月</span></div>
-          <div class="plan-credits">15,000 积分/月</div>
-          <hr style="margin:12px 0;border-color:#eee">
-          <ul style="text-align:left;font-size:12px;color:var(--text-light)">
-            <li>积分最划算</li>
-            <li>生成速度最快</li>
-            <li>适合高频商业创作</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+      <h3>🧑‍💻 实战A：AI数字人口播视频 — 完整工作流</h3>
+      <p><span class="tag tag-purple">难度</span><span class="tag tag-purple">⭐⭐ 中等</span>&nbsp;<span class="tag tag-green">适用</span> 知识博主 · 产品讲解 · 课程推广 · 品牌官方号</p>
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:16px;">核心流程：DeepSeek 生成人物提示词 → 即梦生图 → 图生视频 → 对口型配音 → 超分补帧输出</p>
 
-    <div class="card">
-      <h3>🔢 积分规则</h3>
-      <div class="grid-2">
-        <div>
-          <h4>积分获取方式</h4>
-          <ul>
-            <li>✅ 每日登录赠送免费积分（当日 24:00 清零）</li>
-            <li>✅ 每日随机幸运积分</li>
-            <li>✅ 订阅会员每月发放订阅积分（30天有效期）</li>
-            <li>✅ 充值积分（2年有效期）</li>
-          </ul>
-          <h4>消耗优先顺序</h4>
-          <p style="font-size:14px">免费积分 → 订阅积分 → 充值积分（优先消耗快过期的）</p>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>【用 DeepSeek 生成数字人提示词】</h4>
+            <p>打开 DeepSeek，输入以下指令让它帮你生成人物图片的提示词：</p>
+            <div class="prompt-box" style="margin-top:8px;">
+              <div class="label">向DeepSeek输入的指令</div>
+              <p>我需要用即梦AI生成一个科技媒体主播风格的数字人图片，请帮我生成详细的人物提示词，包含：亚洲女性、25-30岁、职业感发型、干练外套、正面站立、纯色背景、写实摄影风格。提示词字数控制在200字内，要具体可执行。</p>
+            </div>
+            <p style="font-size:13px;color:var(--text-light);margin-top:8px;">收到 DeepSeek 生成的提示词后，删掉描述复杂动态的部分，保留外貌和服饰描述即可。</p>
+          </div>
         </div>
-        <div>
-          <h4>充值积分价格</h4>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>积分数量</th><th>价格</th></tr></thead>
-              <tbody>
-                <tr><td>500 积分</td><td>¥50</td></tr>
-                <tr><td>750 积分</td><td>¥75</td></tr>
-                <tr><td>1,500 积分</td><td>¥150</td></tr>
-                <tr><td>4,500 积分</td><td>¥450</td></tr>
-                <tr><td>9,000 积分</td><td>¥900</td></tr>
-              </tbody>
-            </table>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>【即梦生成数字人图片】</h4>
+            <p>进入即梦 → 「创意生成」 → 粘贴提示词，按以下参数设置：</p>
+            <div class="table-wrap" style="margin-top:8px;">
+              <table>
+                <thead><tr><th>参数</th><th>设置值</th><th>理由</th></tr></thead>
+                <tbody>
+                  <tr><td>模型</td><td><strong>图片 3.0</strong></td><td>写实人像效果最强，中文理解好</td></tr>
+                  <tr><td>精细度</td><td><strong>8（高）</strong></td><td>提升人脸细节和真实感</td></tr>
+                  <tr><td>画面比例</td><td><strong>9:16 竖版</strong></td><td>与后续视频比例一致，人物更全身</td></tr>
+                  <tr><td>分辨率</td><td><strong>2K</strong></td><td>后续超分时画质更好</td></tr>
+                  <tr><td>生成数量</td><td>生成4张选最佳</td><td>挑选人脸最自然、五官最对称的一张</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="highlight highlight-warn" style="margin-top:8px;">
+              <strong>⚠️ 选图标准</strong>
+              <p>选择<strong>五官清晰、正面朝向、表情自然、无遮挡</strong>的图片。嘴唇位置清晰很重要，直接影响后续对口型效果。</p>
+            </div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>【图生视频：让数字人"活"起来】</h4>
+            <p>下载选好的图片 → 进入「AI视频」→ 图生视频，上传该图，填写以下提示词：</p>
+            <div class="prompt-box" style="margin-top:8px;">
+              <div class="label">图生视频提示词</div>
+              <p>女主播轻微点头，嘴唇微微开合，表情自信亲切，眼神看向镜头，头发轻微晃动，背景虚化，五官清晰，面部稳定不扭曲，专业播报感</p>
+            </div>
+            <p style="font-size:13px;color:var(--text-light);margin-top:8px;"><strong>参数：</strong>标准模式 · 9:16 · 10秒 · 慢速 · 不加运镜</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>【对口型配音（最关键步骤）】</h4>
+            <p>视频生成满意后 → 悬停视频卡片 → 点击嘴唇图标</p>
+            <ul style="font-size:13px;margin-top:8px;">
+              <li>在文本框输入台词内容（控制在视频时长对应字数）</li>
+              <li>试听各种音色：女声推荐"温柔知性"或"活力青春"音色</li>
+              <li>效果级别选择<strong>「大师」</strong>（最高质量）</li>
+              <li>点击生成，等待20-40秒</li>
+            </ul>
+            <div class="highlight highlight-tip" style="margin-top:8px;">
+              <strong>💡 台词字数参考</strong>
+              <p>10秒视频 ≈ 80-100字台词；每分钟约500字，可以作为台词量的参考基准</p>
+            </div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h4>【HD超分 + 补帧输出】</h4>
+            <p>对口型完成满意后：<strong>先点 HD超分</strong>（2倍提升清晰度）→ 等待完成 → <strong>再点补帧</strong>（选30fps或60fps）→ 下载最终成品</p>
           </div>
         </div>
       </div>
-      <div class="highlight highlight-warn">
-        <strong>⚠️ 注意事项</strong>
-        <p>积分充值成功后不支持退款或反向兑换；免费积分当日用不完次日清零，建议每天登录及时使用</p>
+
+      <div class="highlight highlight-tip" style="margin-top:8px;">
+        <strong>💡 进阶技巧：批量制作数字人系列视频</strong>
+        <p>确定好满意的数字人图片后，每次直接用同一张图生成不同时长的视频，再配上不同台词做对口型，即可批量产出同一数字人的系列内容，保持角色一致性。</p>
+      </div>
+    </div>
+
+    <!-- 实战B：电商产品图 -->
+    <div class="card">
+      <h3>🛍️ 实战B：电商产品主图 + 场景动效视频</h3>
+      <p><span class="tag tag-purple">难度</span><span class="tag tag-purple">⭐⭐ 中等</span>&nbsp;<span class="tag tag-green">适用</span> 淘宝/拼多多/抖店商家 · 电商运营 · 品牌内容团队</p>
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:16px;">核心流程：文生图生成产品场景图 → 智能画布精修 → 图生视频添加动效 → 输出多尺寸</p>
+
+      <div class="grid-2" style="margin-bottom:20px;">
+        <div>
+          <h4>📸 第一阶段：生成产品场景主图</h4>
+          <div class="step-list">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>准备产品图素材</h4>
+                <p>拍摄或准备好产品白底图，尽量清晰、无杂乱背景</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>选择模型 + 上传参考图</h4>
+                <p>选择<strong>图片 4.5 模型</strong>（极致原图保留能力），上传产品图作为「主体参考」</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>写产品场景提示词</h4>
+                <div class="prompt-box" style="margin-top:4px;">
+                  <div class="label">护肤品场景图示例</div>
+                  <p>精致玻璃瓶护肤精华液，置于浅粉色大理石桌面，旁边点缀新鲜白玫瑰花瓣，工作室柔和自然光打光，产品细节清晰锐利，高端商业摄影风格，1:1，4K</p>
+                </div>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>生成并筛选最佳结果</h4>
+                <p>选择「生成4张」，挑选产品角度最好、背景最美的一张；如产品有变形，用「智能画布-局部重绘」修复</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4>🎬 第二阶段：生成产品展示视频</h4>
+          <div class="step-list">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>上传产品主图到图生视频</h4>
+                <p>将上一步最好的产品图上传至「AI视频-图生视频」</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>写产品动效提示词</h4>
+                <div class="prompt-box" style="margin-top:4px;">
+                  <div class="label">产品展示视频提示词</div>
+                  <p>镜头缓慢环绕产品360°，展示产品各个角度的细节，玫瑰花瓣轻轻飘落，产品在柔和光线下熠熠生辉，奢华商业广告感</p>
+                </div>
+                <p style="font-size:12px;color:var(--text-light);margin-top:4px;"><strong>参数：</strong>标准模式 · 1:1 或 9:16 · 9秒 · 慢速 · 变焦推近（小幅）</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>Seedance 2.0 多产品对比版本（进阶）</h4>
+                <p>上传多张产品图，在提示词中写：<br>
+                <em>对@图片1的产品进行商业展示，材质和设计细节参考@图片2，背景场景参考@图片3，恢弘大气背景音效</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight highlight-tip">
+        <strong>💡 电商内容产出效率技巧</strong>
+        <p>一次生成4张场景图，筛选2-3张最好的，分别生成 1:1（详情页用）和 9:16（抖音短视频用）两种比例的视频，一次素材制作满足多平台发布需求。</p>
+      </div>
+    </div>
+
+    <!-- 实战C：小红书封面 -->
+    <div class="card">
+      <h3>📱 实战C：小红书高颜值封面图批量生产</h3>
+      <p><span class="tag tag-purple">难度</span><span class="tag tag-purple">⭐ 简单</span>&nbsp;<span class="tag tag-green">适用</span> 小红书博主 · 内容创作者 · 自媒体运营</p>
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:16px;">核心流程：确定账号风格 → DeepSeek优化提示词 → 图片5.0 Lite批量生成 → 筛选发布</p>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>确定封面风格定位</h4>
+            <p>浏览小红书同类头部账号，确定你的封面风格（如：日系小清新/赛博朋克/国风水墨/治愈系）。在即梦社区搜索相近风格，查看他人使用的提示词，做到"知己知彼"</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>用 DeepSeek 生成提示词</h4>
+            <p>向 DeepSeek 说明需求，让它生成结构完整的提示词：</p>
+            <div class="prompt-box" style="margin-top:8px;">
+              <div class="label">向DeepSeek输入的指令</div>
+              <p>我是小红书美食博主，账号风格是日系温馨治愈风，请帮我生成一张小红书封面图的即梦AI提示词，主题是"秋日咖啡馆下午茶"，需要有文字设计感，右侧留出放标题文字的空间，整体颜色是暖橙色调。用即梦AI提示词格式，主体+场景+风格+色调+画质，不超过150字。</p>
+            </div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>即梦生成封面图</h4>
+            <p>选择<strong>图片 5.0 Lite 模型</strong>（排版设计感最强，能理解"留白""文字位置"等抽象指令）：</p>
+            <div class="table-wrap" style="margin-top:8px;">
+              <table>
+                <thead><tr><th>参数</th><th>建议设置</th></tr></thead>
+                <tbody>
+                  <tr><td>模型</td><td>图片 5.0 Lite（设计感最强）</td></tr>
+                  <tr><td>画面比例</td><td>3:4（小红书竖版标准比例）</td></tr>
+                  <tr><td>分辨率</td><td>2K（清晰度好，积分消耗适中）</td></tr>
+                  <tr><td>生成数量</td><td>每次生成4张</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>文字检查与后期处理</h4>
+            <p>下载到本地后，用剪映或Canva在预留的位置添加标题文字（不要完全依赖AI生成文字，检查是否有错字）。文字颜色要与背景形成明确对比，确保可读性。</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h4>批量生产提效技巧</h4>
+            <p>确定好效果好的提示词模板后，只修改其中的<strong>主题词</strong>（如把"秋日咖啡馆"改为"初冬温泉"），保持风格参数不变，即可批量生产同一视觉风格的系列封面</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-box">
+        <div class="label">✅ 实测有效的小红书封面提示词模板</div>
+        <p>【主题】温馨下午茶场景，白色咖啡杯冒着热气（主体），落地窗旁木质桌面（场景），日系胶片感温暖摄影风格（风格），暖橙棕色系（色调），右侧1/3留白便于排版，高清商业摄影，自然光，3:4竖版（构图），细节精致</p>
+      </div>
+    </div>
+
+    <!-- 实战D：治愈系Vlog短片 -->
+    <div class="card">
+      <h3>🎬 实战D：治愈系Vlog短片 — 从生图到成片</h3>
+      <p><span class="tag tag-purple">难度</span><span class="tag tag-purple">⭐⭐⭐ 较高</span>&nbsp;<span class="tag tag-green">适用</span> 个人博主 · 生活记录账号 · 旅游内容创作</p>
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:16px;">核心流程：撰写场景脚本 → 生成分镜底图 → 逐镜图生视频 → 视频延长 → 剪映合成配音</p>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>【策划阶段】确定主题和分镜结构</h4>
+            <p>以"冬日午后温馨室内Vlog"为例，规划5个场景分镜：</p>
+            <div class="table-wrap" style="margin-top:8px;">
+              <table>
+                <thead><tr><th>分镜</th><th>场景描述</th><th>建议时长</th><th>运镜方式</th></tr></thead>
+                <tbody>
+                  <tr><td>镜头1</td><td>窗外雪景远眺，窗花和白雪</td><td>6秒</td><td>缓慢推近</td></tr>
+                  <tr><td>镜头2</td><td>木质桌面，热咖啡冒着热气</td><td>6秒</td><td>固定，俯视</td></tr>
+                  <tr><td>镜头3</td><td>女孩坐在阁楼翻书，猫咪在脚边</td><td>9秒</td><td>缓慢摇镜向右</td></tr>
+                  <tr><td>镜头4</td><td>蜡烛燃烧，光影在墙上跳动</td><td>6秒</td><td>固定，特写</td></tr>
+                  <tr><td>镜头5</td><td>窗外落雪，室内温暖全景</td><td>9秒</td><td>缓慢拉远</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>【生图阶段】生成高质量场景底图</h4>
+            <p>选择<strong>图片 4.6 模型</strong>，<strong>统一使用 16:9 比例</strong>（保持整组视频尺寸一致），对每个分镜分别生成场景底图：</p>
+            <div class="prompt-box" style="margin-top:8px;">
+              <div class="label">镜头3提示词示例</div>
+              <p>温馨阁楼室内，年轻女孩裹着厚毛毯坐在窗边木质扶手椅上专注读书，橘猫蜷缩在她脚边打盹，木质地板，雪景窗户透进柔和冬日暖光，吉卜力插画治愈风格，暖橙色调，细节丰富，16:9</p>
+            </div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>【图生视频阶段】逐镜生成动态视频</h4>
+            <p>为每张底图生成视频，重点写<strong>动态描述</strong>（让画面"活"起来）：</p>
+            <div class="prompt-box" style="margin-top:8px;">
+              <div class="label">镜头3图生视频提示词</div>
+              <p>女孩轻微翻动书页，猫咪伸了个懒腰，窗外雪花缓缓飘落，室内光线随云层微微变化，整体画面静谧治愈。镜头缓慢向右摇移，展现更多室内温馨细节</p>
+            </div>
+            <p style="font-size:13px;margin-top:8px;"><strong>参数：</strong>标准模式 · 16:9 · 9秒 · 慢速 · 向右摇镜（小幅）</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>【视频延长】关键场景续写</h4>
+            <p>对时间不够的关键镜头进行延长（如女孩读书镜头想要更长），在延长提示词中描述下一个动作延续：</p>
+            <div class="prompt-box" style="margin-top:4px;">
+              <div class="label">延长提示词示例</div>
+              <p>女孩放下书抬起头，望向窗外雪景发呆，猫咪爬上她的腿，她轻轻抚摸猫咪，嘴角浮现一丝微笑</p>
+            </div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h4>【后期合成】剪映剪辑 + 配音发布</h4>
+            <p>将所有片段导入剪映 → 按脚本顺序排列 → 添加转场（建议用"叠化"）→ 找一首治愈系BGM（推荐剪映素材库"日系清晨"系列）→ 调整整体色调 → 添加字幕/旁白 → 导出1080P发布</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 实战E：创意广告/电影级短片 -->
+    <div class="card">
+      <h3>🥋 实战E：创意广告 / 电影级短片（Seedance 2.0 全能参考）</h3>
+      <p><span class="tag tag-purple">难度</span><span class="tag tag-purple">⭐⭐⭐⭐ 高</span>&nbsp;<span class="tag tag-green">适用</span> 创意广告 · 品牌宣传片 · AI短剧 · 社交媒体爆款内容</p>
+
+      <h4>案例E-1：品牌创意广告（可乐趣味短片）</h4>
+      <p><span class="tag tag-blue">素材</span> 一张绘画风格图 &nbsp;&nbsp;<span class="tag tag-green">模式</span> Seedance 2.0 首尾帧</p>
+      <div class="prompt-box">
+        <div class="label">📌 完整提示词（可直接复用改关键词）</div>
+        <p>画里面的人物心虚的表情，眼睛左右看了看，探出画框，快速地将手伸出画框拿起可乐喝了一口，然后露出一脸满足的表情。这时传来脚步声，画中的人物赶紧将可乐放回原位，此时一位西部牛仔拿起可乐走了。最后镜头前推，画面慢慢变得纯黑背景，只有顶光照耀的罐装可乐，画面最下方出现艺术感字幕："宜口可乐，不可不尝！"</p>
+      </div>
+      <p style="font-size:13px;color:var(--text-light);margin-top:8px;"><strong>参数：</strong>Seedance 2.0 首尾帧 · 15秒 · 流畅模式 · 9:16</p>
+
+      <hr style="margin:20px 0;">
+
+      <h4>案例E-2：多人物对手戏（武侠/动作）</h4>
+      <p><span class="tag tag-blue">素材</span> 2张人物图 &nbsp;&nbsp;<span class="tag tag-green">模式</span> Seedance 2.0 全能参考</p>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>准备人物参考图</h4>
+            <p>分别准备两个角色的清晰人物图，<strong>角色形象要与剧情风格匹配</strong>（如武侠题材选对应服饰），图片质量要高，人物主体突出</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>进入 Seedance 2.0 全能参考，上传两张人物图</h4>
+            <p>点击左侧的全能参考入口 → 上传人物图1（图片1）、人物图2（图片2）→ 注意上传后系统会自动命名</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>写分镜式提示词</h4>
+            <div class="prompt-box" style="margin-top:4px;">
+              <div class="label">📌 完整分镜提示词</div>
+              <p>@图片1（红衣女子）与@图片2（黑衣女刺客）的悬崖对手戏，分三个镜头：<br>
+              第一镜头：从红衣女子拿起酒壶喝酒开始，环绕运镜到其背部，移镜变焦渐隐看到远处黑衣女子；<br>
+              第二镜头：切换无人机航拍大全景，展现悬崖全貌；<br>
+              第三镜头：两人近景特写，红衣女子从容喝酒，黑衣女子眼神坚毅复仇。<br>
+              整体电影质感，只生成打斗音效和环境音效，不要背景音乐</p>
+            </div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>参数设置与生成</h4>
+            <p>时长设为 <strong>15秒</strong>（内容多需要更长时间展开）· 9:16 · 生成后检查人物一致性和动作自然度，不满意则重新生成（AI有随机性，多试几次）</p>
+          </div>
+        </div>
+      </div>
+
+      <hr style="margin:20px 0;">
+
+      <h4>案例E-3：动作复刻（角色+参考视频）</h4>
+      <p><span class="tag tag-blue">素材</span> 1张角色图 + 1段舞蹈参考视频 &nbsp;&nbsp;<span class="tag tag-green">模式</span> Seedance 2.0 全能参考</p>
+      <div class="prompt-box">
+        <div class="label">📌 完整提示词</div>
+        <p>@图片1 的女演员作为主体，完全参考 @视频1 的运镜推拉摇移方式，女演员的肢体动作也精准参考 @视频1 中舞蹈演员的动作，在璀璨灯光的演唱会舞台上活力十足地表演，舞台背景灯光绚烂，电影感，2K</p>
+      </div>
+      <p style="font-size:13px;color:var(--text-light);margin-top:8px;">适用场景：虚拟艺人内容、品牌代言片、音乐推广视频</p>
+    </div>
+
+    <!-- 实战F：音乐卡点风光 -->
+    <div class="card">
+      <h3>🎵 实战F：音乐卡点风光视频（全模态素材）</h3>
+      <p><span class="tag tag-purple">难度</span><span class="tag tag-purple">⭐⭐⭐ 较高</span>&nbsp;<span class="tag tag-green">适用</span> 旅游/风景账号 · MV制作 · 短视频爆款内容</p>
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:16px;">核心流程：准备多张风景图 + 背景音乐 → Seedance 2.0 全能参考 → 音画同步卡点输出</p>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>准备素材</h4>
+            <p>准备 <strong>4-6张</strong> 风格统一的风景图（如全是雪山、全是海边、全是古城），图片画面清晰且各有特点。准备一段 <strong>15秒内的背景音乐片段</strong>（MP3格式），选择节奏感明显、有鼓点的音乐便于卡点</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>进入 Seedance 2.0 全能参考，上传所有素材</h4>
+            <p>依次上传图片1-6（风景图）和音频1（背景音乐），系统自动编号</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>写音乐卡点提示词</h4>
+            <div class="prompt-box" style="margin-top:4px;">
+              <div class="label">📌 音乐卡点提示词示例</div>
+              <p>依次展示 @图片1、@图片2、@图片3、@图片4、@图片5、@图片6 的风光场景，每个场景约2-3秒，<strong>转场节奏与 @音频1 的音乐节拍精准卡点</strong>，每次音乐强拍时切换场景。镜头方式：图片1使用缓慢推近，图片2横向摇移，图片3拉远展现全景，图片4-6自由切换。画面色调统一饱满，电影级风光感，2K</p>
+            </div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>设置参数并生成</h4>
+            <p>时长设为 <strong>15秒</strong>（与音乐片段等长）· 16:9 或 9:16（根据发布平台）· 流畅模式（转场节奏快）</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h4>检查卡点效果 + 补帧优化</h4>
+            <p>生成后仔细听音乐是否与画面转场对齐，卡点效果满意后做<strong>HD超分 + 60fps补帧</strong>，提升整体质感后导出</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight highlight-tip">
+        <strong>💡 全模态飞刀场景复刻案例（高级）</strong>
+        <p>参考 @视频1 的人物动作和运镜手法，生成 @图片1 中黑衣人物在竹林将飞刀掷出的视频。起始帧视角景别严格参照 @视频1，飞刀掷出后慢动作对焦飞刀并虚化人物，注意刀刃方向朝向镜头飞来，1:1 还原参考视频仅替换人物。只生成打斗音效和环境音效，并加入背景音乐 @音频1。</p>
+      </div>
+    </div>
+
+    <!-- 商业场景工作流 -->
+    <div class="card">
+      <h3>🏭 商业场景标准工作流总结</h3>
+      <div class="grid-3">
+        <div class="feature-card">
+          <div class="feature-icon">🛍️</div>
+          <h3>电商内容工作流</h3>
+          <p>① 文生图生成产品场景（图片4.5）<br>
+          ② 智能画布局部精修产品细节<br>
+          ③ 图生视频添加旋转/展示动效<br>
+          ④ HD超分输出1:1和9:16两个版本</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>抖音短视频工作流</h3>
+          <p>① DeepSeek 生成视频脚本分镜<br>
+          ② 即梦逐镜生成场景图<br>
+          ③ Seedance 2.0 转视频（保持角色一致）<br>
+          ④ 剪映剪辑配音加字幕 → 发布</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎭</div>
+          <h3>AI 短剧工作流</h3>
+          <p>① 故事创作模式生成全部分镜图<br>
+          ② 图生视频逐镜生成动态视频<br>
+          ③ AI数字人对口型添加角色对白<br>
+          ④ 剪映合成 + 背景音乐 → 发布</p>
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-top:20px;">
+        <table>
+          <thead><tr><th>场景</th><th>核心工具</th><th>关键步骤</th><th>预计时间</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>AI数字人口播</td>
+              <td>即梦图生视频 + 对口型</td>
+              <td>生图→图生视频→对口型→超分</td>
+              <td>30-60分钟</td>
+            </tr>
+            <tr>
+              <td>电商产品主图</td>
+              <td>即梦图片4.5 + 画布精修</td>
+              <td>生图→局部重绘→多尺寸输出</td>
+              <td>15-30分钟</td>
+            </tr>
+            <tr>
+              <td>小红书封面</td>
+              <td>图片5.0 Lite + DeepSeek</td>
+              <td>提示词优化→批量生成→筛选</td>
+              <td>10-20分钟</td>
+            </tr>
+            <tr>
+              <td>治愈系Vlog</td>
+              <td>图片4.6 + 图生视频 + 剪映</td>
+              <td>分镜生图→逐镜视频→延长→合成</td>
+              <td>2-4小时</td>
+            </tr>
+            <tr>
+              <td>创意广告短片</td>
+              <td>Seedance 2.0 全能参考</td>
+              <td>多图@引用→分镜提示词→生成</td>
+              <td>1-2小时</td>
+            </tr>
+            <tr>
+              <td>音乐卡点视频</td>
+              <td>Seedance 2.0 + 音频素材</td>
+              <td>多图+音频→@引用→卡点提示词</td>
+              <td>30-60分钟</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 
 
-  <!-- ===== SECTION 11: 避坑指南 ===== -->
-  <div class="section" id="s11">
+  <!-- ===== SECTION 9: 避坑指南 ===== -->
+  <div class="section" id="s9">
     <div class="section-header">
       <div class="section-icon">🛡️</div>
       <div class="section-title">
-        <h2>第十一章：避坑指南 &amp; 常见问题</h2>
+        <h2>第九章：避坑指南 &amp; 常见问题</h2>
         <p>新手最常遇到的问题汇总，让你少走99%弯路</p>
       </div>
     </div>
@@ -1840,40 +2837,6 @@
     </div>
 
     <div class="card">
-      <h3>🎯 快速学习路径建议</h3>
-      <div class="step-list">
-        <div class="step-item">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <h4>第1天：熟悉界面 + 第一张生图</h4>
-            <p>注册账号 → 浏览探索社区 → 用"新手五要素公式"完成第一张图 → 查看并记录提示词</p>
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <h4>第2-3天：图生视频练习</h4>
-            <p>用自己生成的图片做图生视频 → 尝试不同运镜 → 练习首尾帧功能</p>
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <h4>第4-5天：Seedance 2.0 多模态</h4>
-            <p>上传多张素材 → 练习@引用写法 → 尝试动作复刻 → 练习视频延长</p>
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <h4>第6-7天：完整商业案例</h4>
-            <p>选择一个业务场景（电商/短视频）→ 完整走一遍从生图到输出的全流程</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
       <h3>🔗 学习资源推荐</h3>
       <div class="grid-2">
         <div>
@@ -1893,6 +2856,512 @@
             <li>💬 知乎搜索"Seedance 2.0"（实操案例）</li>
             <li>🐙 GitHub: seedance2.0-skills（运镜提示词库）</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 10: 字体生成 ===== -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <div class="section-icon">🔤</div>
+      <div class="section-title">
+        <h2>第十章：AI 字体生成专项指南</h2>
+        <p>即梦AI字体设计 · 风格提示词库 · 商用字体方案 · 避坑技巧</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🎯 为什么选择即梦AI做字体设计？</h3>
+      <p style="color:var(--text-light);margin-bottom:16px;">即梦AI在中文文字渲染方面表现突出，是目前国内最成熟的 AI 字体设计工具之一。以下是其核心优势：</p>
+      <div class="grid-2">
+        <div class="highlight highlight-tip">
+          <strong>✅ 中文文字渲染精准</strong>
+          <p>即梦 3.0/4.0 对中文文字渲染的乱码率极低，文字内容放在提示词前部效果最佳</p>
+        </div>
+        <div class="highlight highlight-tip">
+          <strong>✅ 风格多样性极强</strong>
+          <p>支持国风书法、3D立体、渐变流体、卡通涂鸦、科技感等上百种风格一键生成</p>
+        </div>
+        <div class="highlight highlight-tip">
+          <strong>✅ 商用版权安全</strong>
+          <p>AI生成的字体可作为原创素材使用，避免传统字体版权风险，一张图省去数千元授权费</p>
+        </div>
+        <div class="highlight highlight-tip">
+          <strong>✅ 效率提升 200%+</strong>
+          <p>配合专业提示词模板，1分钟出图，支持批量生成不同风格对比选择</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🎨 字体风格对照表（可直接复制使用）</h3>
+      <p style="color:var(--text-light);margin-bottom:16px;">以下整理了常见字体设计风格及其对应的提示词关键词，适用于即梦AI图片生成模型（推荐 4.0 / 4.5 / 5.0 Lite）：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>风格类型</th><th>核心关键词</th><th>适用场景</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>国风书法</strong></td>
+              <td>水墨书法、毛笔字、古风卷轴、工笔画背景、唐楷字体</td>
+              <td>海报标题、品牌LOGO、文艺类内容</td>
+            </tr>
+            <tr>
+              <td><strong>3D立体</strong></td>
+              <td>3D字体、立体浮雕、光泽金属质感、C4D建模、玻璃材质</td>
+              <td>电商主图、科技产品、动态海报</td>
+            </tr>
+            <tr>
+              <td><strong>渐变流体</strong> <span style="font-size:11px;color:#f44336;margin-left:4px;">⭐推荐</span></td>
+              <td>渐变光晕、流体融合、霓虹色彩、光线散射、梦幻感</td>
+              <td>封面图、社交媒体头像、品牌色系</td>
+            </tr>
+            <tr>
+              <td><strong>卡通涂鸦</strong></td>
+              <td>手绘涂鸦、圆润蓬松字体、马克笔质感、可爱Q版</td>
+              <td>儿童内容、轻松幽默类账号</td>
+            </tr>
+            <tr>
+              <td><strong>科技感</strong></td>
+              <td>赛博朋克、霓虹光效、全息投影、金属拉丝、未来感</td>
+              <td>科技/游戏类内容、AI主题分享</td>
+            </tr>
+            <tr>
+              <td><strong>复古POP</strong></td>
+              <td>POP字体、红黄撞色、夸张变形、手写海报风</td>
+              <td>餐饮促销、活动banner</td>
+            </tr>
+            <tr>
+              <td><strong>极简无衬线</strong></td>
+              <td>极简主义、几何无衬线、大留白、微圆角设计</td>
+              <td>高端品牌、奢侈品、设计师风格</td>
+            </tr>
+            <tr>
+              <td><strong>艺术手写</strong></td>
+              <td>抽象概念书艺、笔触轻盈残缺、超现实视觉、艺术家签名体</td>
+              <td>文艺账号、创意内容、诗歌海报</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🔑 字体生成核心技巧（实测有效）</h3>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>文字内容放在提示词前部</h4>
+            <p>将目标文字（如"好想吃糖"）放在提示词最前面，并用引号包裹，如：<code>"好想吃糖"，</code> 然后再加风格描述。放在后面的文字更容易被AI"吃掉"或变形。</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>背景设为纯色或简单渐变</h4>
+            <p>如果想要纯字体效果，在提示词末尾加上：<code>白色背景</code> 或 <code>纯色渐变背景，无干扰元素</code>，避免AI在背景中混入过多内容。</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>选择正确的模型</h4>
+            <p><strong>文艺手写风格</strong>推荐用图片 3.1（电影感强）；<strong>3D立体/科技感</strong>推荐图片 4.5（质感好）；<strong>设计感排版</strong>推荐图片 5.0 Lite（排版控制精准）。</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>配合参考图使用</h4>
+            <p>上传一张喜欢的字体参考图，选择<strong>风格参考</strong>模式，让AI在此基础上生成新的文字内容，保持风格一致性。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-box" style="margin-top:20px;">
+        <div class="label">💡 字体生成万能公式</div>
+        <p><strong>【目标文字】</strong>（引号包裹，放在最前）+ <strong>【主体风格】</strong>（如圆润蓬松字体 / 立体金属质感）+ <strong>【光效/氛围】</strong>（如柔和渐变 / 霓虹光效）+ <strong>【背景设置】</strong>（如纯白背景 / 光晕散景）+ <strong>【质量参数】</strong>（如 8K 超清 / 电影级质感）</p>
+        <div class="label" style="margin-top:10px;">套用示例</div>
+        <p><strong>"好想吃糖"</strong>，圆润蓬松字体，甜心涂鸦风格，粉色调渐变背景，光线散射效果，8K超清</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📚 字体设计高质量教程资源</h3>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+
+        <div style="background:#fff8f0;border-radius:12px;padding:18px 22px;border-left:4px solid #ffa94d;">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="font-size:22px;flex-shrink:0;">✍️</div>
+            <div>
+              <h4 style="margin:0 0 4px;">即梦AI生成字体，用这套Prompt效率提升200%</h4>
+              <p style="font-size:12px;color:var(--text-light);margin:0 0 8px;">来源：zhangxuan.ai · 2026年 · 实战案例合集</p>
+              <p style="font-size:13px;margin:0 0 10px;">详细介绍如何用"高级文字风格设计提示生成器"配合即梦4.0生成高质量字体效果。提供10+个可直接复制的字体风格提示词模板，含艺术家签名体、电竞风、甜心涂鸦等创意案例。</p>
+              <a href="https://zhuanlan.zhihu.com/p/1896454511524024587" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:#ffa94d;color:#fff;padding:6px 14px;border-radius:6px;font-size:13px;text-decoration:none;font-weight:600;">立即阅读 →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#fff8f0;border-radius:12px;padding:18px 22px;border-left:4px solid #ffa94d;">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="font-size:22px;flex-shrink:0;">🎨</div>
+            <div>
+              <h4 style="margin:0 0 4px;">即梦AI字体设计系统教程（多款造字法）</h4>
+              <p style="font-size:12px;color:var(--text-light);margin:0 0 8px;">来源：哔哩哔哩 · 视频教程 · 2026年3月</p>
+              <p style="font-size:13px;margin:0 0 10px;">B站系统性字体设计教程，涵盖即梦多款造字法，与传统字体设计方法对比，展示如何快速生成商用级字体，告别字体侵权困扰。</p>
+              <a href="https://www.bilibili.com/video/BV1LEXCByEYf/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:#ffa94d;color:#fff;padding:6px 14px;border-radius:6px;font-size:13px;text-decoration:none;font-weight:600;">立即观看 →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#fff8f0;border-radius:12px;padding:18px 22px;border-left:4px solid #ffa94d;">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="font-size:22px;flex-shrink:0;">🔤</div>
+            <div>
+              <h4 style="margin:0 0 4px;">字帅网 — 即梦AI字体提示词大全</h4>
+              <p style="font-size:12px;color:var(--text-light);margin:0 0 8px;">来源：字帅网 zishuai.com · AI字体灵感资源站</p>
+              <p style="font-size:13px;margin:0 0 10px;">收录上万种AI字体提示词，涵盖国风书法、3D立体、渐变流体、手写涂鸦、卡通潮流等数十种风格。提供AI造字工具入口和免费字体下载资源。</p>
+              <a href="https://www.zishuai.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:#ffa94d;color:#fff;padding:6px 14px;border-radius:6px;font-size:13px;text-decoration:none;font-weight:600;">立即访问 →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#fff8f0;border-radius:12px;padding:18px 22px;border-left:4px solid #ffa94d;">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="font-size:22px;flex-shrink:0;">🏛️</div>
+            <div>
+              <h4 style="margin:0 0 4px;">即梦AI字体设计 · WaytoAGI 专题</h4>
+              <p style="font-size:12px;color:var(--text-light);margin:0 0 8px;">来源：WaytoAGI 知识库 · AI字体设计系统教程</p>
+              <p style="font-size:13px;margin:0 0 10px;">WaytoAGI 收录的即梦字体设计系统教程，从基础入门到商业应用全覆盖，含字体侵权解决方案、AI字体提示词公式推导等内容。</p>
+              <a href="https://zhangxuan.ai/columns/ai-business-application/jimeng-ai-font-design/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:#ffa94d;color:#fff;padding:6px 14px;border-radius:6px;font-size:13px;text-decoration:none;font-weight:600;">立即阅读 →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 11: 官方社交账号 ===== -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <div class="section-icon">📣</div>
+      <div class="section-title">
+        <h2>第十一章：官方社交账号</h2>
+        <p>即梦AI官方抖音 · 小红书 · B站 · 微信 · 知乎 · WaytoAGI 知识库</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📱 即梦AI官方账号矩阵</h3>
+      <p style="color:var(--text-light);margin-bottom:20px;">关注官方账号，第一时间获取新功能上线、创作教程、优秀案例分享和平台活动信息。以下为已验证的官方账号：</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;">
+
+        <div class="account-card">
+          <div class="account-icon" style="background:#1a1a2e;">🎵</div>
+          <div class="account-info">
+            <h4>
+              <span class="official-badge">官方</span>
+              即梦AI · 抖音
+            </h4>
+            <p>官方教程视频、活动信息、新功能首发阵地。定期发布保姆级教程和创意灵感内容。</p>
+            <a href="https://www.douyin.com/user/MS4wLjABAAAATAf2FKPSpZx_TdDWzwzNlznaEE6HttAqJgrnRPGdW24adAIlxfGeasDraUIR5JRp" target="_blank" rel="noopener noreferrer" class="account-link account-douyin">👆 关注抖音账号</a>
+          </div>
+        </div>
+
+        <div class="account-card">
+          <div class="account-icon" style="background:#ff2442;">📕</div>
+          <div class="account-info">
+            <h4>
+              <span class="official-badge">官方</span>
+              即梦AI · 小红书
+            </h4>
+            <p>微信搜索栏输入"即梦AI"，关注官方公众号，获取最新资讯和灵感推送。也可在小红书搜索"即梦AI"关注。</p>
+            <a href="https://www.xiaohongshu.com/explore" target="_blank" rel="noopener noreferrer" class="account-link account-xiaohongshu">👆 打开小红书</a>
+          </div>
+        </div>
+
+        <div class="account-card">
+          <div class="account-icon" style="background:#00a1d6;">📺</div>
+          <div class="account-info">
+            <h4>
+              <span class="official-badge">官方</span>
+              即梦AI · 哔哩哔哩
+            </h4>
+            <p>即梦AI官方B站空间，提供系列化视频教程（68集+保姆级教程），适合系统性学习。</p>
+            <a href="https://space.bilibili.com/3546611372264291" target="_blank" rel="noopener noreferrer" class="account-link account-bilibili">👆 关注B站账号</a>
+          </div>
+        </div>
+
+        <div class="account-card">
+          <div class="account-icon" style="background:#07c160;">💬</div>
+          <div class="account-info">
+            <h4>
+              <span class="official-badge">官方</span>
+              即梦AI · 微信公众号
+            </h4>
+            <p>微信搜索"即梦AI"或"剪映"官方公众号，关注后获取推送资讯和官方活动通知。</p>
+            <a href="https://jimeng.jianying.com/ai-tool/home/" target="_blank" rel="noopener noreferrer" class="account-link account-weixin">👆 访问官网了解更多</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📖 权威知识库推荐</h3>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+
+        <div style="background:linear-gradient(135deg,#f0f4ff,#e8e4ff);border-radius:14px;padding:20px 22px;border:1.5px solid rgba(91,75,219,0.2);">
+          <div style="display:flex;align-items:flex-start;gap:14px;">
+            <div style="font-size:28px;flex-shrink:0;">🌐</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap;">
+                <h4 style="margin:0;font-size:16px;color:var(--dark);font-weight:700;">WaytoAGI 知识库 — 即梦AI专题</h4>
+                <span style="background:var(--primary);color:#fff;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;">推荐</span>
+              </div>
+              <p style="font-size:13px;color:var(--text-light);margin:0 0 12px;line-height:1.6;">WaytoAGI（通往AGI之路）是国内最大最全的 AI 知识库和工具站，基于飞书文档架构，收录近 900 万学习者。即梦AI专题整合了平台介绍、功能教程、提示词指南、商业应用案例等系统内容。</p>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <a href="https://www.waytoagi.com/zh" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:var(--primary);color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;text-decoration:none;font-weight:600;box-shadow:0 3px 12px rgba(91,75,219,0.3);">🌐 访问 WaytoAGI →</a>
+                <a href="https://waytoagi.feishu.cn/wiki/AxZuwUQmEipTUEkonVScdWxKnWd" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:rgba(91,75,219,0.1);color:var(--primary);padding:8px 16px;border-radius:8px;font-size:13px;text-decoration:none;font-weight:600;border:1px solid rgba(91,75,219,0.2);">📄 即梦专题页 →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#f8f6ff;border-radius:12px;padding:18px 22px;border-left:4px solid var(--primary);">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="font-size:22px;flex-shrink:0;">💬</div>
+            <div>
+              <h4 style="margin:0 0 4px;">即梦AI · 知乎专栏</h4>
+              <p style="font-size:12px;color:var(--text-light);margin:0 0 8px;">来源：知乎 · 即梦官方及资深创作者发布</p>
+              <p style="font-size:13px;margin:0 0 10px;">知乎上聚集了大量即梦AI的深度使用教程、实操案例和商业应用分析。关注"即梦AI"官方机构号，或搜索"即梦AI教程"可找到大量优质内容。</p>
+              <a href="https://www.zhihu.com/topic/28419997" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:#0066ff;color:#fff;padding:6px 14px;border-radius:6px;font-size:13px;text-decoration:none;font-weight:600;">🔍 知乎搜索即梦AI →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="highlight highlight-tip">
+      <strong>💡 如何选择适合自己的学习渠道？</strong>
+      <p>
+        <strong>喜欢视频学习</strong> → 关注 B站 即梦AI官方账号（系列教程最完整）<br>
+        <strong>日常碎片化学习</strong> → 刷抖音/小红书官方账号（轻量案例多）<br>
+        <strong>需要系统深入</strong> → 访问 WaytoAGI 知识库（结构化内容）<br>
+        <strong>遇到具体问题</strong> → 知乎搜索或微信咨询官方公众号
+      </p>
+    </div>
+  </div>
+
+  <!-- 附录：精选提示词学习资源 -->
+  <div class="section" id="s-links">
+    <div class="section-header">
+      <div class="section-icon">🔗</div>
+      <div class="section-title">
+        <h2>精选提示词学习资源</h2>
+        <p>官方指南 · 权威博主实测 · 可直接点击跳转阅读</p>
+      </div>
+    </div>
+
+    <!-- 视频提示词专区 -->
+    <div class="card">
+      <h3>🎬 视频提示词（Seedance 2.0）— 高质量教程</h3>
+      <p style="color:var(--text-light);font-size:13px;margin-bottom:16px;">以下资源均经过内容验证，提供系统性的视频提示词写作框架、运镜词汇和可复用模板：</p>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+
+        <div style="background:#f8f6ff;border-radius:10px;padding:16px;border-left:4px solid var(--primary);">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="font-size:22px;flex-shrink:0;">📘</div>
+            <div>
+              <h4 style="margin:0 0 4px;">即梦 AI 视频生成 | 教你如何写好 Prompt</h4>
+              <p style="font-size:13px;color:var(--text-light);margin:0 0 6px;">来源：WaytoAGI 飞书文档 · 权威AI知识库出品</p>
+              <p style="font-size:13px;margin:0 0 8px;">涵盖提示词结构（主体+动作+风格）、正反例对比、运镜词汇和避坑清单。内容系统严谨，适合从零搭建提示词体系。</p>
+              <a href="https://waytoagi.feishu.cn/wiki/LUgPw7E0mi5HqZkdqSMcf73Knph" target="_blank" rel="noopener" style="display:inline-block;background:var(--primary);color:#fff;padding:5px 14px;border-radius:6px;font-size:13px;text-decoration:none;">立即阅读 →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#f8f6ff;border-radius:10px;padding:16px;border-left:4px solid var(--primary);">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="font-size:22px;flex-shrink:0;">🎯</div>
+            <div>
+              <h4 style="margin:0 0 4px;">80+ 提示词 | Seedance 2.0 提示词完全指南：从新手到 AI 导演</h4>
+              <p style="font-size:13px;color:var(--text-light);margin:0 0 6px;">来源：ZeekLog · 2026年3月最新实测版</p>
+              <p style="font-size:13px;margin:0 0 8px;">整合官方手册 + 社区高赞实测，提供<strong>五要素导演法模板</strong>（主体→动作→镜头→场景→风格），含 80+ 可直接复制的提示词，还有负面提示词标准列表。</p>
+              <a href="https://zeeklog.com/80-ti-shi-ci-zhen-han-fa-bu-seedance-2-0-ti-shi-ci-wan-quan-zhi-nan-cong-xin-shou-dao-aidao-yan-18/" target="_blank" rel="noopener" style="display:inline-block;background:var(--primary);color:#fff;padding:5px 14px;border-radius:6px;font-size:13px;text-decoration:none;">立即阅读 →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#f8f6ff;border-radius:10px;padding:16px;border-left:4px solid var(--primary);">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="font-size:22px;flex-shrink:0;">🏆</div>
+            <div>
+              <h4 style="margin:0 0 4px;">即梦 Seedance 2.0 提示词完整攻略（知乎专栏）</h4>
+              <p style="font-size:13px;color:var(--text-light);margin:0 0 6px;">来源：知乎专栏 · 2026年3月</p>
+              <p style="font-size:13px;margin:0 0 8px;">核心规则：<strong>首帧锁型、动作逻辑、镜头唯一原则</strong>，@引用语法详解（图片/视频/音频混合输入），实测有效的人物稳定性写法，进阶玩家必看。</p>
+              <a href="https://zhuanlan.zhihu.com/p/2017950956378141300" target="_blank" rel="noopener" style="display:inline-block;background:var(--primary);color:#fff;padding:5px 14px;border-radius:6px;font-size:13px;text-decoration:none;">立即阅读 →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#f8f6ff;border-radius:10px;padding:16px;border-left:4px solid var(--primary);">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="font-size:22px;flex-shrink:0;">⚙️</div>
+            <div>
+              <h4 style="margin:0 0 4px;">即梦 Seedance 2.0 使用方法 + 提示词分享（ChooseAI）</h4>
+              <p style="font-size:13px;color:var(--text-light);margin:0 0 6px;">来源：ChooseAI 工具导航 · 2026年3月25日</p>
+              <p style="font-size:13px;margin:0 0 8px;">万能公式七要素：<strong>主体→动作情绪→场景时空→光影氛围→镜头运动→视觉风格→技术参数</strong>。含动作描述升级对比（普通 vs 导演级），景别词汇表，角色稳定性约束写法。</p>
+              <a href="https://www.chooseai.net/news/3051/" target="_blank" rel="noopener" style="display:inline-block;background:var(--primary);color:#fff;padding:5px 14px;border-radius:6px;font-size:13px;text-decoration:none;">立即阅读 →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#f8f6ff;border-radius:10px;padding:16px;border-left:4px solid var(--primary);">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="font-size:22px;flex-shrink:0;">📖</div>
+            <div>
+              <h4 style="margin:0 0 4px;">即梦 Seedance 2.0 官方使用手册（知乎专栏）</h4>
+              <p style="font-size:13px;color:var(--text-light);margin:0 0 6px;">来源：知乎专栏 · 2026年2月26日</p>
+              <p style="font-size:13px;margin:0 0 8px;">即梦官方同步发布的完整功能解析，覆盖全能参考模式、@引用系统、多模态输入规则，是权威一手资料，遇到参数问题优先查阅。</p>
+              <a href="https://zhuanlan.zhihu.com/p/2010382512745116069" target="_blank" rel="noopener" style="display:inline-block;background:var(--primary);color:#fff;padding:5px 14px;border-radius:6px;font-size:13px;text-decoration:none;">立即阅读 →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#f8f6ff;border-radius:10px;padding:16px;border-left:4px solid var(--primary);">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="font-size:22px;flex-shrink:0;">📺</div>
+            <div>
+              <h4 style="margin:0 0 4px;">【即梦 Seedance 2.0 教程】B 站最新最全 42 集保姆级教程</h4>
+              <p style="font-size:13px;color:var(--text-light);margin:0 0 6px;">来源：哔哩哔哩 · 视频教程</p>
+              <p style="font-size:13px;margin:0 0 8px;">共 42 集系统课程，从 P2 提示词书写技巧到 P3 风格基础，覆盖 AI 绘画、图生视频、完整流程。适合喜欢视频学习的用户，可按需选看。</p>
+              <a href="https://www.bilibili.com/video/BV1LQDLBhEn2/" target="_blank" rel="noopener" style="display:inline-block;background:var(--primary);color:#fff;padding:5px 14px;border-radius:6px;font-size:13px;text-decoration:none;">立即观看 →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 图片提示词专区 -->
+    <div class="card">
+      <h3>🖼️ 图片提示词（Seedream 5.0 Lite）— 精选教程</h3>
+      <p style="color:var(--text-light);font-size:13px;margin-bottom:16px;">以下资源专注于即梦图片生成的提示词写法，含公式框架、分类词汇表和实战案例：</p>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+
+        <div style="background:#f0fdf4;border-radius:10px;padding:16px;border-left:4px solid #2d9a4e;">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="font-size:22px;flex-shrink:0;">🌟</div>
+            <div>
+              <h4 style="margin:0 0 4px;">即梦 AI 文生图万能提示词公式与类目关键词（知乎）</h4>
+              <p style="font-size:13px;color:var(--text-light);margin:0 0 6px;">来源：知乎专栏 · 2025年2月</p>
+              <p style="font-size:13px;margin:0 0 8px;">系统整理<strong>万能公式：主体+环境背景+风格+情感</strong>，进阶公式升级，以及大量分类关键词对照表（主体/场景/风格/情绪/光线/构图），是图片生成必备速查手册。</p>
+              <a href="https://zhuanlan.zhihu.com/p/24658867412" target="_blank" rel="noopener" style="display:inline-block;background:#2d9a4e;color:#fff;padding:5px 14px;border-radius:6px;font-size:13px;text-decoration:none;">立即阅读 →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#f0fdf4;border-radius:10px;padding:16px;border-left:4px solid #2d9a4e;">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="font-size:22px;flex-shrink:0;">📚</div>
+            <div>
+              <h4 style="margin:0 0 4px;">即梦 AI 提示词手册：图片生成 4.0 创作指南与实战攻略</h4>
+              <p style="font-size:13px;color:var(--text-light);margin:0 0 6px;">来源：17Golang 学习网 · 2025年10月</p>
+              <p style="font-size:13px;margin:0 0 8px;">覆盖提示词基础逻辑、结构公式（主体+细节+风格+质量）、文生图/图像编辑/组图生成分场景示例，还有权重控制、负面提示词用法等进阶技巧。</p>
+              <a href="https://www.17golang.com/ai/13089.html" target="_blank" rel="noopener" style="display:inline-block;background:#2d9a4e;color:#fff;padding:5px 14px;border-radius:6px;font-size:13px;text-decoration:none;">立即阅读 →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#f0fdf4;border-radius:10px;padding:16px;border-left:4px solid #2d9a4e;">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="font-size:22px;flex-shrink:0;">💯</div>
+            <div>
+              <h4 style="margin:0 0 4px;">即梦 4.0 提示词全攻略：100 条提示词带你玩转创作（知乎）</h4>
+              <p style="font-size:13px;color:var(--text-light);margin:0 0 6px;">来源：知乎专栏 · 2025年9月</p>
+              <p style="font-size:13px;margin:0 0 8px;">100 条实战提示词，按<strong>海报设计、人像摄影、商业图、动漫插画、风景</strong>等场景分类，可直接套用改写，是最全面的可复用提示词资料库之一。</p>
+              <a href="https://zhuanlan.zhihu.com/p/1952769077547341542" target="_blank" rel="noopener" style="display:inline-block;background:#2d9a4e;color:#fff;padding:5px 14px;border-radius:6px;font-size:13px;text-decoration:none;">立即阅读 →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#f0fdf4;border-radius:10px;padding:16px;border-left:4px solid #2d9a4e;">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="font-size:22px;flex-shrink:0;">🔬</div>
+            <div>
+              <h4 style="margin:0 0 4px;">即梦 4.0 测评 | 20+ 提示词实测效果展示（Mew Design）</h4>
+              <p style="font-size:13px;color:var(--text-light);margin:0 0 6px;">来源：docs.mew.design · 2025年12月</p>
+              <p style="font-size:13px;margin:0 0 8px;">对 Seedream 4.0 的深度测评，含 20+ 提示词实际生成结果图，验证了<strong>角色一致性、自然语言编辑、多图组合</strong>等核心功能的真实表现，适合调研和选型参考。</p>
+              <a href="https://docs.mew.design/zh/blog/seedream-40-review/" target="_blank" rel="noopener" style="display:inline-block;background:#2d9a4e;color:#fff;padding:5px 14px;border-radius:6px;font-size:13px;text-decoration:none;">立即阅读 →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#f0fdf4;border-radius:10px;padding:16px;border-left:4px solid #2d9a4e;">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="font-size:22px;flex-shrink:0;">📺</div>
+            <div>
+              <h4 style="margin:0 0 4px;">【即梦 5.0 教程】B 站最新最全保姆级教程（39 集）</h4>
+              <p style="font-size:13px;color:var(--text-light);margin:0 0 6px;">来源：哔哩哔哩 · 视频教程 · 2026年3月</p>
+              <p style="font-size:13px;margin:0 0 8px;">39 集系统课程，以"七天从小白变大神"为路径，从平台概览、<strong>提示词工程、AI 绘画到图生视频全流程</strong>，是目前 B 站最新最全的即梦学习资源。</p>
+              <a href="https://www.bilibili.com/video/BV1J4XkBJEcW/" target="_blank" rel="noopener" style="display:inline-block;background:#2d9a4e;color:#fff;padding:5px 14px;border-radius:6px;font-size:13px;text-decoration:none;">立即观看 →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 快速提示词公式汇总 -->
+    <div class="card">
+      <h3>⚡ 快速提示词公式汇总（可直接使用）</h3>
+      <p style="color:var(--text-light);font-size:13px;margin-bottom:16px;">综合以上资源整理的核心公式，收藏备用：</p>
+      <div class="grid-2">
+        <div>
+          <h4>🖼️ 图片生成万能公式</h4>
+          <div class="prompt-box">
+            <div class="label">基础公式</div>
+            <p>【主体描述】+【环境/背景】+【艺术风格】+【光线/氛围】+【情感/情绪】+【画质要求】</p>
+          </div>
+          <div class="prompt-box" style="margin-top:8px;">
+            <div class="label">示例套用</div>
+            <p>亚洲女性，25岁，站在东京夜晚街道（主体+场景），赛博朋克风格（风格），霓虹灯逆光（光线），孤独都市感（情绪），8K写实摄影（画质）</p>
+          </div>
+        </div>
+        <div>
+          <h4>🎬 视频生成万能公式（Seedance 2.0）</h4>
+          <div class="prompt-box">
+            <div class="label">导演级七要素公式</div>
+            <p>【主体详细描述】，【核心动作与情绪】，【场景时空背景】，【光影氛围】，【镜头运动方式】，【视觉风格参考】，【技术参数/约束条件】</p>
+          </div>
+          <div class="prompt-box" style="margin-top:8px;">
+            <div class="label">示例套用</div>
+            <p>白色长裙女孩（主体），赤足漫步海滩驻足回眸（动作），日落时分金色海岸（场景），暖金逆光剪影（光影），镜头从脚踝慢推至全身（运镜），日系治愈风（风格），面部特征稳定锁定（约束）</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <h4>📋 高频风格关键词速查</h4>
+        <div class="grid-2">
+          <div>
+            <p style="font-size:13px;font-weight:600;margin-bottom:6px;">图片风格词（可直接加入提示词）</p>
+            <div>
+              <span class="tag tag-purple">吉卜力插画</span><span class="tag tag-purple">赛博朋克</span><span class="tag tag-purple">水墨国风</span><span class="tag tag-purple">极简主义</span><span class="tag tag-blue">日系胶片</span><span class="tag tag-blue">暗黑哥特</span><span class="tag tag-blue">波普艺术</span><span class="tag tag-green">超写实摄影</span><span class="tag tag-green">商业产品摄影</span><span class="tag tag-orange">复古蒸汽波</span><span class="tag tag-orange">洛可可古典</span><span class="tag tag-red">超现实主义</span>
+            </div>
+          </div>
+          <div>
+            <p style="font-size:13px;font-weight:600;margin-bottom:6px;">视频运镜词（中文写入提示词可直接生效）</p>
+            <div>
+              <span class="tag tag-blue">缓慢推近</span><span class="tag tag-blue">镜头拉远</span><span class="tag tag-blue">向右横移</span><span class="tag tag-blue">环绕半圈</span><span class="tag tag-blue">俯拍航拍</span><span class="tag tag-blue">低角度仰拍</span><span class="tag tag-blue">上摇至面部</span><span class="tag tag-blue">跟拍背影</span><span class="tag tag-green">固定镜头</span><span class="tag tag-green">手持晃动</span><span class="tag tag-orange">慢动作特写</span><span class="tag tag-orange">快速切换</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1945,7 +3414,7 @@
 
 <!-- ===== FOOTER ===== -->
 <div class="footer">
-  <p>即梦AI员工培训操作手册 · 基于 Seedream 4.0 &amp; Seedance 2.0 · 整理于 2026年4月</p>
+  <p>即梦AI员工培训操作手册 · 基于 Seedream 5.0 Lite &amp; Seedance 2.0 · 整理于 2026年4月</p>
   <p style="margin-top:6px">本手册综合整理自即梦官方文档、WaytoAGI知识库、AI工具集等权威资料，仅供内部培训使用</p>
 </div>
 
