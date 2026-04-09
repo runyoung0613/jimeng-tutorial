@@ -27,6 +27,11 @@
       color: var(--text);
       line-height: 1.8;
     }
+    /* 轻量全局优化：观感更“松弛”但不稀疏 */
+    a { text-underline-offset: 3px; }
+    .section-header { scroll-margin-top: 84px; }
+    .card { transition: box-shadow .2s ease, transform .2s ease; }
+    .card:has(.step-carousel):hover { box-shadow: 0 8px 28px rgba(91,75,219,0.12); }
 
     /* ===== SCROLLBAR ===== */
     html {
@@ -57,6 +62,253 @@
     }
     *::-webkit-scrollbar-corner {
       background: transparent;
+    }
+
+    /* ===== 横向滑动步骤展示器 ===== */
+    .step-carousel {
+      position: relative;
+      margin: 24px 0;
+    }
+    /* 轻微两侧渐隐，提示可横向滑动 */
+    .step-carousel::before,
+    .step-carousel::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 52px;
+      width: 32px;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity .25s ease;
+    }
+    .step-carousel::before {
+      left: 0;
+      background: linear-gradient(90deg, rgba(248, 247, 255, 1), rgba(248, 247, 255, 0));
+    }
+    .step-carousel::after {
+      right: 0;
+      background: linear-gradient(270deg, rgba(248, 247, 255, 1), rgba(248, 247, 255, 0));
+    }
+    .step-carousel[data-can-scroll="true"]::before,
+    .step-carousel[data-can-scroll="true"]::after {
+      opacity: 1;
+    }
+    .step-carousel__track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 8px 4px 16px;
+      margin: 0 -4px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .step-carousel__track:focus-visible {
+      outline: 3px solid rgba(91, 75, 219, 0.25);
+      outline-offset: 6px;
+      border-radius: 16px;
+    }
+    .step-carousel__track::-webkit-scrollbar {
+      display: none;
+    }
+    .step-card {
+      flex: 0 0 280px;
+      scroll-snap-align: start;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(91, 75, 219, 0.15);
+      border-color: var(--primary);
+    }
+    .step-card__num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--primary), #7c6fff);
+      color: #fff;
+      font-weight: 800;
+      font-size: 15px;
+      border-radius: 50%;
+      margin: 16px 0 0 16px;
+      box-shadow: 0 4px 12px rgba(91, 75, 219, 0.3);
+    }
+    .step-card__img {
+      background: #1a1a2e;
+      border-radius: 12px;
+      margin: 12px 14px;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+    }
+    .step-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .step-card:hover .step-card__img img {
+      transform: scale(1.05);
+    }
+    .step-card__body {
+      padding: 14px 16px 18px;
+    }
+    .step-card__title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .step-card__desc {
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+    .step-card__tip {
+      margin-top: 10px;
+      padding: 8px 10px;
+      background: var(--primary-light);
+      border-radius: 8px;
+      font-size: 11px;
+      color: var(--primary);
+      font-weight: 500;
+    }
+    /* 步骤连接线 */
+    .step-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      flex-shrink: 0;
+      color: var(--border);
+      font-size: 18px;
+    }
+    /* 轮播导航按钮 */
+    .carousel-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 12px;
+    }
+    /* 胶囊式导航条：更“组件化”，更像成品 UI */
+    .carousel-nav {
+      width: fit-content;
+      margin: 14px auto 0;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(224, 220, 245, 0.95);
+      box-shadow: 0 10px 28px rgba(91, 75, 219, 0.10);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .carousel-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(91, 75, 219, 0.35);
+      background: linear-gradient(135deg, #ffffff, #f7f6ff);
+      color: var(--primary);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+    }
+    .carousel-btn:hover {
+      background: linear-gradient(135deg, var(--primary), #7c6fff);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(91, 75, 219, 0.22);
+    }
+    .carousel-btn:active {
+      transform: translateY(0px);
+      box-shadow: none;
+    }
+    .carousel-btn:focus-visible {
+      outline: 3px solid rgba(91, 75, 219, 0.28);
+      outline-offset: 3px;
+    }
+    .carousel-btn:disabled {
+      opacity: 0.40;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    /* 进度指示器 */
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(224, 220, 245, 0.95);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .carousel-dot:hover { transform: scale(1.15); }
+    .carousel-dot.active {
+      background: linear-gradient(135deg, var(--primary), #7c6fff);
+      width: 28px;
+      border-radius: 6px;
+    }
+
+    /* 让轮播卡片在小屏更友好 */
+    @media (max-width: 640px) {
+      .step-card { flex-basis: 250px; }
+      .carousel-btn { width: 40px; height: 40px; }
+    }
+    /* 横向流程概览 */
+    .flow-overview {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, var(--primary-light), #f0eeff);
+      border-radius: 14px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+    }
+    .flow-step {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--primary);
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .flow-step__num {
+      width: 22px;
+      height: 22px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .flow-arrow {
+      color: var(--primary);
+      opacity: 0.5;
+      font-size: 16px;
+      flex-shrink: 0;
     }
 
     /* ===== OFFICIAL DOC CARD ===== */
@@ -101,6 +353,49 @@
       color: var(--text-light);
       margin: 0 0 14px;
       line-height: 1.6;
+    }
+    /* ===== DOC HIGHLIGHT (must-read) ===== */
+    .official-doc-card .doc-highlight {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 12px 14px;
+      margin: 10px 0 14px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(255, 107, 107, 0.12), rgba(91, 75, 219, 0.10));
+      border: 1.5px solid rgba(255, 107, 107, 0.35);
+      color: #2b2b4a;
+      box-shadow: 0 6px 18px rgba(255, 107, 107, 0.10);
+      position: relative;
+    }
+    .official-doc-card .doc-highlight::before {
+      content: '必读';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 18px;
+      padding: 0 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #ff8a8a);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      box-shadow: 0 6px 16px rgba(255, 107, 107, 0.35);
+    }
+    .official-doc-card .doc-highlight strong {
+      color: #1f1f3a;
+      font-weight: 800;
+    }
+    .official-doc-card .doc-highlight code {
+      background: rgba(91, 75, 219, 0.10);
+      color: var(--primary);
+      padding: 1px 6px;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
     }
     .official-doc-card .doc-link {
       display: inline-flex;
@@ -435,6 +730,37 @@
     .step-content h4 { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
     .step-content p, .step-content li { font-size: 14px; color: var(--text); }
 
+    /* 紧凑步骤卡片（如注册与登录）：与全局 step-list 一致，仅收紧间距 */
+    .card.card--compact {
+      padding: 20px 24px;
+    }
+    .card.card--compact > h3 {
+      margin-bottom: 10px;
+    }
+    .step-list.step-list--compact .step-item {
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .step-list.step-list--compact .step-item:last-child {
+      margin-bottom: 0;
+    }
+    .step-list.step-list--compact .step-num {
+      width: 28px;
+      height: 28px;
+      font-size: 13px;
+      margin-top: 0;
+    }
+    .step-list.step-list--compact .step-content h4 {
+      font-size: 14px;
+      margin-bottom: 2px;
+      line-height: 1.35;
+    }
+    .step-list.step-list--compact .step-content p {
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
     /* ===== HIGHLIGHT BOX ===== */
     .highlight {
       border-radius: 12px;
@@ -635,7 +961,7 @@
   <div class="toc" id="s0">
     <h2>📚 手册目录</h2>
     <div class="toc-list">
-      <a href="#s1" class="toc-item"><span class="toc-num">1</span>即梦AI 平台简介与核心优势</a>
+      <a href="#s1" class="toc-item"><span class="toc-num">1</span>即梦AI平台简介与核心优势</a>
       <a href="#s2" class="toc-item"><span class="toc-num">2</span>快速上手：注册 &amp; 界面导航</a>
       <a href="#s3" class="toc-item"><span class="toc-num">3</span>AI 生图功能全解（含官方文档入口）</a>
       <a href="#s4" class="toc-item"><span class="toc-num">4</span>AI 视频生成基础（图生视频 / 文生视频）</a>
@@ -655,15 +981,14 @@
     <div class="section-header">
       <div class="section-icon">🌟</div>
       <div class="section-title">
-        <h2>第一章：即梦AI 平台简介</h2>
+        <h2>第一章：即梦AI平台简介</h2>
         <p>了解这款工具是什么、能做什么，以及与同类产品的差异</p>
       </div>
     </div>
 
     <div class="card">
       <h3>🏢 什么是即梦AI？</h3>
-      <p>即梦AI（英文名 <strong>Dreamina</strong>）是<strong>字节跳动旗下剪映团队</strong>开发的一站式生成式AI创作平台，官网地址为 <a href="https://jimeng.jianying.com/ai-tool/home" target="_blank" rel="noopener noreferrer"><code>jimeng.jianying.com</code></a>（国内版）。</p>
-      <p>它以"<strong>想象力世界的相机</strong>"为定位，将 AI 绘画、AI 视频生成、智能画布、故事创作等能力集成在一个平台，是目前国内功能最全面、中文体验最好的 AIGC 创作工具之一。</p>
+      <p>即梦AI（英文名 <strong>Dreamina</strong>）是<strong>字节跳动旗下剪映团队</strong>开发的一站式生成式AI创作平台，官网地址为 <a href="https://jimeng.jianying.com/ai-tool/home" target="_blank" rel="noopener noreferrer"><code>jimeng.jianying.com</code></a>（国内版）。它以"<strong>想象力世界的相机</strong>"为定位，将 AI 绘画、AI 视频生成、智能画布、故事创作等能力集成在一个平台，是目前国内功能最全面、中文体验最好的 AIGC 创作工具之一。</p>
       <div class="highlight highlight-tip">
         <strong>💡 核心定位</strong>
         <p>即梦AI = AI绘画平台 + AI视频工厂 + 智能画布 + 内容社区，形成从创意到发布的完整闭环</p>
@@ -738,35 +1063,35 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card card--compact">
       <h3>📋 注册与登录</h3>
-      <div class="step-list">
+      <div class="step-list step-list--compact">
         <div class="step-item">
           <div class="step-num">1</div>
           <div class="step-content">
             <h4>访问官网</h4>
-            <p>打开浏览器访问 <strong><a href="https://jimeng.jianying.com/ai-tool/home" target="_blank" rel="noopener noreferrer"><code>jimeng.jianying.com</code></a></strong>，或在手机端应用商店下载即梦App（iOS / Android均可）。</p>
+            <p>浏览器打开 <strong><a href="https://jimeng.jianying.com/ai-tool/home" target="_blank" rel="noopener noreferrer"><code>jimeng.jianying.com</code></a></strong>；或应用商店安装即梦 App（iOS / Android）。</p>
           </div>
         </div>
         <div class="step-item">
           <div class="step-num">2</div>
           <div class="step-content">
             <h4>账号注册</h4>
-            <p>支持<strong>手机号注册</strong>或使用<strong>抖音账号快速登录</strong>。推荐使用抖音账号，可享受双端数据互通。</p>
+            <p><strong>手机号</strong>注册，或 <strong>抖音账号</strong>一键登录（推荐，网页与 App 数据互通）。</p>
           </div>
         </div>
         <div class="step-item">
           <div class="step-num">3</div>
           <div class="step-content">
-            <h4>领取每日免费积分</h4>
-            <p><strong>每日登录即可获得免费积分</strong>，<strong style="color: red;">每日积分数在60-100之间不等（当日24:00失效）</strong>，新用户额外赠送体验积分。</p>
+            <h4>每日免费积分</h4>
+            <p>每日登录领取免费积分（约 <strong>60–100</strong>，<strong style="color:var(--accent);">当日 24:00 失效</strong>）；新用户另有体验积分。</p>
           </div>
         </div>
         <div class="step-item">
           <div class="step-num">4</div>
           <div class="step-content">
-            <h4>探索首页社区</h4>
-            <p>左侧选择<strong>"灵感"</strong>页，下滑发现、短片、活动、<strong>搜索</strong>，点击相关图片可进行生图提示词查询。</p>
+            <h4>探索灵感社区</h4>
+            <p>左侧进入 <strong>「灵感」</strong>：浏览发现、短片、活动，可用 <strong>搜索</strong>；点开作品可查看 / 复用生图提示词。</p>
           </div>
         </div>
       </div>
@@ -788,7 +1113,7 @@
           </div>
           <h4 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:8px;">🏠 首页 · 灵感社区</h4>
           <p style="font-size:13px;color:var(--text-light);line-height:1.6;">进入平台后的默认页面，展示平台推荐的热门AI作品。点击任意作品可「做同款」快速复用提示词，是寻找创作灵感的最佳入口。</p>
-          <div style="margin-top:8px;"><span class="tag tag-green">灵感发现</span><span class="tag tag-blue">热门推荐</span><span class="tag tag-purple">做同款</span></div>
+          <div style="margin-top:8px;"><span class="tag tag-green">灵感发现</span><span class="tag tag-blue">活动推广</span><span class="tag tag-purple">做同款</span></div>
         </div>
 
         <!-- 2. 图片生成 -->
@@ -797,8 +1122,8 @@
             <img class="zoomable" src="image/2generate.png" alt="图片生成页面" style="width:100%;display:block;border-radius:8px;" tabindex="0">
           </div>
           <h4 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:8px;">🎨 创意生成</h4>
-          <p style="font-size:13px;color:var(--text-light);line-height:1.6;">核心创作入口，支持文生图和参考图生图。左侧选择模型（通用2.0/图片4.0），中央输入提示词，右侧设置比例/分辨率，点击「立即生成」即可产出图像。</p>
-          <div style="margin-top:8px;"><span class="tag tag-green">文生图</span><span class="tag tag-blue">参考图生图</span><span class="tag tag-orange">4K分辨率</span></div>
+          <p style="font-size:13px;color:var(--text-light);line-height:1.6;">核心创作入口，支持图片、视频、数字人等多种生成方式，中央输入提示词，底部设置比例/分辨率，点击「发送按钮」即可生成。</p>
+          <div style="margin-top:8px;"><span class="tag tag-green">agent模式</span><span class="tag tag-blue">视频生成</span><span class="tag tag-orange">数字人</span></div>
         </div>
 
         <!-- 3. 资产/作品库 -->
@@ -807,7 +1132,7 @@
             <img class="zoomable" src="image/3asset.png" alt="我的作品/资产库" style="width:100%;display:block;border-radius:8px;" tabindex="0">
           </div>
           <h4 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:8px;">📁 我的作品（资产库）</h4>
-          <p style="font-size:13px;color:var(--text-light);line-height:1.6;">统一管理所有历史创作记录，支持按「图片」/「视频」分类查看，也可搜索历史作品。重要作品可收藏或下载，方便后续复用和整理。</p>
+          <p style="font-size:13px;color:var(--text-light);line-height:1.6;">统一管理所有历史创作记录，支持按「图片」/「视频」等分类进行筛选，也可搜索历史作品。重要作品可收藏或下载，方便后续复用和整理。支持素材一键导入剪映。</p>
           <div style="margin-top:8px;"><span class="tag tag-green">历史记录</span><span class="tag tag-blue">分类筛选</span><span class="tag tag-purple">批量管理</span></div>
         </div>
 
@@ -837,15 +1162,15 @@
     <div class="section-header">
       <div class="section-icon">🎨</div>
       <div class="section-title">
-        <h2>第三章：AI 生图功能全解</h2>
-        <p>图片生成界面 · 7大模型对比 · 尺寸选择 · 文字设置 · 主体创建</p>
+        <h2>第三章：AI 生图功能-Seedream</h2>
+        <p>图片生成界面 · 7大模型对比 · 尺寸选择 · 文字引用 · 主体创建</p>
       </div>
     </div>
 
     <!-- 3.1 图片生成界面全览 -->
     <div class="card">
       <h3>🎯 图片生成界面全览</h3>
-      <p style="color:var(--text-light);margin-bottom:16px;">即梦AI图片生成页面分为四大功能模块：<strong>模型选择</strong>、<strong>尺寸设置</strong>、<strong>文字设置</strong>、<strong>主体/物体参考</strong>。各模块协同工作，以下为完整界面截图：</p>
+      <p style="color:var(--text-light);margin-bottom:16px;">即梦AI图片生成页面分为四大功能模块：<strong>模型选择</strong>、<strong>尺寸设置</strong>、<strong>文字引用</strong>、<strong>主体/物体参考</strong>。各模块协同工作，以下为完整界面截图：</p>
       <div style="background:#1a1a2e;border-radius:12px;overflow:hidden;margin-bottom:16px;">
         <img class="zoomable" src="image/img-generate-overview.png" alt="图片生成界面全览" style="width:100%;display:block;" tabindex="0">
       </div>
@@ -859,7 +1184,7 @@
           <p style="margin:4px 0 0;font-size:12px;">选择画面比例与分辨率</p>
         </div>
         <div class="highlight highlight-tip" style="margin:0;text-align:center;">
-          <strong style="font-size:13px;">✏️ 文字设置</strong>
+          <strong style="font-size:13px;">✏️ 文字引用</strong>
           <p style="margin:4px 0 0;font-size:12px;">添加中英文字与字体</p>
         </div>
         <div class="highlight highlight-tip" style="margin:0;text-align:center;">
@@ -872,7 +1197,7 @@
     <!-- 3.2 模型切换 -->
     <div class="card">
       <h3>🤖 3.1 模型切换功能</h3>
-      <p style="color:var(--text-light);margin-bottom:16px;">点击模型选择框，可切换7种不同的生图模型。每个模型有独特的擅长领域，选择合适的模型能显著提升生成效果。</p>
+      <p style="color:var(--text-light);margin-bottom:16px;">点击模型选择框，目前可以选择7种不同的生图模型。<strong>每个模型有独特的擅长领域，选择合适的模型能显著提升生成效果。</strong></p>
       
       <!-- 模型选择界面截图 -->
       <div style="background:#1a1a2e;border-radius:12px;overflow:hidden;margin-bottom:20px;">
@@ -933,14 +1258,14 @@
       <div class="highlight highlight-tip">
         <strong>💡 模型选择建议</strong>
         <p>
-          <strong>文字海报/新媒体封面</strong> → 图片3.0 或 图片5.0 Lite<br>
+          <strong>文字海报/新媒体封面</strong> → 图片5.0 Lite 或 图片3.0<br>
           <strong>电商产品图</strong> → 图片4.5（极致原图保留）<br>
-          <strong>写实人像</strong> → 图片3.0（真实感最强）<br>
+          <strong>专业海报设计</strong> → 图片4.1（一致性保持最好）<br>
           <strong>艺术插画/氛围图</strong> → 图片3.1（电影感最强）<br>
-          <strong>专业海报设计</strong> → 图片4.1（一致性保持最好）
+          <strong>写实人像</strong> → 图片3.0（真实感最强）
         </p>
-        <!-- 新增一行，使用单独的p标签，添加class来设置红色样式 -->
-        <p class="disclaimer-text">⚠️ 没有统一标准，以上总结来自互联网以及个人经验，仅做参考。</p>
+        
+        <p class="disclaimer-text"><strong>⚠️ 没有统一标准，以上总结来自互联网以及个人经验，仅做参考。</strong></p>
       </div>
       
       <style>
@@ -1000,45 +1325,21 @@
     <!-- 3.4 文字设置 -->
     <div class="card">
       <h3>✏️ 3.3 文字设置功能</h3>
-      <p style="color:var(--text-light);margin-bottom:16px;">即梦支持在图片中添加中英文文字，提供多种字体和样式选择。特别适合制作海报、封面图、素材图等需要文字的内容。</p>
+      <p style="color:var(--text-light);margin-bottom:16px;">可在成图中叠加中英文并调节字体相关选项（界面见下图）；要点小结与进阶内容见下方提示框及第十章链接。</p>
       
       <!-- 文字设置界面截图 -->
       <div style="background:#1a1a2e;border-radius:12px;overflow:hidden;margin-bottom:20px;">
         <img class="zoomable" src="image/img-text-settings.png" alt="文字设置界面" style="width:100%;display:block;" tabindex="0">
       </div>
 
-      <!-- 文字设置说明 -->
-      <div class="grid-2">
-        <div>
-          <h4>功能特点</h4>
-          <ul>
-            <li>✅ 中英文效果较好</li>
-            <li>✅ 字体样式选择</li>
-            <li>✅ 文字大小和粗细</li>
-            <li>✅ 文字颜色自定义</li>
-            <li>✅ 文字与背景融合自然</li>
-          </ul>
-          <!-- 新增警告声明 -->
-          <p class="text-warning" style="color:#f59e0b; font-size:13px; margin-top:12px; padding:8px 12px; background-color:#fffbeb; border-left:4px solid #f59e0b; border-radius:0 4px 4px 0;">
-            ⚠️ 注意：文字效果随机性较大，生成后需仔细检查文字的正确性。
-          </p>
-        </div>
-        <div>
-          <h4>适用场景</h4>
-          <ul>
-            <li>📢 自媒体封面图（微博/小红书/抖音）</li>
-            <li>🎬 视频封面标题文字</li>
-            <li>📝 产品说明素材图</li>
-            <li>🖼️ 节日/节气祝福海报</li>
-            <li>📚 知识科普信息图</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="prompt-box" style="margin-top:16px;">
-        <div class="label">💡 文字生成技巧</div>
-        <p>在主体描述中明确文字位置和样式，例如："左侧居中放置'新品上市'白色艺术字体，右侧展示产品图"</p>
-        <p style="margin-top:8px;">推荐配合 <strong>图片3.0</strong> 或 <strong>图片5.0 Lite</strong> 模型使用，文字渲染效果最佳</p>
+      <div class="highlight highlight-tip" style="margin-top:0;margin-bottom:0;">
+        <p style="margin:0;font-size:14px;color:var(--text);line-height:1.75;">
+          <strong>小结：</strong>可在画面中叠加中英文，调节字体样式、字号粗细与颜色等，适合封面、海报与说明类配图。文字渲染受模型与提示词影响，存在一定随机性，出图后请核对字形与内容是否正确；推荐搭配 <strong>图片 3.0</strong> 或 <strong>图片 5.0 Lite</strong>。
+        </p>
+        <p style="margin:12px 0 0;">
+          <a href="#s10" style="display:inline-flex;align-items:center;gap:6px;color:var(--primary);font-weight:600;font-size:14px;text-decoration:none;border-bottom:2px solid rgba(91,75,219,0.25);padding-bottom:1px;">📖 跳转第十章：AI 字体生成专项指南</a>
+          <span style="display:block;margin-top:6px;font-size:13px;color:var(--text-light);">含风格对照表、核心技巧、提示词公式与教程资源链接</span>
+        </p>
       </div>
     </div>
 
@@ -1053,51 +1354,113 @@
       <div style="background:#1a1a2e;border-radius:12px;overflow:hidden;margin-bottom:20px;">
         <img class="zoomable" src="image/img-object-create.png" alt="主体创建界面" style="width:100%;display:block;" tabindex="0">
       </div>
+    </div>
 
-      <!-- 操作步骤 -->
-      <h4>基础操作步骤</h4>
-      <div class="step-list">
-        <div class="step-item">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <h4>选择模型</h4>
-            <p>根据内容类型选择合适的模型（参考上方模型对比表）</p>
+    <!-- 3.5 横向滑动操作流程 -->
+    <div class="card">
+      <h3>🧩 3.5 AI生图标准操作流程</h3>
+      <p style="color:var(--text-light);margin-bottom:16px;">
+        下面用一套「时尚海报」示例把流程串起来：从参考图准备 → 灵感页找同款 → 复制提示词改写 → 生成与迭代。先看一张图总览，再按步骤滑动查看细节。
+      </p>
+
+      <!-- 完整顺序一图预览 -->
+      <div style="background:#1a1a2e;border-radius:12px;overflow:hidden;margin-bottom:18px;">
+        <img class="zoomable" src="image/3.5/1.png" alt="AI生图标准流程总览（一步到位预览）" style="width:100%;display:block;" tabindex="0">
+      </div>
+
+      <!-- 横向滑动轮播 -->
+      <div class="step-carousel">
+        <div class="step-carousel__track">
+
+          <!-- 步骤1：参考图（姿势） -->
+          <div class="step-card">
+            <div class="step-card__num">1</div>
+            <div class="step-card__img">
+              <img class="zoomable" src="image/3.5/2.1.png" alt="参考图：姿势与人物参考" tabindex="0">
+            </div>
+            <div class="step-card__body">
+              <div class="step-card__title">📸 准备参考图（姿势）</div>
+              <div class="step-card__desc">先准备一张<strong>姿势/构图</strong>参考，锁定人物站姿、镜头距离与画面布局，后续更容易“出同款”。</div>
+              <div class="step-card__tip">💡 姿势图越清晰、主体越突出，越容易稳定复刻</div>
+            </div>
           </div>
+
+          <!-- 步骤2：参考图（服装/风格） -->
+          <div class="step-card">
+            <div class="step-card__num">2</div>
+            <div class="step-card__img">
+              <img class="zoomable" src="image/3.5/2.2.png" alt="参考图：服装与材质参考" tabindex="0">
+            </div>
+            <div class="step-card__body">
+              <div class="step-card__title">👗 准备参考图（服装/材质）</div>
+              <div class="step-card__desc">再补一张<strong>服装/材质</strong>参考，用来锁定衣服版型、面料质感与配色，让生成更“像你想要的那套”。</div>
+              <div class="step-card__tip">💡 参考图分工越明确，结果越可控</div>
+            </div>
+          </div>
+
+          <!-- 步骤3：灵感页找同款 -->
+          <div class="step-card">
+            <div class="step-card__num">3</div>
+            <div class="step-card__img">
+              <img class="zoomable" src="image/3.5/3.1.png" alt="灵感页搜索并进入同款作品" tabindex="0">
+            </div>
+            <div class="step-card__body">
+              <div class="step-card__title">🔎 灵感页找同款</div>
+              <div class="step-card__desc">在<strong>「灵感」</strong>页用关键词搜索，点进你喜欢的作品。目标是拿到“能复用的提示词结构”和风格关键词。</div>
+              <div class="step-card__tip">💡 先找“你想要的风格结果”，再反推提示词最快</div>
+            </div>
+          </div>
+
+          <!-- 步骤4：复制提示词并改写 -->
+          <div class="step-card">
+            <div class="step-card__num">4</div>
+            <div class="step-card__img">
+              <img class="zoomable" src="image/3.5/3.2.png" alt="复制提示词并结合目标改写" tabindex="0">
+            </div>
+            <div class="step-card__body">
+              <div class="step-card__title">✍️ 复制提示词 → 改关键词</div>
+              <div class="step-card__desc">复制同款作品提示词，保留结构与风格词，只替换你的<strong>主体/服装/场景</strong>等关键词，再补上<strong>构图/质感/约束</strong>。</div>
+              <div class="step-card__tip">💡 每次只改 1–2 个变量，更容易稳定迭代</div>
+            </div>
+          </div>
+
+          <!-- 步骤5：生成与迭代 -->
+          <div class="step-card">
+            <div class="step-card__num">5</div>
+            <div class="step-card__img">
+              <img class="zoomable" src="image/3.5/4.png" alt="生成结果对比与再次生成" tabindex="0">
+            </div>
+            <div class="step-card__body">
+              <div class="step-card__title">🚀 生成 → 再生成 → 微调</div>
+              <div class="step-card__desc">先出一轮结果，优先用<strong>「再次生成」</strong>吃随机性；方向不对再回到提示词/参考图做小幅调整。</div>
+              <div class="step-card__tip">💡 目标是得到“可复用模板”，而不是每次从零写</div>
+            </div>
+          </div>
+
         </div>
-        <div class="step-item">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <h4>设置尺寸</h4>
-            <p>根据发布平台选择合适的画面比例和分辨率</p>
+
+        <!-- 轮播导航 -->
+        <div class="carousel-nav">
+          <button class="carousel-btn prev" aria-label="上一张">‹</button>
+          <div class="carousel-dots">
+            <span class="carousel-dot active" data-index="0"></span>
+            <span class="carousel-dot" data-index="1"></span>
+            <span class="carousel-dot" data-index="2"></span>
+            <span class="carousel-dot" data-index="3"></span>
+            <span class="carousel-dot" data-index="4"></span>
           </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <h4>输入主体描述</h4>
-            <p>在主体输入框中描述你想要生成的画面，建议包含：主体、场景、风格、氛围等要素</p>
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <h4>（可选）添加文字</h4>
-            <p>如需添加文字，切换到文字设置Tab，输入文字内容并选择样式</p>
-          </div>
-        </div>
-        <div class="step-item">
-          <div class="step-num">5</div>
-          <div class="step-content">
-            <h4>生成图片</h4>
-            <p>点击「立即生成」或「生成4张」，等待AI创作完成</p>
-          </div>
+          <button class="carousel-btn next" aria-label="下一张">›</button>
         </div>
       </div>
 
-      <div class="highlight highlight-tip" style="margin-top:16px;">
-        <strong>💡 提示词公式回顾</strong>
-        <p>推荐结构：<strong>主体</strong> + <strong>场景</strong> + <strong>风格</strong> + <strong>氛围/画质</strong><br>
-        示例："一只橘色小猫（主体），在洒满阳光的窗台上打盹（场景），宫崎骏吉卜力插画风格（风格），温暖柔和的光线，8K超清（画质）"</p>
+      <!-- 提示词公式链接 -->
+      <div style="margin-top:20px;">
+        <a href="#prompt" style="display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 4px 16px rgba(91,75,219,0.3);">
+          🚀 跳转：提示词公式与关键词速查
+        </a>
+        <span style="margin-left:16px;font-size:13px;color:var(--text-light);">
+          或 <a href="#s6" style="color:var(--primary);text-decoration:none;border-bottom:1px dashed var(--primary);">查看运镜控制指南</a>
+        </span>
       </div>
     </div>
 
@@ -1133,6 +1496,7 @@
           <span class="doc-badge">🏛️ 官方文档</span>
           <h4>📸 即梦图片模型 4.0 提示词手册</h4>
           <p>首次实现「文生图 + 图像编辑 + 组图生成」三合一，支持 4K 超高分辨率，2K 生图用时不到 1.8 秒。多模态一体化，重新定义 AI 生图体验。</p>
+          <p class="doc-highlight"><strong>提示词手册（推荐查阅）</strong>：详细的画面提示词使用说明。</p>
           <a href="https://bytedance.larkoffice.com/docx/L4vCdah1DoDg7axVdYGcoplSn9f" target="_blank" rel="noopener noreferrer" class="doc-link">
             阅读官方手册 →
           </a>
@@ -1140,23 +1504,16 @@
 
         <!-- 图片模型 3.1 -->
         <div class="official-doc-card">
-          <span class="doc-badge">🏛️ 官方文档</span>
+          <span class="doc-badge">🏛️ 官方权威指南</span>
           <h4>🎨 即梦图片模型 3.1 使用手册</h4>
           <p>电影感表现最强的模型，野兽派 / 油画 / 水彩等艺术风格响应精准，故事叙述能力强。适合创作有氛围感的插画与故事感图片。</p>
+          <p class="doc-highlight"><strong>风格词典（推荐查阅）</strong>：内含可直接复用的风格关键词词典。</p>
           <a href="https://bytedance.larkoffice.com/docx/EkCsd3iGvoxUnExu0Q8ccGt3n6c" target="_blank" rel="noopener noreferrer" class="doc-link">
-            阅读官方手册 →
+            <span>探索风格词典与完整教程 →</span>
           </a>
         </div>
       </div>
 
-      <div class="highlight highlight-tip" style="margin-top:16px;">
-        <strong>💡 图片模型 4.0 三大核心能力</strong>
-        <p>
-          <strong>文生图：</strong>更强的指令遵循能力，支持"左侧留白""右侧放字"等抽象构图指令；<br>
-          <strong>图像编辑：</strong>支持单/多张图片输入，通过自然语言指令进行灵活修改；<br>
-          <strong>组图生成：</strong>一次生成多张具备关联性的图像，适合漫画分镜、故事板、系列海报等场景。
-        </p>
-      </div>
     </div>
   </div>
 
@@ -1166,40 +1523,8 @@
     <div class="section-header">
       <div class="section-icon">🎬</div>
       <div class="section-title">
-        <h2>第四章：AI 视频生成基础</h2>
+        <h2>第四章：AI生成视频-Seedance</h2>
         <p>图生视频 · 文生视频 · 首尾帧 · 参数设置 · 二次编辑功能 · 完整操作流程</p>
-      </div>
-    </div>
-
-    <!-- 4.0 功能入口导览 -->
-    <div class="card">
-      <h3>🗺️ 4.0 视频生成入口导览</h3>
-      <p style="color:var(--text-light);margin-bottom:16px;">即梦AI视频生成功能有两大入口，理解入口差异是正确使用的第一步：</p>
-      <div class="grid-2">
-        <div style="background:var(--primary-light);border-radius:12px;padding:20px;border:2px solid var(--primary);">
-          <h4 style="color:var(--primary);margin-bottom:8px;">📍 入口A：图生视频 / 文生视频（基础功能）</h4>
-          <p style="font-size:13px;margin-bottom:8px;">位置：左侧菜单 → <strong>「AI视频」</strong> → 图生视频 / 文生视频</p>
-          <ul style="font-size:13px;">
-            <li>✅ 操作最简单，新手首选</li>
-            <li>✅ 支持标准/流畅两种模式</li>
-            <li>✅ 内置运镜控制面板（移动/摇镜/旋转/变焦）</li>
-            <li>✅ 首尾帧、对口型、超分补帧均在此入口</li>
-          </ul>
-        </div>
-        <div style="background:#fff4e5;border-radius:12px;padding:20px;border:2px solid var(--accent2);">
-          <h4 style="color:#d9480f;margin-bottom:8px;">📍 入口B：Seedance 2.0 全能参考（进阶功能）</h4>
-          <p style="font-size:13px;margin-bottom:8px;">位置：左侧菜单 → <strong>「AI视频」→ Seedance 2.0」</strong></p>
-          <ul style="font-size:13px;">
-            <li>✅ 支持图片+视频+音频混合输入</li>
-            <li>✅ 最多 9 张图 + 3 段视频 + 3 段音频</li>
-            <li>✅ 通过 @引用 系统精准指定用途</li>
-            <li>⚠️ 上传素材后必须在提示词中 @引用，否则无效</li>
-          </ul>
-        </div>
-      </div>
-      <div class="highlight highlight-tip" style="margin-top:16px;">
-        <strong>💡 选哪个入口？</strong>
-        <p>只有一张图想让它动 → 用<strong>入口A图生视频</strong>；要把图片+视频+音乐混合生成复杂内容 → 用<strong>入口B Seedance 2.0</strong></p>
       </div>
     </div>
 
@@ -1908,73 +2233,6 @@
           🚀 立即阅读 Seedance 2.0 官方使用手册
         </a>
         <p style="font-size:13px;color:var(--text-light);margin-top:10px;">📌 来源：即梦官方 · 飞书文档 · 最近更新：3月13日</p>
-      </div>
-    </div>
-  </div>
-
-    <div class="card">
-      <h3>🔑 @引用系统 — 核心操作</h3>
-      <div class="highlight highlight-warn">
-        <strong>⚠️ 关键提醒</strong>
-        <p>在 Seedance 2.0 全能参考模式下，上传素材后<strong>必须在提示词中用 @素材名 明确引用</strong>，否则模型无法理解素材用途，直接忽略！</p>
-      </div>
-      <h4>@引用激活方式</h4>
-      <ul>
-        <li>在提示词输入框中输入 <code>@</code> 符号，会弹出已上传素材列表</li>
-        <li>或点击工具栏中的 @ 按钮选择素材</li>
-        <li>上传后素材自动编号为：图片1、图片2 / 视频1 / 音频1 等</li>
-      </ul>
-      <h4>常用@引用写法示例</h4>
-      <div class="prompt-box">
-        <div class="label">📌 基础写法</div>
-        <ul>
-          <li>@图片1 作为首帧，参考 @视频1 的运镜</li>
-          <li>@图片1 的女生作为主角，@图片2 的男生作为配角</li>
-          <li>完全参考 @视频1 的所有运镜效果和转场</li>
-          <li>参考 @音频1 的节奏进行音乐卡点，背景使用 @图片1 的场景</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>🎮 两种入口模式选择</h3>
-      <div class="grid-2">
-        <div class="feature-card">
-          <div class="feature-icon">🖼️</div>
-          <h3>首尾帧入口</h3>
-          <p><strong>适用：</strong>仅有一张图片 + 文字描述</p>
-          <p>操作：上传图片 → 输入提示词 → 生成</p>
-          <p><span class="tag tag-green">新手友好</span><span class="tag tag-blue">操作简单</span></p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🎛️</div>
-          <h3>全能参考入口（推荐）</h3>
-          <p><strong>适用：</strong>图片 + 视频 + 音频组合使用</p>
-          <p>操作：上传多种素材 → @引用说明 → 写提示词 → 生成</p>
-          <p><span class="tag tag-purple">功能完整</span><span class="tag tag-orange">专业创作</span></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>🎬 高级功能：视频延长操作</h3>
-      <div class="grid-2">
-        <div>
-          <h4>向后延长（接续剧情）</h4>
-          <div class="prompt-box">
-            <div class="label">提示词格式</div>
-            <p>将 @视频1 延长 5 秒，女主角继续向前走，镜头环绕升起，最终展现完整城市全景</p>
-          </div>
-          <p style="font-size:13px;color:var(--text-light);margin-top:8px;">注意：生成时长需设置为延长部分的秒数（此例设5秒）</p>
-        </div>
-        <div>
-          <h4>向前延长（补充前因）</h4>
-          <div class="prompt-box">
-            <div class="label">提示词格式</div>
-            <p>向前延长 4 秒，描述女主角从楼梯走下来，推开大门，走向室外广场的过程</p>
-          </div>
-          <p style="font-size:13px;color:var(--text-light);margin-top:8px;">提示词应描述目标视频的"前因"，时长同样设为延长时长</p>
-        </div>
       </div>
     </div>
   </div>
@@ -2770,50 +3028,50 @@
     </div>
 
     <div class="card">
-      <h3>❌ 新手十大常见错误</h3>
+      <h3>🧾 提示词避坑清单（最常见的 10 个问题）</h3>
       <div class="grid-2">
         <div>
           <div class="highlight highlight-danger">
-            <strong>❌ 错误1：不写提示词直接生成</strong>
-            <p>即使是图生视频也要写提示词，描述动态效果，否则只会生成轻微抖动</p>
+            <strong>❌ 1：主体不明确（AI 不知道画什么）</strong>
+            <p>把"谁/是什么"写清：年龄/材质/外观/数量/动作，避免只写"好看""高级"等抽象词。</p>
           </div>
           <div class="highlight highlight-danger">
-            <strong>❌ 错误2：Seedance 上传素材不@引用</strong>
-            <p>全能参考模式必须在提示词中用@引用素材，否则模型完全忽略上传的文件</p>
+            <strong>❌ 2：信息顺序混乱（重点被淹没）</strong>
+            <p>先写<strong>核心主体</strong>，再写<strong>场景</strong>与<strong>风格</strong>，最后补<strong>光线/质感/画质</strong>与约束条件。</p>
           </div>
           <div class="highlight highlight-danger">
-            <strong>❌ 错误3：提示词堆砌矛盾风格</strong>
-            <p>如同时写"写实摄影"和"动漫卡通"，AI会产生混淆，效果大打折扣</p>
+            <strong>❌ 3：风格互相打架（写实 + 二次元 + 油画）</strong>
+            <p>同一张图尽量选<strong>1 个主风格</strong>；想混搭就写"主风格 + 轻微修饰"，别堆一屏风格词。</p>
           </div>
           <div class="highlight highlight-danger">
-            <strong>❌ 错误4：一次不满意就放弃</strong>
-            <p>AI 有随机性，同一提示词多生成几次，选最佳结果</p>
+            <strong>❌ 4：只写名词，不写关系（缺少画面逻辑）</strong>
+            <p>补上"主体在做什么/在哪里/与谁互动/镜头怎么拍"，画面会立刻变具体。</p>
           </div>
           <div class="highlight highlight-danger">
-            <strong>❌ 错误5：先超分再对口型</strong>
-            <p>正确顺序：先完成对口型，再进行超分和补帧处理</p>
+            <strong>❌ 5：不写约束条件（细节随机漂）</strong>
+            <p>常用约束：面部稳定、手部正常、无乱码文字、构图留白、背景干净、色调统一等。</p>
           </div>
         </div>
         <div>
           <div class="highlight highlight-danger">
-            <strong>❌ 错误6：视频延长时长设置错误</strong>
-            <p>延长时生成时长应设置为"延长部分的秒数"，不是总时长</p>
+            <strong>❌ 6：参考图"全都参考"（结果反而失控）</strong>
+            <p>给参考图分工：图1人物/服装、图2姿势/构图、图3背景/氛围，并在提示词中写明各自用途。</p>
           </div>
           <div class="highlight highlight-danger">
-            <strong>❌ 错误7：参考图质量差</strong>
-            <p>模糊、主体不突出的参考图会导致生成质量下降，参考图要清晰、主体突出</p>
+            <strong>❌ 7：参考图质量差（模糊/主体不突出）</strong>
+            <p>参考图越清晰、主体越突出，越容易稳定复刻；必要时先裁切到主体，减少干扰。</p>
           </div>
           <div class="highlight highlight-danger">
-            <strong>❌ 错误8：首尾帧两图风格差异太大</strong>
-            <p>首尾帧图片的光线、风格、画面尺寸最好保持一致，过渡才自然</p>
+            <strong>❌ 8：文字类提示词放太后（容易"被吃掉"）</strong>
+            <p>需要生成文字时，把目标文字放在提示词前部并用引号包裹；出图后务必核对字形与内容。</p>
           </div>
           <div class="highlight highlight-danger">
-            <strong>❌ 错误9：素材数量超限</strong>
-            <p>Seedance 总文件数不超过12个，优先选对最终画面影响最大的素材</p>
+            <strong>❌ 9：一次改太多（无法判断哪句有效）</strong>
+            <p>每轮只改 1–2 个变量（风格/光线/场景/约束），更快找到"能稳定复用"的写法。</p>
           </div>
           <div class="highlight highlight-danger">
-            <strong>❌ 错误10：高峰期排队不换时段</strong>
-            <p>高峰期（工作日白天/节假日）等待时间长，建议错峰使用</p>
+            <strong>❌ 10：没有"可复用模板"（每次从零写）</strong>
+            <p>建议固定一个结构模板（主体→场景→风格→光线→构图→约束），只替换关键词，效率提升非常明显。</p>
           </div>
         </div>
       </div>
@@ -3065,7 +3323,7 @@
               <span class="official-badge">官方</span>
               即梦AI · 抖音
             </h4>
-            <p>官方教程视频、活动信息、新功能首发阵地。定期发布保姆级教程和创意灵感内容。</p>
+            <p>官方教程视频、活动信息、新功能首发阵地。定期发布教程和创意灵感内容。</p>
             <a href="https://www.douyin.com/user/MS4wLjABAAAATAf2FKPSpZx_TdDWzwzNlznaEE6HttAqJgrnRPGdW24adAIlxfGeasDraUIR5JRp" target="_blank" rel="noopener noreferrer" class="account-link account-douyin">👆 关注抖音账号</a>
           </div>
         </div>
@@ -3077,8 +3335,8 @@
               <span class="official-badge">官方</span>
               即梦AI · 小红书
             </h4>
-            <p>微信搜索栏输入"即梦AI"，关注官方公众号，获取最新资讯和灵感推送。也可在小红书搜索"即梦AI"关注。</p>
-            <a href="https://www.xiaohongshu.com/explore" target="_blank" rel="noopener noreferrer" class="account-link account-xiaohongshu">👆 打开小红书</a>
+            <p>小红书搜索栏输入"即梦AI"，即可获取最新资讯和灵感推送。</p>
+            <a href="https://www.xiaohongshu.com/user/profile/6503ced7000000001603b380?xsec_token=ABIslEydbha2Lj7kSavMSAige-AtawWNdheptk3eZZdBI%3D&xsec_source=pc_search" target="_blank" rel="noopener noreferrer" class="account-link account-xiaohongshu">👆 打开小红书</a>
           </div>
         </div>
 
@@ -3089,23 +3347,10 @@
               <span class="official-badge">官方</span>
               即梦AI · 哔哩哔哩
             </h4>
-            <p>即梦AI官方B站空间，提供系列化视频教程（68集+保姆级教程），适合系统性学习。</p>
+            <p>即梦AI官方B站空间，提供系列化视频教程，适合系统性学习。</p>
             <a href="https://space.bilibili.com/3546611372264291" target="_blank" rel="noopener noreferrer" class="account-link account-bilibili">👆 关注B站账号</a>
           </div>
         </div>
-
-        <div class="account-card">
-          <div class="account-icon" style="background:#07c160;">💬</div>
-          <div class="account-info">
-            <h4>
-              <span class="official-badge">官方</span>
-              即梦AI · 微信公众号
-            </h4>
-            <p>微信搜索"即梦AI"或"剪映"官方公众号，关注后获取推送资讯和官方活动通知。</p>
-            <a href="https://jimeng.jianying.com/ai-tool/home/" target="_blank" rel="noopener noreferrer" class="account-link account-weixin">👆 访问官网了解更多</a>
-          </div>
-        </div>
-
       </div>
     </div>
 
@@ -3319,7 +3564,7 @@
     </div>
 
     <!-- 快速提示词公式汇总 -->
-    <div class="card">
+    <div class="card" id="prompt">
       <h3>⚡ 快速提示词公式汇总（可直接使用）</h3>
       <p style="color:var(--text-light);font-size:13px;margin-bottom:16px;">综合以上资源整理的核心公式，收藏备用：</p>
       <div class="grid-2">
@@ -3414,8 +3659,12 @@
 
 <!-- ===== FOOTER ===== -->
 <div class="footer">
-  <p>即梦AI员工培训操作手册 · 基于 Seedream 5.0 Lite &amp; Seedance 2.0 · 整理于 2026年4月</p>
-  <p style="margin-top:6px">本手册综合整理自即梦官方文档、WaytoAGI知识库、AI工具集等权威资料，仅供内部培训使用</p>
+  <p>即梦AI操作说明手册 · 基于 Seedream 5.0 Lite &amp; Seedance 2.0 · 整理于 2026年4月8日</p>
+  <p style="margin-top:6px">本手册总结资料来源于互联网，相关版权归原作者</p>
+<footer>
+  © 2026 runsheep0613保留所有权利。未经许可，禁止复制、转载或用于商业用途。
+  <a href="/terms.html">使用条款</a> | <a href="/privacy.html">隐私政策</a>
+</footer>
 </div>
 
 <!-- ===== IMAGE PREVIEW (LIGHTBOX) ===== -->
@@ -3496,6 +3745,61 @@
 
     closeBtn.addEventListener('click', closePreview);
   })();
+
+  /* === 横向滑动步骤轮播 === */
+  document.querySelectorAll('.step-carousel').forEach(function(carousel) {
+    const track = carousel.querySelector('.step-carousel__track');
+    const btnPrev = carousel.querySelector('.carousel-btn.prev');
+    const btnNext = carousel.querySelector('.carousel-btn.next');
+    const dots = carousel.querySelectorAll('.carousel-dot');
+    const cards = carousel.querySelectorAll('.step-card');
+
+    if (!track) return;
+
+    // 提示是否可滚动，用于左右渐隐
+    function updateCanScroll() {
+      const canScroll = track.scrollWidth - track.offsetWidth > 10;
+      carousel.setAttribute('data-can-scroll', canScroll ? 'true' : 'false');
+    }
+
+    function updateDots() {
+      const cardWidth = cards[0] ? cards[0].offsetWidth + 20 : 300;
+      const scrollLeft = track.scrollLeft;
+      const index = Math.round(scrollLeft / cardWidth);
+      dots.forEach(function(d, i) {
+        d.classList.toggle('active', i === index);
+      });
+      if (btnPrev) btnPrev.disabled = scrollLeft <= 10;
+      if (btnNext) btnNext.disabled = scrollLeft >= track.scrollWidth - track.offsetWidth - 10;
+    }
+
+    if (btnPrev) {
+      btnPrev.addEventListener('click', function() {
+        track.scrollBy({ left: -(cards[0] ? cards[0].offsetWidth + 20 : 300), behavior: 'smooth' });
+      });
+    }
+    if (btnNext) {
+      btnNext.addEventListener('click', function() {
+        track.scrollBy({ left: cards[0] ? cards[0].offsetWidth + 20 : 300, behavior: 'smooth' });
+      });
+    }
+    dots.forEach(function(dot, i) {
+      dot.addEventListener('click', function() {
+        const cardWidth = cards[0] ? cards[0].offsetWidth + 20 : 300;
+        track.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+      });
+    });
+    track.addEventListener('scroll', function () {
+      updateDots();
+      updateCanScroll();
+    });
+    window.addEventListener('resize', function () {
+      updateDots();
+      updateCanScroll();
+    });
+    updateDots();
+    updateCanScroll();
+  });
 </script>
 
 </body>
