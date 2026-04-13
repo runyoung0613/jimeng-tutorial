@@ -1,0 +1,122 @@
+import re
+import os
+
+base_path = r"e:\document\work\AI\vibecoding\product\jimeng-tutorial"
+sections_dir = os.path.join(base_path, "sections")
+
+# Read all section files
+with open(os.path.join(sections_dir, "s12-reference.html"), 'r', encoding='utf-8') as f:
+    s12_content = f.read()
+
+with open(os.path.join(sections_dir, "s-links.html"), 'r', encoding='utf-8') as f:
+    s_links_content = f.read()
+
+with open(os.path.join(sections_dir, "s-appendix.html"), 'r', encoding='utf-8') as f:
+    s_appendix_content = f.read()
+
+# Extract official docs section from s12
+official_docs_match = re.search(r'(<div class="card">\s*<h3>📖 官方知识库推荐</h3>.*?</div>)', s12_content, re.DOTALL)
+official_docs = official_docs_match.group(1) if official_docs_match else ""
+
+# Extract image tutorials section from s-links
+image_tutorials_match = re.search(r'(<!-- 图片提示词专区 -->.*?<div class="card">.*?</div>\s*</div>\s*</div>)', s_links_content, re.DOTALL)
+image_tutorials = image_tutorials_match.group(1) if image_tutorials_match else ""
+
+# Extract video tutorials section from s-links
+video_tutorials_match = re.search(r'(<!-- 视频提示词专区 -->.*?</div>\s*</div>)', s_links_content, re.DOTALL)
+video_tutorials = video_tutorials_match.group(1) if video_tutorials_match else ""
+
+# Extract quick formula section from s-links
+formula_match = re.search(r'(<!-- 快速提示词公式汇总 -->.*?<div class="card" id="prompt">.*?</div>\s*</div>)', s_links_content, re.DOTALL)
+formula = formula_match.group(1) if formula_match else ""
+
+# Extract appendix section
+appendix_match = re.search(r'(<div class="section" id="s-appendix">.*?<div class="card">.*?</div>\s*</div>\s*</div>)', s_appendix_content, re.DOTALL)
+appendix = appendix_match.group(1) if appendix_match else ""
+
+# Build new s12-reference.html with correct order
+new_s12 = f'''<div class="section" id="s12">
+    <div class="section-header">
+      <div class="section-icon">📣</div>
+      <div class="section-title">
+        <h2>第十二章：信息引用</h2>
+        <p>官方文档 · 教程资源链接（可直接点击跳转）</p>
+      </div>
+    </div>
+
+    <!-- 第一部分：官方文档 -->
+    <div class="card">
+      <h3>📖 官方文档</h3>
+      <p style="color:var(--text-light);margin-bottom:16px;">以下链接均为公开可访问的权威资料，建议收藏备用：</p>
+      {official_docs}
+    </div>
+
+    <!-- 第二部分：图片教程参考 -->
+    <div class="card">
+      <h3>🖼️ 图片提示词教程（Seedream 5.0 Lite）</h3>
+      <p style="color:var(--text-light);font-size:13px;margin-bottom:16px;">以下资源专注于即梦图片生成的提示词写法，含公式框架、分类词汇表和实战案例：</p>
+      {image_tutorials}
+    </div>
+
+    <!-- 第三部分：视频教程参考 -->
+    <div class="card">
+      <h3>🎬 视频提示词教程（Seedance 2.0）</h3>
+      <p style="color:var(--text-light);font-size:13px;margin-bottom:16px;">以下资源均经过内容验证，提供系统性的视频提示词写作框架、运镜词汇和可复用模板：</p>
+      {video_tutorials}
+    </div>
+
+    <!-- 第四部分：提示词公式汇总 -->
+    <div class="card" id="prompt">
+      <h3>⚡ 快速提示词公式汇总</h3>
+      <p style="color:var(--text-light);font-size:13px;margin-bottom:16px;">综合以上资源整理的核心公式，收藏备用：</p>
+      <div class="grid-2">
+        <div>
+          <h4>🖼️ 图片生成万能公式</h4>
+          <div class="prompt-box">
+            <div class="label">基础公式</div>
+            <p>【主体描述】+【环境/背景】+【艺术风格】+【光线/氛围】+【情感/情绪】+【画质要求】</p>
+          </div>
+          <div class="prompt-box" style="margin-top:8px;">
+            <div class="label">示例套用</div>
+            <p>亚洲女性，25岁，站在东京夜晚街道（主体+场景），赛博朋克风格（风格），霓虹灯逆光（光线），孤独都市感（情绪），8K写实摄影（画质）</p>
+          </div>
+        </div>
+        <div>
+          <h4>🎬 视频生成万能公式（Seedance 2.0）</h4>
+          <div class="prompt-box">
+            <div class="label">导演级七要素公式</div>
+            <p>【主体详细描述】，【核心动作与情绪】，【场景时空背景】，【光影氛围】，【镜头运动方式】，【视觉风格参考】，【技术参数/约束条件】</p>
+          </div>
+          <div class="prompt-box" style="margin-top:8px;">
+            <div class="label">示例套用</div>
+            <p>白色长裙女孩（主体），赤足漫步海滩驻足回眸（动作），日落时分金色海岸（场景），暖金逆光剪影（光影），镜头从脚踝慢推至全身（运镜），日系治愈风（风格），面部特征稳定锁定（约束）</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:16px;">
+        <h4>📋 高频风格关键词速查</h4>
+        <div class="grid-2">
+          <div>
+            <p style="font-size:13px;font-weight:600;margin-bottom:6px;">图片风格词（可直接加入提示词）</p>
+            <div>
+              <span class="tag tag-purple">吉卜力插画</span><span class="tag tag-purple">赛博朋克</span><span class="tag tag-purple">水墨国风</span><span class="tag tag-purple">极简主义</span><span class="tag tag-blue">日系胶片</span><span class="tag tag-blue">暗黑哥特</span><span class="tag tag-blue">波普艺术</span><span class="tag tag-green">超写实摄影</span><span class="tag tag-green">商业产品摄影</span><span class="tag tag-orange">复古蒸汽波</span><span class="tag tag-orange">洛可可古典</span><span class="tag tag-red">超现实主义</span>
+            </div>
+          </div>
+          <div>
+            <p style="font-size:13px;font-weight:600;margin-bottom:6px;">视频运镜词（中文写入提示词可直接生效）</p>
+            <div>
+              <span class="tag tag-blue">缓慢推近</span><span class="tag tag-blue">镜头拉远</span><span class="tag tag-blue">向右横移</span><span class="tag tag-blue">环绕半圈</span><span class="tag tag-blue">俯拍航拍</span><span class="tag tag-blue">低角度仰拍</span><span class="tag tag-blue">上摇至面部</span><span class="tag tag-blue">跟拍背影</span><span class="tag tag-green">固定镜头</span><span class="tag tag-green">手持晃动</span><span class="tag tag-orange">慢动作特写</span><span class="tag tag-orange">快速切换</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+'''
+
+# Write new s12-reference.html
+with open(os.path.join(sections_dir, "s12-reference.html"), 'w', encoding='utf-8') as f:
+    f.write(new_s12)
+
+print("s12-reference.html reorganized successfully!")
+print(f"Length: {len(new_s12)} chars")
