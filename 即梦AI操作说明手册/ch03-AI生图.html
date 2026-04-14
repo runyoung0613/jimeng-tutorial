@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第三章：AI 生图功能-Seedream | 即梦 AI 操作说明</title>
+  <link rel="stylesheet" href="common.css" />
+</head>
+<body class="manual-chapter">
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+  <ul>
+    <li><a href="../即梦AI操作说明.html#s0">目录</a></li>
+    <li><a href="ch01-平台简介.html">平台简介</a></li>
+    <li><a href="ch02-快速上手.html">快速上手</a></li>
+    <li><a href="ch03-AI生图.html" class="nav-link--active">AI生图</a></li>
+    <li><a href="ch04-AI视频.html">AI视频</a></li>
+    <li><a href="ch05-Agent.html">Agent</a></li>
+    <li><a href="ch06-动作模仿.html">动作模仿</a></li>
+    <li><a href="ch07-配音生成.html">配音生成</a></li>
+    <li><a href="ch08-数字人.html">数字人</a></li>
+    <li><a href="ch09-智能画布.html">智能画布</a></li>
+    <li><a href="ch10-提示词与实战.html">提示词</a></li>
+    <li><a href="ch11-字体设计.html">字体设计</a></li>
+    <li><a href="ch12-信息引用.html">信息引用</a></li>
+  </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="section" id="s3">
+    <div class="section-header">
+      <div class="section-icon">🎨</div>
+      <div class="section-title">
+        <h2>第三章：AI 生图功能-Seedream</h2>
+        <p>图片生成界面 · 7大模型对比 · 尺寸选择 · 文字引用 · 主体创建</p>
+      </div>
+    </div>
+
+    <!-- 3.1 图片生成界面全览 -->
+    <div class="card">
+      <h3>🎯 图片生成界面全览</h3>
+      <p style="color:var(--text-light);margin-bottom:16px;">即梦AI图片生成页面分为四大功能模块：<strong>模型选择</strong>、<strong>尺寸设置</strong>、<strong>文字引用</strong>、<strong>主体/物体参考</strong>。各模块协同工作，以下为完整界面截图：</p>
+      <div style="background:#1a1a2e;border-radius:12px;overflow:hidden;margin-bottom:16px;">
+        <img class="zoomable" src="../image/3/img-generate-overview.png" alt="图片生成界面全览" style="width:100%;display:block;" tabindex="0">
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+        <div class="highlight highlight-tip" style="margin:0;text-align:center;">
+          <strong style="font-size:13px;">🤖 模型切换</strong>
+          <p style="margin:4px 0 0;font-size:12px;">选择7种生图模型</p>
+        </div>
+        <div class="highlight highlight-tip" style="margin:0;text-align:center;">
+          <strong style="font-size:13px;">📐 尺寸设置</strong>
+          <p style="margin:4px 0 0;font-size:12px;">选择画面比例与分辨率</p>
+        </div>
+        <div class="highlight highlight-tip" style="margin:0;text-align:center;">
+          <strong style="font-size:13px;">✏️ 文字引用</strong>
+          <p style="margin:4px 0 0;font-size:12px;">添加中英文字与字体</p>
+        </div>
+        <div class="highlight highlight-tip" style="margin:0;text-align:center;">
+          <strong style="font-size:13px;">🖼️ 主体参考</strong>
+          <p style="margin:4px 0 0;font-size:12px;">定义画面核心主体</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.2 模型切换 -->
+    <div class="card">
+      <h3>🤖 3.1 模型切换功能</h3>
+      <p style="color:var(--text-light);margin-bottom:16px;">点击模型选择框，目前可以选择7种不同的生图模型。<strong>每个模型有独特的擅长领域，选择合适的模型能显著提升生成效果。</strong></p>
+      
+      <!-- 模型选择界面截图 -->
+      <div style="background:#1a1a2e;border-radius:12px;overflow:hidden;margin-bottom:20px;">
+        <img class="zoomable" src="../image/3/img-model-select.png" alt="模型切换界面" style="width:100%;display:block;" tabindex="0">
+      </div>
+
+      <!-- 7大模型详细对比 -->
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>模型</th><th>核心定位</th><th>最擅长场景</th><th>关键特点</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>图片 5.0 Lite</strong></td>
+              <td><span class="tag tag-purple">高智商指令理解</span></td>
+              <td>自媒体封面、复杂排版设计</td>
+              <td>听得懂"左侧留白""右侧放字""克制感"等抽象指令，排版设计能力最强，是制作新媒体封面图的利器</td>
+            </tr>
+            <tr>
+              <td><strong>图片 4.6</strong></td>
+              <td><span class="tag tag-blue">综合升级版</span></td>
+              <td>通用创意场景</td>
+              <td>在4.5基础上进一步优化，审美品味和细节表现均有提升，适合日常各类创作需求</td>
+            </tr>
+            <tr>
+              <td><strong>图片 4.5</strong></td>
+              <td><span class="tag tag-green">多图合成与精细编辑</span></td>
+              <td>角色一致性、海报设计、电商主图</td>
+              <td>极致原图保留能力，角色一致性大幅提升，文字渲染精准度显著增强，是电商和海报设计的主力模型</td>
+            </tr>
+            <tr>
+              <td><strong>图片 4.1</strong></td>
+              <td><span class="tag tag-orange">专业创意与一致性</span></td>
+              <td>海报编辑、妆容/服装迁移、影视风格</td>
+              <td>GSB评分提升10-20%，多轮编辑一致性保持能力强，专业级海报和影视风格创作首选</td>
+            </tr>
+            <tr>
+              <td><strong>图片 4.0</strong></td>
+              <td><span class="tag tag-blue">多模态一体化</span></td>
+              <td>知识生图、复杂推理、组图生成</td>
+              <td>首次实现文生图+编辑+组图三合一，支持4K超高分辨率，多图融合能力强</td>
+            </tr>
+            <tr>
+              <td><strong>图片 3.1</strong></td>
+              <td><span class="tag tag-red">电影感与艺术风格</span></td>
+              <td>艺术风格化、氛围场景、故事感图片</td>
+              <td>电影感表现最强，野兽派/油画/水彩等艺术风格响应精准，故事叙述能力强，适合创作有氛围感的插画</td>
+            </tr>
+            <tr>
+              <td><strong>图片 3.0</strong></td>
+              <td><span class="tag tag-purple">真实感与文字精准</span></td>
+              <td>写实人像、中文文字海报、设计感图片</td>
+              <td>真实感表现最强，中文文字渲染最精准（无乱码），设计感和排版美感好，适合人像和文字海报</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="highlight highlight-tip">
+        <strong>💡 模型选择建议</strong>
+        <p>
+          <strong>文字海报/新媒体封面</strong> → 图片5.0 Lite 或 图片3.0<br>
+          <strong>电商产品图</strong> → 图片4.5（极致原图保留）<br>
+          <strong>专业海报设计</strong> → 图片4.1（一致性保持最好）<br>
+          <strong>艺术插画/氛围图</strong> → 图片3.1（电影感最强）<br>
+          <strong>写实人像</strong> → 图片3.0（真实感最强）
+        </p>
+        
+        <p class="disclaimer-text"><strong>⚠️ 没有统一标准，以上总结来自互联网以及个人经验，仅做参考。</strong></p>
+      </div>
+      
+      <style>
+        /* 增加权重：通过父类限制或使用 !important */
+        .highlight-tip .disclaimer-text {
+          color: #f44336 !important;  /* 使用 !important 强制生效 */
+          font-size: 14px !important;  /* 使用 !important 强制生效 */
+          margin-top: 8px;
+          /* font-style: italic; */
+        }
+      </style>
+    </div>
+
+    <!-- 3.3 尺寸设置 -->
+    <div class="card">
+      <h3>📐 3.2 尺寸设置功能</h3>
+      <p style="color:var(--text-light);margin-bottom:16px;">根据发布平台和内容用途，选择合适的画面比例。即梦支持多种常用比例，覆盖各主流平台。</p>
+      
+      <!-- 尺寸选择界面截图 -->
+      <div style="background:#1a1a2e;border-radius:12px;overflow:hidden;margin-bottom:20px;">
+        <img class="zoomable" src="../image/3/img-size-select.png" alt="尺寸选择界面" style="width:100%;display:block;" tabindex="0">
+      </div>
+
+      <!-- 尺寸参数说明 -->
+      <div class="grid-2">
+        <div>
+          <h4>常用比例推荐</h4>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>比例</th><th>适用场景</th><th>推荐指数</th></tr></thead>
+              <tbody>
+                <tr><td><strong>1:1</strong></td><td>头像、头像框、小红书封面</td><td>⭐⭐⭐⭐⭐</td></tr>
+                <tr><td><strong>16:9</strong></td><td>横屏视频封面、B站视频、微博</td><td>⭐⭐⭐⭐⭐</td></tr>
+                <tr><td><strong>9:16</strong></td><td>抖音竖版短视频、故事封面</td><td>⭐⭐⭐⭐⭐</td></tr>
+                <tr><td><strong>4:3</strong></td><td>小红书横版图文、公众号配图</td><td>⭐⭐⭐</td></tr>
+                <tr><td><strong>3:4</strong></td><td>小红书竖版图文、朋友圈</td><td>⭐⭐⭐</td></tr>
+                <tr><td><strong>21:9</strong></td><td>电影宽幅感、壁纸</td><td>⭐⭐</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <h4>分辨率说明</h4>
+          <ul>
+            <li><strong>2K</strong> — 推荐选择，画质清晰</li>
+            <li><strong>4K</strong> — 最高画质，适合打印和专业用途，需要会员</li>
+          </ul>
+          <h4>尺寸参数说明</h4>
+          <ul>
+            <li><strong>自定义大小</strong> — 以像素为单位，自行输入像素宽高</li>
+          </ul>
+          <div class="highlight highlight-warn" style="margin-top:12px;">
+            <strong>⚠️ 提示</strong>
+            <p>4K需要会员。初次生成建议用标准尺寸试效果，确定满意后再用高清/4K输出</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.4 文字设置 -->
+    <div class="card">
+      <h3>✏️ 3.3 文字设置功能</h3>
+      <p style="color:var(--text-light);margin-bottom:16px;">可在成图中叠加中英文并调节字体相关选项（界面见下图）；要点小结与进阶内容见下方提示框及第十章链接。</p>
+      
+      <!-- 文字设置界面截图 -->
+      <div style="background:#1a1a2e;border-radius:12px;overflow:hidden;margin-bottom:20px;">
+        <img class="zoomable" src="../image/3/img-text-settings.png" alt="文字设置界面" style="width:100%;display:block;" tabindex="0">
+      </div>
+
+      <div class="highlight highlight-tip" style="margin-top:0;margin-bottom:0;">
+        <p style="margin:0;font-size:14px;color:var(--text);line-height:1.75;">
+          <strong>小结：</strong>可在画面中叠加中英文，调节字体样式、字号粗细与颜色等，适合封面、海报与说明类配图。文字渲染受模型与提示词影响，存在一定随机性，出图后请核对字形与内容是否正确；推荐搭配 <strong>图片 3.0</strong> 或 <strong>图片 5.0 Lite</strong>。
+        </p>
+        <p style="margin:12px 0 0;">
+          <a href="#s11" style="display:inline-flex;align-items:center;gap:6px;color:var(--primary);font-weight:600;font-size:14px;text-decoration:none;border-bottom:2px solid rgba(91,75,219,0.25);padding-bottom:1px;">📖 跳转第十一章：字体设计</a>
+          <span style="display:block;margin-top:6px;font-size:13px;color:var(--text-light);">含风格对照表、核心技巧、提示词公式与教程资源链接</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- 3.5 主体/物体创建 -->
+    <div class="card">
+      <h3>🖼️ 3.4 主体/物体创建功能</h3>
+      <p style="color:var(--text-light);margin-bottom:16px;">
+        主体创建是即梦的核心功能之一，通过AI解析用户输入的主体描述，自动生成符合描述的画面内容。<strong style="color:#f44336;">常用于两图融合部分，例如：利用@图片一的背景融合@图片二的内容。</strong>
+      </p>
+      
+      <!-- 主体创建界面截图 -->
+      <div style="background:#1a1a2e;border-radius:12px;overflow:hidden;margin-bottom:20px;">
+        <img class="zoomable" src="../image/3/img-object-create.png" alt="主体创建界面" style="width:100%;display:block;" tabindex="0">
+      </div>
+    </div>
+
+    <!-- 3.5 横向滑动操作流程 -->
+    <div class="card">
+      <h3>🧩 3.5 AI生图标准操作流程</h3>
+      <p style="color:var(--text-light);margin-bottom:16px;">
+        下面用一套「时尚海报」示例把流程串起来：从参考图准备 → 灵感页找同款 → 复制提示词改写 → 生成与迭代。先看一张图总览，再按步骤滑动查看细节。
+      </p>
+
+      <!-- 完整顺序一图预览 -->
+      <div style="background:#1a1a2e;border-radius:12px;overflow:hidden;margin-bottom:18px;">
+        <img class="zoomable" src="../image/3/1.png" alt="AI生图标准流程总览（一步到位预览）" style="width:100%;display:block;" tabindex="0">
+      </div>
+
+      <!-- 横向滑动轮播 -->
+      <div class="step-carousel">
+        <div class="step-carousel__track">
+
+          <!-- 步骤1：参考图（姿势） -->
+          <div class="step-card">
+            <div class="step-card__num">1</div>
+            <div class="step-card__img">
+              <img class="zoomable" src="../image/3/2.1.png" alt="参考图：姿势与人物参考" tabindex="0">
+            </div>
+            <div class="step-card__body">
+              <div class="step-card__title">📸 准备参考图（姿势）</div>
+              <div class="step-card__desc">先准备一张<strong>姿势/构图</strong>参考，锁定人物站姿、镜头距离与画面布局，后续更容易"出同款"。</div>
+              <div class="step-card__tip">💡 姿势图越清晰、主体越突出，越容易稳定复刻</div>
+            </div>
+          </div>
+
+          <!-- 步骤2：参考图（服装/风格） -->
+          <div class="step-card">
+            <div class="step-card__num">2</div>
+            <div class="step-card__img">
+              <img class="zoomable" src="../image/3/2.2.png" alt="参考图：服装与材质参考" tabindex="0">
+            </div>
+            <div class="step-card__body">
+              <div class="step-card__title">👗 准备参考图（服装/材质）</div>
+              <div class="step-card__desc">再补一张<strong>服装/材质</strong>参考，用来锁定衣服版型、面料质感与配色，让生成更"像你想要的那套"。</div>
+              <div class="step-card__tip">💡 参考图分工越明确，结果越可控</div>
+            </div>
+          </div>
+
+          <!-- 步骤3：灵感页找同款 -->
+          <div class="step-card">
+            <div class="step-card__num">3</div>
+            <div class="step-card__img">
+              <img class="zoomable" src="../image/3/3.1.png" alt="灵感页搜索并进入同款作品" tabindex="0">
+            </div>
+            <div class="step-card__body">
+              <div class="step-card__title">🔎 灵感页找同款</div>
+              <div class="step-card__desc">在<strong>「灵感」</strong>页用关键词搜索，点进你喜欢的作品。目标是拿到"能复用的提示词结构"和风格关键词。</div>
+              <div class="step-card__tip">💡 先找"你想要的风格结果"，再反推提示词最快</div>
+            </div>
+          </div>
+
+          <!-- 步骤4：复制提示词并改写 -->
+          <div class="step-card">
+            <div class="step-card__num">4</div>
+            <div class="step-card__img">
+              <img class="zoomable" src="../image/3/3.2.png" alt="复制提示词并结合目标改写" tabindex="0">
+            </div>
+            <div class="step-card__body">
+              <div class="step-card__title">✍️ 复制提示词 → 改关键词</div>
+              <div class="step-card__desc">复制同款作品提示词，保留结构与风格词，只替换你的<strong>主体/服装/场景</strong>等关键词，再补上<strong>构图/质感/约束</strong>。</div>
+              <div class="step-card__tip">💡 每次只改 1–2 个变量，更容易稳定迭代</div>
+            </div>
+          </div>
+
+          <!-- 步骤5：生成与迭代 -->
+          <div class="step-card">
+            <div class="step-card__num">5</div>
+            <div class="step-card__img">
+              <img class="zoomable" src="../image/3/4.png" alt="生成结果对比与再次生成" tabindex="0">
+            </div>
+            <div class="step-card__body">
+              <div class="step-card__title">🚀 生成 → 再生成 → 微调</div>
+              <div class="step-card__desc">先出一轮结果，优先用<strong>「再次生成」</strong>吃随机性；方向不对再回到提示词/参考图做小幅调整。</div>
+              <div class="step-card__tip">💡 目标是得到"可复用模板"，而不是每次从零写</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 轮播导航 -->
+        <div class="carousel-nav">
+          <button class="carousel-btn prev" aria-label="上一张">‹</button>
+          <div class="carousel-dots">
+            <span class="carousel-dot active" data-index="0"></span>
+            <span class="carousel-dot" data-index="1"></span>
+            <span class="carousel-dot" data-index="2"></span>
+            <span class="carousel-dot" data-index="3"></span>
+            <span class="carousel-dot" data-index="4"></span>
+          </div>
+          <button class="carousel-btn next" aria-label="下一张">›</button>
+        </div>
+      </div>
+
+      <!-- 提示词公式链接 -->
+      <div style="margin-top:20px;">
+        <a href="#prompt" style="display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 4px 16px rgba(91,75,219,0.3);">
+          🚀 跳转：提示词公式与关键词速查
+        </a>
+        <span style="margin-left:16px;font-size:13px;color:var(--text-light);">
+          或 <a href="#s5" style="color:var(--primary);text-decoration:none;border-bottom:1px dashed var(--primary);">查看运镜控制指南</a>
+        </span>
+      </div>
+    </div>
+
+    <!-- 3.6 参考图功能（保留原有内容） -->
+    <div class="card">
+      <h3>🖼️ 参考图功能详解</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>参考模式</th><th>功能说明</th><th>适用场景</th></tr></thead>
+          <tbody>
+            <tr><td><strong>风格参考</strong></td><td>提取参考图的整体画风，应用到新画面</td><td>模仿特定画风、艺术流派</td></tr>
+            <tr><td><strong>人物形象参考</strong></td><td>保持人物外貌、服装一致</td><td>IP角色连续创作</td></tr>
+            <tr><td><strong>构图/姿势参考</strong></td><td>复用参考图的构图和人物姿势</td><td>系列产品图、统一排版</td></tr>
+            <tr><td><strong>多图融合</strong></td><td>图1主体形态 + 图2背景 + 图3材质</td><td>复杂场景组合、创意拼接</td></tr>
+            <tr><td><strong>组图生成</strong></td><td>一次生成 2-4 张风格统一的系列图</td><td>漫画分镜、故事板</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight highlight-tip">
+        <strong>💡 多图融合技巧</strong>
+        <p>参考图建议分工：图1负责主体形态，图2负责背景/场景，图3负责材质/光影，在提示词中明确写出每张图的用途，如"参考图1的构图，图2的背景氛围，图3的皮肤材质"</p>
+      </div>
+    </div>
+
+    <!-- 3.7 官方文档入口 -->
+    <div class="card">
+      <h3>📖 官方模型文档</h3>
+      <p style="color:var(--text-light);margin-bottom:16px;">即梦官方发布的图片模型完整使用手册，涵盖所有模型能力详解、操作指引与最佳实践，建议收藏备用：</p>
+
+      <div class="doc-card-grid">
+        <!-- 图片模型 4.0 -->
+        <div class="official-doc-card">
+          <span class="doc-badge">🏛️ 官方文档</span>
+          <h4>📸 即梦图片模型 4.0 提示词手册</h4>
+          <p>首次实现「文生图 + 图像编辑 + 组图生成」三合一，支持 4K 超高分辨率，2K 生图用时不到 1.8 秒。多模态一体化，重新定义 AI 生图体验。</p>
+          <p class="doc-highlight"><strong>提示词手册（推荐查阅）</strong>：详细的画面提示词使用说明。</p>
+          <a href="https://bytedance.larkoffice.com/docx/L4vCdah1DoDg7axVdYGcoplSn9f" target="_blank" rel="noopener noreferrer" class="doc-link">
+            阅读官方手册 →
+          </a>
+        </div>
+
+        <!-- 图片模型 3.1 -->
+        <div class="official-doc-card">
+          <span class="doc-badge">🏛️ 官方文档</span>
+          <h4>🎨 即梦图片模型 3.1 使用手册</h4>
+          <p>电影感表现最强的模型，野兽派 / 油画 / 水彩等艺术风格响应精准，故事叙述能力强。适合创作有氛围感的插画与故事感图片。</p>
+          <p class="doc-highlight"><strong>风格词典（推荐查阅）</strong>：内含可直接复用的风格关键词词典。</p>
+          <a href="https://bytedance.larkoffice.com/docx/EkCsd3iGvoxUnExu0Q8ccGt3n6c" target="_blank" rel="noopener noreferrer" class="doc-link">
+            <span>探索风格词典与完整教程 →</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ===== SECTION 4: AI视频全解 ===== -->
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+  <p>即梦AI操作说明手册 · 基于 Seedream 5.0 Lite &amp; Seedance 2.0 · 整理于 2026年4月13日</p>
+  <p style="margin-top:6px">本手册总结资料来源于互联网，相关版权归原作者</p>
+<footer>
+  © 2026 runsheep0613保留所有权利。未经许可，禁止复制、转载或用于商业用途。
+  <a href="../terms.html">使用条款</a> | <a href="../privacy.html">隐私政策</a>
+</footer>
+</div>
+
+<!-- ===== IMAGE PREVIEW (LIGHTBOX) ===== -->
+<div class="img-preview-backdrop" id="imgPreviewBackdrop" aria-hidden="true">
+  <div class="img-preview-dialog" role="dialog" aria-modal="true" aria-label="图片预览">
+    <div class="img-preview-toolbar">
+      <div class="img-preview-title" id="imgPreviewTitle">图片预览</div>
+      <button class="img-preview-close" type="button" id="imgPreviewClose" aria-label="关闭预览">关闭</button>
+    </div>
+    <div class="img-preview-body">
+      <img class="img-preview-img" id="imgPreviewImg" alt="">
+    </div>
+  </div>
+</div>
+
+<script src="common.js"></script>
+</body>
+</html>

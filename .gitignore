@@ -24,6 +24,10 @@ npm-debug.log*
 .workbuddy/expert-history.json
 .workbuddy/brain/
 
+# ─── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+
 # ─── Temp / misc ─────────────────────────────────────────────────────────────
 *.tmp
 *.bak

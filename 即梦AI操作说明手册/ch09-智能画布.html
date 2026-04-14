@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第九章：智能画布-Canva | 即梦 AI 操作说明</title>
+  <link rel="stylesheet" href="common.css" />
+</head>
+<body class="manual-chapter">
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+  <ul>
+    <li><a href="../即梦AI操作说明.html#s0">目录</a></li>
+    <li><a href="ch01-平台简介.html">平台简介</a></li>
+    <li><a href="ch02-快速上手.html">快速上手</a></li>
+    <li><a href="ch03-AI生图.html">AI生图</a></li>
+    <li><a href="ch04-AI视频.html">AI视频</a></li>
+    <li><a href="ch05-Agent.html">Agent</a></li>
+    <li><a href="ch06-动作模仿.html">动作模仿</a></li>
+    <li><a href="ch07-配音生成.html">配音生成</a></li>
+    <li><a href="ch08-数字人.html">数字人</a></li>
+    <li><a href="ch09-智能画布.html" class="nav-link--active">智能画布</a></li>
+    <li><a href="ch10-提示词与实战.html">提示词</a></li>
+    <li><a href="ch11-字体设计.html">字体设计</a></li>
+    <li><a href="ch12-信息引用.html">信息引用</a></li>
+  </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="section" id="s9">
+    <div class="section-header">
+      <div class="section-icon">🖼️</div>
+      <div class="section-title">
+        <h2>第九章：智能画布-Canva</h2>
+        <p>局部重绘 · 扩图补全 · 智能消除 · 多图融合 · 精修一站式</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🧠 智能画布核心功能（最常用的 4 个）</h3>
+      <div class="grid-2">
+        <div class="highlight highlight-tip">
+          <strong>🎯 局部重绘（Inpaint）</strong>
+          <p>框选不满意区域，在文本框写"替换描述"，AI 只重绘选区并与原图自然融合。</p>
+        </div>
+        <div class="highlight highlight-tip">
+          <strong>🧩 画布扩展（Outpaint）</strong>
+          <p>当构图太满或需要横竖版多尺寸，拖拽画布边缘让 AI 自动补全背景与延展画面。</p>
+        </div>
+        <div class="highlight highlight-tip">
+          <strong>🧹 智能消除</strong>
+          <p>圈选水印/杂物/路人等不需要的元素，一键移除并自动补齐背景纹理。</p>
+        </div>
+        <div class="highlight highlight-tip">
+          <strong>🧬 多图 AI 融合</strong>
+          <p>把人物、服装、背景拆成多张参考图分工融合，用画布做最终精修与统一风格。</p>
+        </div>
+      </div>
+      <div class="highlight highlight-warn" style="margin-top:16px;">
+        <strong>⚠️ 画布精修的关键</strong>
+        <p>一次只改一个小区域；描述越具体越好（颜色/材质/位置/光线），避免"更好看/更高级"这类抽象词。</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== SECTION 10: 提示词（运镜指南 / 画面风格） ===== -->
+  <!-- ===== 运镜指南（提示词背景知识，配合实战章节使用）===== -->
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+  <p>即梦AI操作说明手册 · 基于 Seedream 5.0 Lite &amp; Seedance 2.0 · 整理于 2026年4月13日</p>
+  <p style="margin-top:6px">本手册总结资料来源于互联网，相关版权归原作者</p>
+<footer>
+  © 2026 runsheep0613保留所有权利。未经许可，禁止复制、转载或用于商业用途。
+  <a href="../terms.html">使用条款</a> | <a href="../privacy.html">隐私政策</a>
+</footer>
+</div>
+
+<!-- ===== IMAGE PREVIEW (LIGHTBOX) ===== -->
+<div class="img-preview-backdrop" id="imgPreviewBackdrop" aria-hidden="true">
+  <div class="img-preview-dialog" role="dialog" aria-modal="true" aria-label="图片预览">
+    <div class="img-preview-toolbar">
+      <div class="img-preview-title" id="imgPreviewTitle">图片预览</div>
+      <button class="img-preview-close" type="button" id="imgPreviewClose" aria-label="关闭预览">关闭</button>
+    </div>
+    <div class="img-preview-body">
+      <img class="img-preview-img" id="imgPreviewImg" alt="">
+    </div>
+  </div>
+</div>
+
+<script src="common.js"></script>
+</body>
+</html>
