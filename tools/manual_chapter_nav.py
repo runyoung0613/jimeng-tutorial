@@ -29,7 +29,7 @@ def chapter_nav_html(active_chapter_file: str) -> str:
     ]
     for label, fn in MANUAL_NAV:
         if fn is None:
-            href = "../即梦AI操作说明.html#s0"
+            href = "../index.html#s0"
         else:
             href = fn
         active_attr = ' class="nav-link--active"' if fn == active_chapter_file else ""

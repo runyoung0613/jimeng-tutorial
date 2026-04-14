@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-"""将「单页完整版」即梦AI操作说明.html 拆为目录入口 + 即梦AI操作说明手册/ 下多文件。
+"""将「单页完整版」HTML 拆为 index.html 入口 + charpter/ 下多文件。
 
-再次运行前：请先把根目录的 即梦AI操作说明.html 换回原 3794 行单页文件
-（或改本脚本中的 SRC 指向你的备份路径），否则会按已拆分的短首页误切分。
+再次运行前：请把单页原版保存为 SRC 指向的文件（默认 即梦AI操作说明-单页完整版.html），
+或改 SRC 路径；勿用当前的 index.html 作为 SRC。
 """
 from __future__ import annotations
 
@@ -15,16 +15,16 @@ if _TOOLS_DIR not in sys.path:
 from manual_chapter_nav import chapter_nav_html
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SRC = os.path.join(ROOT, "即梦AI操作说明.html")
-OUT_DIR = os.path.join(ROOT, "即梦AI操作说明手册")
-ENTRY = os.path.join(ROOT, "即梦AI操作说明.html")
+SRC = os.path.join(ROOT, "即梦AI操作说明-单页完整版.html")
+OUT_DIR = os.path.join(ROOT, "charpter")
+ENTRY = os.path.join(ROOT, "index.html")
 
 # (文件名, 页面标题, 起始行, 结束行) — 行号与编辑器一致，1-based，闭区间
 CHAPTERS: list[tuple[str, str, int, int]] = [
     ("ch01-平台简介.html", "第一章：即梦AI平台简介", 1040, 1116),
     ("ch02-快速上手.html", "第二章：快速上手", 1117, 1220),
-    ("ch03-AI生图.html", "第三章：AI 生图功能-Seedream", 1221, 1584),
-    ("ch04-AI视频.html", "第四章：AI视频生成全解", 1585, 1798),
+    ("ch03-AI生图.html", "第三章：AI生图—Seedream", 1221, 1584),
+    ("ch04-AI视频.html", "第四章：视频生成—Seedance", 1585, 1798),
     ("ch05-Agent.html", "第五章：Agent 模式", 1799, 1887),
     ("ch06-动作模仿.html", "第六章：动作模仿 — DreamActor", 1888, 1978),
     ("ch07-配音生成.html", "第七章：配音生成", 1979, 2092),
@@ -43,7 +43,7 @@ def fix_image_paths(html: str) -> str:
 FOOTER_LIGHTBOX = """
 <!-- ===== FOOTER ===== -->
 <div class="footer">
-  <p>即梦AI操作说明手册 · 基于 Seedream 5.0 Lite &amp; Seedance 2.0 · 整理于 2026年4月13日</p>
+  <p>charpter · 基于 Seedream 5.0 Lite &amp; Seedance 2.0 · 整理于 2026年4月14日</p>
   <p style="margin-top:6px">本手册总结资料来源于互联网，相关版权归原作者</p>
 <footer>
   © 2026 runsheep0613保留所有权利。未经许可，禁止复制、转载或用于商业用途。
@@ -90,7 +90,7 @@ def main() -> None:
         f.write(script_block.strip() + "\n")
 
     # --- 各章节页 ---
-    base_href = "即梦AI操作说明手册/"
+    base_href = "charpter/"
     for idx, (fname, title, a, b) in enumerate(CHAPTERS):
         chunk = "".join(lines[a - 1 : b])
         chunk = fix_image_paths(chunk)
@@ -119,7 +119,7 @@ def main() -> None:
         with open(out_path, "w", encoding="utf-8") as f:
             f.write(page)
 
-    # --- 入口页：即梦AI操作说明.html ---
+    # --- 入口页：index.html ---
     toc_items = []
     for idx, (fname, title, _, _) in enumerate(CHAPTERS):
         short = title.split("：", 1)[-1] if "：" in title else title
@@ -129,7 +129,7 @@ def main() -> None:
     toc_html = "\n".join(toc_items)
 
     nav_items = [
-        ("目录", "即梦AI操作说明.html#s0"),
+        ("目录", "index.html#s0"),
         ("平台简介", f"{base_href}ch01-平台简介.html"),
         ("快速上手", f"{base_href}ch02-快速上手.html"),
         ("AI生图", f"{base_href}ch03-AI生图.html"),

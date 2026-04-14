@@ -12,7 +12,7 @@ if _TOOLS_DIR not in sys.path:
 from manual_chapter_nav import MANUAL_NAV, chapter_nav_html
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT_DIR = os.path.join(ROOT, "即梦AI操作说明手册")
+OUT_DIR = os.path.join(ROOT, "charpter")
 
 PAT = re.compile(
     r"<body class=\"manual-chapter\">\s*<div class=\"manual-chapter-bar\">[\s\S]*?</div>\s*\n",
